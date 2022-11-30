@@ -13,8 +13,8 @@ function Schedule() {
       <h2>FOOFEST 2023 PROGRAM</h2>
       <div className="schedule-webGrid">
         <div className="container">
-          <div className="container-left">
         <h4>Monday 10th</h4>
+          <div className="container-left">
             <ScheduleDates />
             <ScheduleDates />
             <ScheduleDates />
@@ -28,8 +28,8 @@ function Schedule() {
           </div>
         </div>
         <div className="container">
+        <h4>Tuesday 11th</h4>
           <div className="container-left">
-        <h4>Monday 10th</h4>
             <ScheduleDates />
             <ScheduleDates />
             <ScheduleDates />
