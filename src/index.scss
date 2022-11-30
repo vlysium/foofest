@@ -12,6 +12,12 @@ html {
   scroll-behavior: smooth;
   font-size: 1.125em;
   font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: v.$color-black-normal;
+  overflow-x: hidden;
 }
 
 // fonts
