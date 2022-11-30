@@ -1,16 +1,45 @@
-:root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
+@use "./styles/utils/variables" as v;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+html {
+  scroll-behavior: smooth;
+  font-size: 1.125em;
+  font-family: "Poppins", sans-serif;
+}
+
+// fonts
+
+h1,
+h2,
+h3,
+h4 {
+  color: v.$color-white;
+}
+
+h1 {
+  font-size: clamp(2.074rem, 1.11rem + 3.848vw, 3.998rem);
+}
+
+h2 {
+  font-size: clamp(1.728rem, 1.1785rem + 2.198vw, 2.827rem);
+}
+
+h3 {
+  font-size: clamp(1.44rem, 1.16rem + 1.118vw, 1.999rem);
+}
+
+h4 {
+  font-size: clamp(1.2rem, 1.093rem + 0.428vw, 1.414rem);
+}
+
+p {
+  font-size: 1rem;
+  color: v.$color-white-dark;
 }
