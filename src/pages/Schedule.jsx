@@ -1,51 +1,58 @@
 import "../styles/Schedule.scss";
 import ScheduleDates from "../components/ScheduleDates";
+import { useState, useEffect } from "react";
+
 function Schedule() {
-  /* <ScheduleDates />
-      <ScheduleDates />
-      <ScheduleDates />
-      <ScheduleDates image={"https://images.unsplash.com/photo-1504898770365-14faca6a7320?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3334&q=80"}/>
- */
+  /*
+    URL:
+    "http://localhost:8080/schedule"
+    "https://vjr-foofest.fly.dev/schedule"
+
+        "http://localhost:8080/bands"
+    "https://vjr-foofest.fly.dev/bands"
+  */
+  const scheduleUrl = "http://localhost:8080/schedule";
+  const bandsUrl = "http://localhost:8080/bands";
+
+  const [scheduleData, setScheduleData] = useState([]);
+  const [bandsData, setBandsData] = useState([]);
+
+  const [selectedStage, setSelectedStage] = useState("Midgard");
+
+  // fetch /schedule endpoint
+  useEffect(() => {
+    async function getData() {
+      const response = await fetch(scheduleUrl);
+      const data = await response.json();
+      setScheduleData(data);
+      //console.log(data);
+    }
+    getData();
+  }, [selectedStage]);
+
+  // fetch /bands endpoint
+  useEffect(() => {
+    async function getData() {
+      const response = await fetch(bandsUrl);
+      const data = await response.json();
+      setBandsData(data);
+      //console.log(data);
+    }
+    getData();
+  }, [selectedStage]);
 
   return (
-    <section>
-        <div>
-      <h2>FOOFEST 2023 PROGRAM</h2>
-      <div className="schedule-webGrid">
-        <div className="container">
-        <h4>Monday 10th</h4>
-          <div className="container-left">
-            <ScheduleDates />
-            <ScheduleDates />
-            <ScheduleDates />
-          </div>
-          <div className="container-right">
-            <ScheduleDates
-              image={
-                "https://images.unsplash.com/photo-1504898770365-14faca6a7320?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3334&q=80"
-              }
-            />
-          </div>
-        </div>
-        <div className="container">
-        <h4>Tuesday 11th</h4>
-          <div className="container-left">
-            <ScheduleDates />
-            <ScheduleDates />
-            <ScheduleDates />
-          </div>
-          <div className="container-right">
-            <ScheduleDates
-              image={
-                "https://images.unsplash.com/photo-1504898770365-14faca6a7320?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3334&q=80"
-              }
-            />
-          </div>
-        </div>
-      </div>
+    <section id="schedule">
+      <div>
+        <h2>FOOFEST 2023 PROGRAM</h2>
+        <ScheduleDates scheduleData={scheduleData} bandsData={bandsData} stage="Midgard" />
       </div>
     </section>
   );
 }
 
 export default Schedule;
+
+/*
+
+*/
