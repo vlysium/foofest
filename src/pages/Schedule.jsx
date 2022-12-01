@@ -1,5 +1,5 @@
 import "../styles/Schedule.scss";
-import ScheduleDates from "../components/ScheduleDates";
+import Act from "../components/Act";
 import { useState, useEffect } from "react";
 
 function Schedule() {
@@ -8,7 +8,7 @@ function Schedule() {
     "http://localhost:8080/schedule"
     "https://vjr-foofest.fly.dev/schedule"
 
-        "http://localhost:8080/bands"
+    "http://localhost:8080/bands"
     "https://vjr-foofest.fly.dev/bands"
   */
   const scheduleUrl = "http://localhost:8080/schedule";
@@ -45,7 +45,7 @@ function Schedule() {
     <section id="schedule">
       <div>
         <h2>FOOFEST 2023 PROGRAM</h2>
-        <ScheduleDates scheduleData={scheduleData} bandsData={bandsData} stage="Midgard" />
+        <Act scheduleData={scheduleData} bandsData={bandsData} stage="Midgard" />
       </div>
     </section>
   );
