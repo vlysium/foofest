@@ -1,50 +1,23 @@
 import "../styles/Schedule.scss";
-import ScheduleDates from "../components/ScheduleDates";
+
+import ScheduleLayout from "../components/schedule/ScheduleLayout";
+
 function Schedule() {
-  /* <ScheduleDates />
-      <ScheduleDates />
-      <ScheduleDates />
-      <ScheduleDates image={"https://images.unsplash.com/photo-1504898770365-14faca6a7320?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3334&q=80"}/>
- */
+
+
+
 
   return (
-    <section>
-        <div>
-      <h2>FOOFEST 2023 PROGRAM</h2>
-      <div className="schedule-webGrid">
-        <div className="container">
-        <h4>Monday 10th</h4>
-          <div className="container-left">
-            <ScheduleDates />
-            <ScheduleDates />
-            <ScheduleDates />
-          </div>
-          <div className="container-right">
-            <ScheduleDates
-              image={
-                "https://images.unsplash.com/photo-1504898770365-14faca6a7320?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3334&q=80"
-              }
-            />
-          </div>
+    <>
+      <section>
+        <h2>FOOFEST 2023 PROGRAM</h2>
+        <div className="scheduleGrid">
+          <ScheduleLayout
+          
+          />
         </div>
-        <div className="container">
-        <h4>Tuesday 11th</h4>
-          <div className="container-left">
-            <ScheduleDates />
-            <ScheduleDates />
-            <ScheduleDates />
-          </div>
-          <div className="container-right">
-            <ScheduleDates
-              image={
-                "https://images.unsplash.com/photo-1504898770365-14faca6a7320?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3334&q=80"
-              }
-            />
-          </div>
-        </div>
-      </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
 
