@@ -1,0 +1,38 @@
+//mobile version
+#tickets{
+    padding: 1rem;
+form{
+label{
+    color: white;
+}
+fieldset{
+    border: none;
+}
+}
+#ticket-type{
+    display: grid;
+    grid-template-columns: 1.5fr 0.5fr;
+    gap: 1rem;
+    label{ 
+        min-width: 200px;
+    }
+    input{
+    width: 50px;
+}
+}
+#camping-area{
+    input{
+    width: 50px;
+}
+.scene-names{
+     display: grid;
+    grid-template-columns: 1fr 0.5fr 0.5fr;
+    gap: 1rem;
+  
+}
+}
+}
+
+//web
+
+
