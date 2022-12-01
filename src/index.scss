@@ -49,3 +49,10 @@ p {
   font-size: 1rem;
   color: v.$color-white-dark;
 }
+
+// classes
+
+.max-width {
+  max-width: 1200px;
+  margin-inline: auto;
+}
