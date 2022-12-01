@@ -1,38 +1,35 @@
 //mobile version
-#tickets{
-    padding: 1rem;
-form{
-label{
+#tickets {
+  padding: 1rem;
+  label {
     color: white;
-}
-fieldset{
-    border: none;
-}
-}
-#ticket-type{
+  }
+   fieldset {
+      border: none;
+    }
+
+  #ticket-type {
     display: grid;
     grid-template-columns: 1.5fr 0.5fr;
     gap: 1rem;
-    label{ 
-        min-width: 200px;
+    border: none;
+    label {
+      min-width: 200px;
     }
-    input{
-    width: 50px;
-}
-}
-#camping-area{
-    input{
-    width: 50px;
-}
-.scene-names{
-     display: grid;
+    input {
+      width: 50px;
+    }
+   
+  }
+  #camping-area {
+    border: none;
+    display: grid;
     grid-template-columns: 1fr 0.5fr 0.5fr;
     gap: 1rem;
-  
-}
-}
+    input {
+      width: 50px;
+    }
+  }
 }
 
 //web
-
-

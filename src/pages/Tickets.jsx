@@ -5,10 +5,10 @@ import CampingArea from "../components/CampingArea";
 function Tickets() {
   return (
     <>
-      <section id="tickets">
+      <form action="" id="tickets">
         <TicketType />
         <CampingArea />
-      </section>
+      </form>
     </>
   );
 }
