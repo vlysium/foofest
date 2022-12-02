@@ -1,12 +1,20 @@
-import React from 'react'
+import React from "react";
+import "../styles/home.scss";
+import Countdown from "react-countdown-simple";
 
 function Home() {
+  const oneHour = new Date(
+    new Date().setHours(new Date().getHours() + 100)
+  ).toISOString();
+
   return (
-   <>
-   <h1>sodifjvsødoifvøodasifv</h1>
-   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione dolores vitae odit ab possimus animi harum, excepturi minus laborum corrupti dolor illum eius beatae a itaque veniam id quae necessitatibus porro soluta cum non tempore culpa sed? Officiis, rerum eius reiciendis consectetur minima maiores aliquam et, ut error aliquid porro!</p>
-   </>
-  )
+    <>
+      <section id="first-section">
+        <Countdown targetDate={oneHour} />
+        <button>Buy Now</button>
+      </section>
+    </>
+  );
 }
 
-export default Home
+export default Home;

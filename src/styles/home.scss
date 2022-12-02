@@ -1,0 +1,24 @@
+@use "../styles/utils/variables" as v;
+
+#first-section{
+    width: 100%;
+    height: 95vh;
+    background-image: url("../../public/headerBG.webp");
+    background-size: cover;
+    background-position: 50%;
+    margin-top: -86px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
+    padding: 2rem;
+    padding-bottom: 5rem;
+}
+//countdown font size
+
+.react-countdown-simple__date-time, .react-countdown-simple__colon{
+    font-size: clamp(1rem, 8vw, 4rem) !important;
+    color: transparent;
+    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: v.$color-cyan-normal;
+}
