@@ -3,6 +3,7 @@
     display: grid;
     justify-content: center;
   padding: 1rem;
+
   label {
     color: white;
     border-radius: 5px;
@@ -34,13 +35,13 @@ img{
     height: 100%;
 }
   #ticket-type {
-    /* display: grid;
+    display: grid;
     grid-template-columns: 1.5fr 0.5fr;
-    gap: 1rem; */
-    display: flex;
+    gap: 1rem;
+   /*  display: flex;
     flex-wrap: wrap;
     justify-content: space-between ;
-    gap: 1rem;
+    gap: 1rem; */
 
     label {
       min-width: 200px;
@@ -90,8 +91,12 @@ img{
   #ticket-info {
     display: grid;
     /*  grid-template-columns: 0.5fr 1fr; */
-    gap: 1rem;
-
+    h5{
+      color: white;
+    }
+    label{
+      background-color: transparent;
+    }
     input {
       width: 100%;
       padding: 8px;
@@ -158,7 +163,17 @@ img{
     }
     #expires,
     #cvc {
-      width: 120px;
+      display: block;
+    }
+     .expire-container{
+      display: flex;
+      background-color: rgb(44, 42, 45);
+      border-radius: 5px;
+      align-items: center;
+     }
+       #expire-day,
+    #expire-month {
+      width: 50px;
       display: block;
     }
     button {
@@ -175,22 +190,29 @@ img{
         padding: 0;
         .type-container{
              display: grid;
-             
-        
-        grid-template-columns: 300px 300px;
+             gap: 1rem;
+        grid-template-columns: 1fr 1fr;
         #ticket-type {
        justify-items: center;
     
   }
-  .concert-img{
+/*   .concert-img{
             width: 100%;
-            height: 500px;            
+            height: auto;            
        background-image: url(public/concert.png);
-        background-size: contain; 
-        background-repeat: no-repeat;
+        background-size: cover; 
+        background-position: 50%;
 
-    }
+    } */
 }
+    }
+      .concert-img{
+            width: 100%;
+            height: auto;            
+       background-image: url(public/concert.png);
+        background-size: cover; 
+        background-position: 50%;
+
     }
 
 }

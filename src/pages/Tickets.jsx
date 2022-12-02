@@ -8,16 +8,15 @@ import Payment from "../components/Payment";
 
 function Tickets() {
   return (
-  
     <section>
       <form action="" id="tickets">
         <TicketType />
         <CampingArea />
-        <Optionals/>
-        <TicketInfo/>
-        <Payment/>
+        <Optionals />
+        <TicketInfo />
+        <Payment />
       </form>
-      
+      <div className="concert-img"></div>
     </section>
   );
 }

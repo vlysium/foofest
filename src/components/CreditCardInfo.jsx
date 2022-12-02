@@ -1,6 +1,6 @@
-import React from 'react'
 
 function CreditCardInfo() {
+ 
   return (
     <>
       <h3>CREDITCARD INFO</h3>
@@ -11,7 +11,11 @@ function CreditCardInfo() {
         </label>
 
         <label htmlFor="expires" className="expires">
-          Expire <input type="month" name="expires" id="expires" pattern="[0-9]" inputMode="numeric" maxlength="4" minlength="4" required />
+          Expire
+          <div className="expire-container">
+            <input type="month" name="expires" id="expire-day" pattern="[0-9]" inputMode="numeric" maxlength="2" minlength="2" required /> /
+            <input type="month" name="expires" id="expire-month" pattern="[0-9]" inputMode="numeric" maxlength="2" minlength="2" required />
+          </div>
         </label>
 
         <label htmlFor="cvc" className="cvc">
