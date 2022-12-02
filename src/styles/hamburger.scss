@@ -1,5 +1,11 @@
 @use "../styles/utils/variables" as v;
 
+
+.setBodyFixed{
+  position: fixed;
+  right: 0px;
+    left: 0;
+}
 .slideOut {
   position: absolute;
   transition: 0.3s;
@@ -10,7 +16,7 @@
   display: flex;
   align-items: center;
   padding:2rem;
- 
+ z-index: 1;
 }
 .right {
   left: 100%;
@@ -18,6 +24,8 @@
 .left {
   left: 0%;
 }
+
+
 
 .menuIcon {
   z-index: 100;
