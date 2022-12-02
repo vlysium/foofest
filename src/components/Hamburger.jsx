@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 import Tickets from "../pages/Tickets";
 import Camping from "../pages/Camping";
-//import Sustainability from "../pages/Sustainability";
+import About from "../pages/About";
 import Home from "../pages/Home";
 import "../styles/hamburger.scss"
 import Schedule from "../pages/Schedule"
@@ -66,7 +66,7 @@ const scrollHandler = () => {
                   xmlns="http://www.w3.org/2000/svg"
                   width="40"
                   height="40"
-                  fill="white"
+                  fill="#f515c1"
                   class="bi bi-alarm-fill"
                   viewBox="0 0 16 16"
                 >
@@ -97,7 +97,6 @@ const scrollHandler = () => {
             }
           >
             <ul>
-              <li></li>
               <li onClick={() => setChangeIcon(true)}>
                 <Link to="/tickets">TICKETS</Link>
               </li>
@@ -111,16 +110,13 @@ const scrollHandler = () => {
                 <a>LINE-UP</a>
               </li>
               <li onClick={() => setChangeIcon(true)}>
-                <a>ABOUT</a>
+                <Link to="/about">ABOUT</Link>
               </li>
               <li onClick={() => setChangeIcon(true)}>
                 <a>CONTACT</a>
               </li>
               <li onClick={() => setChangeIcon(true)}>
                 <a>NEWS</a>
-              </li>
-              <li onClick={() => setChangeIcon(true)}>
-                <a>SUSTAINABILITY</a>
               </li>
             </ul>
           </nav>
@@ -129,6 +125,7 @@ const scrollHandler = () => {
             <Route path="/tickets" element={<Tickets />}></Route>
             <Route path="/camping" element={<Camping />}></Route>
             <Route path="/program" element={<Schedule />}></Route>
+            <Route path="/about" element={<About />}></Route>
             <Route path="/" element={<Home />}></Route>
           </Routes>
         </Router>
