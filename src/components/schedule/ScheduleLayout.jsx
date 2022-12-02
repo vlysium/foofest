@@ -1,11 +1,30 @@
 import React from "react";
 import BlockText from "./BlockText";
-import data from "../../assets/schedule.json";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function ScheduleLayout({ date, time, band, stage, genre, image }) {
+  const [data, setData] = useState([]);
   const [selectStage, setSelectStage] = useState("midgard");
   const [selectDay, setSelectDay] = useState("mon");
+
+  /*
+    URL:
+    "http://localhost:8080/schedule"
+    "https://vjr-foofest.fly.dev/schedule"
+    "http://localhost:8080/bands"
+    "https://vjr-foofest.fly.dev/bands"
+  */
+  const scheduleUrl = "http://localhost:8080/schedule";
+
+  useEffect(() => {
+    async function getData() {
+      const response = await fetch(scheduleUrl);
+      const data = await response.json();
+      setData(data);
+      console.log(data);
+    }
+    getData();
+  }, [selectStage]);
 
   function onDayChange(day) {
     setSelectDay(day.substring(0, 3));
