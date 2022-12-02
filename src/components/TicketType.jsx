@@ -18,7 +18,10 @@ function TicketType() {
             </label>
             <input type="text" name="vip" id="vip-amount" pattern="[0-9]" inputMode="numeric" required />
           </fieldset>
-          <button>NEXT</button>
+          <div className='single-button'>
+            <button>NEXT</button>
+          </div>
+         
         </div>
 
         <div className="concert-img">{/* <img src="/public/concert.png" alt="" /> */}</div>

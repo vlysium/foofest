@@ -12,9 +12,10 @@ function TicketInfo() {
         {/*    <label htmlFor="birthday">Birthday</label> */}
         <input type="date" name="birthday" id="birthday" placeholder="BIRTHDAY" required />
       </fieldset>
-      <button>BACK</button>
-      <button>NEXT</button>+
-      
+      <div className="button-container">
+        <button>BACK</button>
+        <button>NEXT</button>
+      </div>
     </>
   );
 }

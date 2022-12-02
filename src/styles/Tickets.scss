@@ -8,6 +8,7 @@
     border-radius: 5px;
     background-color: rgb(44, 42, 45);
     padding: 0.35rem;
+    
   }
   
   fieldset {
@@ -19,13 +20,26 @@
     border-radius: 5px;
     color: white;
   }
+  .button-container{
+    display: flex;
+    justify-content: space-between;
+  }
+  .single-button{
+    display: grid;
+    justify-items: end;
+
+  }
 img{
     width: 100%;
     height: 100%;
 }
   #ticket-type {
-    display: grid;
+    /* display: grid;
     grid-template-columns: 1.5fr 0.5fr;
+    gap: 1rem; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between ;
     gap: 1rem;
 
     label {
@@ -43,7 +57,7 @@ img{
 
   #camping-area {
     display: grid;
-    grid-template-columns: 1fr 0.5fr 0.5fr;
+    grid-template-columns: 1.5fr 0.5fr 0.5fr;
     gap: 1rem;
     input {
       width: 50px;
@@ -63,9 +77,14 @@ img{
     grid-template-columns: 1.5fr 0.35fr;
     gap: 0.5rem;
 
-    input[type="radio"] {
+   /*  input[type="checkbox"] {
       width: 30px;
       height: 30px;
+      
+    } */
+    label{
+      display: flex;
+      justify-content: space-between;
     }
   }
   #ticket-info {
