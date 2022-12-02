@@ -5,14 +5,36 @@ import Camping from "../pages/Camping";
 import Home from "../pages/Home";
 import "../styles/hamburger.scss"
 import Schedule from "../pages/Schedule"
-import {useState} from "react"
+import {useState, useEffect} from "react"
 
 function Hamburger() {
 const [changeIcon, setChangeIcon] = useState(true); 
+const [hideEl, setHideEl] = useState("")
+const [showEl, setShowEl] = useState("")
 
-function sodi(){
+// Place a display: none; class on the slideout element, but with a delay of 0,3s. The same lenght of time as the slideout animation
+  useEffect(() => {
+    if(changeIcon === true) {
+      const timer = setTimeout(() => {
+        console.log("hide")
+        //the "a" & "b" are use the reset the states when switching between them. otherwise the state would not change when clicked multiple times.
+        setShowEl("a")
+        setHideEl("hide");
+      }, 300);
+      return () => hideEl;
+    } else {
+      setTimeout(() => {
+        console.log("nothing")
+        setHideEl("b");
+        setShowEl("left");
+      }, 10);
+      return () => showEl;
+    }
+    
+  }, [changeIcon]);
+  
 
-}
+
 
   return (
     <>
@@ -47,7 +69,11 @@ function sodi(){
             </button>
           </div>
 
-          <nav className={changeIcon ? "right slideOut" : "left slideOut"}>
+          <nav
+            className={
+              changeIcon ? `right slideOut ${hideEl}` : `slideOut ${showEl}`
+            }
+          >
             <ul>
               <li></li>
               <li onClick={() => setChangeIcon(true)}>

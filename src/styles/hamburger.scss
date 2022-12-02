@@ -10,6 +10,7 @@
   position: absolute;
   transition: 0.3s;
   top: 0%;
+  left: 100%;
   background: v.$color-black-dark;
   width: 100vw;
   height: 100vh;
@@ -25,7 +26,9 @@
   left: 0%;
 }
 
-
+.hide{
+  display: none;
+}
 
 .menuIcon {
   z-index: 100;
