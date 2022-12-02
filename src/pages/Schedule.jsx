@@ -5,9 +5,9 @@ import ScheduleLayout from "../components/schedule/ScheduleLayout";
 function Schedule() {
   return (
     <>
-      <section>
+      <section id="schedule">
         <h2>FOOFEST 2023 PROGRAM</h2>
-        <div className="scheduleGrid">
+        <div id="schedule-grid">
           <ScheduleLayout />
         </div>
       </section>

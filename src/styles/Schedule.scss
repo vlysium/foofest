@@ -1,10 +1,5 @@
 @use "./utils/variables" as v;
 
-* {
-  padding: 0;
-  margin: 0;
-}
-
 h2 {
   color: orange;
   text-align: center;
@@ -13,29 +8,48 @@ h2 {
 h4 {
   padding: 1rem;
 }
+
 img {
   grid-column: 1/3;
   max-width: 100%;
   margin: auto;
 }
-section {
+
+#schedule {
   background-color: v.$color-black-dark;
   min-height: 80vh;
   padding: 1rem;
-  > div {
+
+  #schedule-grid {
     max-width: 1200px;
     margin: auto;
   }
-  hr {
-    margin-inline: 1rem;
-  }
 }
-button {
+
+label {
   border: none;
   background-color: v.$color-black-light;
   color: v.$color-white-normal;
   padding: 0.5rem;
-  cursor: pointer;
+  position: relative;
+  flex: 1;
+  text-align: center;
+  min-width: 120px;
+
+  input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    cursor: pointer;
+    appearance: none;
+    border-radius: 5px;
+
+    &:checked {
+      border: 2px solid v.$color-purple-normal;
+    }
+  }
 }
 
 .times {
@@ -44,18 +58,25 @@ button {
   gap: 1rem;
   justify-content: space-between;
   padding: 1rem;
-  border-bottom: 1px solid v.$color-white-normal;
+
+  & + .times {
+    border-top: 1px solid v.$color-white-normal;
+  }
 }
 
-.listOfDays {
+#list-of-days,
+#list-of-stages {
   display: flex;
   flex-wrap: wrap;
+  gap: 8px 4px;
+  margin-bottom: 32px;
 }
+
 .weekdays {
   // display: none;
 }
 
-.showDay {
+.show-day {
   display: block;
 }
 
@@ -63,7 +84,8 @@ button {
   section {
     padding: 2rem;
   }
-  .StageViewDays {
+
+  #stage-view-days {
     display: grid;
     // grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
     gap: 2rem;
