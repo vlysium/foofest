@@ -47,7 +47,17 @@ button{
     padding: 1rem;
 }
 
+.listOfDays{
+    display: flex;
+    flex-wrap: wrap;
+}
+.weekdays{
+    display: none;
+}
 
+.showDay{
+    display: block;
+}
 
 @media (min-width: 900px) {
     section{
@@ -55,7 +65,7 @@ button{
     }
 .StageViewDays{
     display: grid;
-   grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  // grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
    gap: 2rem;
 }
 
