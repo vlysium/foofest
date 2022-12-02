@@ -5,17 +5,21 @@ import { useState } from "react";
 
 function ScheduleLayout({ date, time, band, stage, genre, image }) {
   const [selectStage, setSelectStage] = useState("midgard");
+  const [selectDay, setSelectDay] = useState("mon");
 
-let StageView = <></>
+  function onDayChange(day) {
+    setSelectDay(day.substring(0, 3));
+  }
 
-if (selectStage === "midgard") {
-  StageView = <BlockText data={data.Midgard} />;
-} else if (selectStage === "jotunheim") {
-  StageView = <BlockText data={data.Jotunheim} />;
-} else if (selectStage === "vanaheim") {
-  StageView = <BlockText data={data.Vanaheim} />;
-}
+  let StageView = null;
 
+  if (selectStage === "midgard") {
+    StageView = <BlockText data={data.Midgard} onDayChange={onDayChange} selectDay={selectDay} />;
+  } else if (selectStage === "jotunheim") {
+    StageView = <BlockText data={data.Jotunheim} onDayChange={onDayChange} selectDay={selectDay} />;
+  } else if (selectStage === "vanaheim") {
+    StageView = <BlockText data={data.Vanaheim} onDayChange={onDayChange} selectDay={selectDay} />;
+  }
 
   console.log(data);
   return (
