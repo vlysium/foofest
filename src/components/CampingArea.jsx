@@ -6,7 +6,7 @@ export default function CampingArea() {
 
       <fieldset id="camping-area" className="scene-names">
         {/*   <label htmlFor="no-camping">
-          No camping wanted
+          Whitout camping
           <input type="radio" name="no-camping" id="no-camping" />
         </label> */}
         <label htmlFor="svartheim">Svartheim</label>
@@ -32,11 +32,13 @@ export default function CampingArea() {
           <p>22</p>
         </div>
         <input type="text" name="muspelheim" id="muspelheim" pattern="[0-9]" inputMode="numeric" />
+
         <label htmlFor="alfheim">Alfheim</label>
         <div className="avail-box">
           <p>22</p>
         </div>
         <input type="text" name="alfheim" id="alfheim" pattern="[0-9]" inputMode="numeric" />
+        
         <button>BACK</button>
         <button>NEXT</button>
       </fieldset>

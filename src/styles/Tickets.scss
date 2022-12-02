@@ -1,35 +1,172 @@
 //mobile version
 #tickets {
+    display: grid;
+    justify-content: center;
   padding: 1rem;
   label {
     color: white;
+    border-radius: 5px;
+    background-color: rgb(44, 42, 45);
+    padding: 0.35rem;
   }
-   fieldset {
-      border: none;
-    }
-
+  fieldset {
+    border: none;
+  }
+  input {
+    background-color: rgb(44, 42, 45);
+    border: none;
+    border-radius: 5px;
+    color: white;
+  }
+img{
+    width: 100%;
+    height: 100%;
+}
   #ticket-type {
     display: grid;
     grid-template-columns: 1.5fr 0.5fr;
     gap: 1rem;
-    border: none;
+
     label {
       min-width: 200px;
     }
     input {
       width: 50px;
     }
-   
+    
   }
+
   #camping-area {
-    border: none;
     display: grid;
     grid-template-columns: 1fr 0.5fr 0.5fr;
     gap: 1rem;
     input {
       width: 50px;
     }
+    div {
+      background-color: rgb(44, 42, 45);
+      border-radius: 5px;
+      width: 50px;
+      display: grid;
+      justify-items: center;
+      align-items: center;
+    }
+  }
+
+  .optionals {
+    display: grid;
+    grid-template-columns: 1.5fr 0.35fr;
+    gap: 0.5rem;
+
+    input[type="radio"] {
+      width: 30px;
+      height: 30px;
+    }
+  }
+  #ticket-info {
+    display: grid;
+    /*  grid-template-columns: 0.5fr 1fr; */
+    gap: 1rem;
+
+    input {
+      width: 100%;
+      padding: 8px;
+    }
+    input::placeholder {
+      color: white;
+    }
+    input[type="date"] {
+      color: white;
+      padding: 8px;
+    }
+  }
+
+  #basket {
+    color: white;
+    .basket-container {
+      background-color: rgb(44, 42, 45);
+      padding: 5px;
+      border-radius: 5px;
+    }
+
+    ul {
+      list-style: none;
+    }
+    p {
+      text-align: end;
+    }
+  }
+  #creditcard-info {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    /* display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.3rem; */
+    label {
+      background-color: transparent;
+    }
+    input {
+      padding: 10px;
+    }
+    .cardnumber {
+      grid-column: 1/ 3;
+      grid-row: 1/2;
+    }
+
+    .expires {
+      grid-column: 1/2;
+      grid-row: 2/3;
+    }
+    .cvc {
+      grid-column: 2/3;
+      grid-row: 2/3;
+    }
+    .cardholder {
+      grid-column: 1/ 3;
+      grid-row: 3/4;
+    }
+
+    #cardnumber,
+    #cardholder {
+      width: 100%;
+    }
+    #expires,
+    #cvc {
+      width: 120px;
+      display: block;
+    }
+    button {
+      width: 100%;
+      border-radius: 5px;
+      
+    }
   }
 }
 
 //web
+@media (min-width: 600px) {
+    #tickets{
+        padding: 0;
+        .type-container{
+             display: grid;
+             
+        
+        grid-template-columns: 300px 300px;
+        #ticket-type {
+       justify-items: center;
+    
+  }
+  .concert-img{
+            width: 100%;
+            height: 500px;            
+       background-image: url(public/concert.png);
+        background-size: contain; 
+        background-repeat: no-repeat;
+
+    }
+}
+    }
+
+}
