@@ -40,12 +40,23 @@ function ScheduleLayout({ date, time, band, stage, genre, image }) {
     StageView = <BlockText data={data.Vanaheim} onDayChange={onDayChange} selectDay={selectDay} />;
   }
 
-  console.log(data);
+  //console.log(data);
   return (
     <>
-      <button onClick={() => setSelectStage("midgard")}>Midgard</button>
-      <button onClick={() => setSelectStage("jotunheim")}>Jotunheim</button>
-      <button onClick={() => setSelectStage("vanaheim")}>Vanaheim</button>
+      <div id="list-of-stages">
+        <label>
+          Midgard
+          <input type="radio" name="stage" onClick={() => setSelectStage("midgard")} defaultChecked />
+        </label>
+        <label>
+          Jotunheim
+          <input type="radio" name="stage" onClick={() => setSelectStage("jotunheim")} />
+        </label>
+        <label>
+          Vanaheim
+          <input type="radio" name="stage" onClick={() => setSelectStage("vanaheim")} />
+        </label>
+      </div>
       {StageView}
     </>
   );

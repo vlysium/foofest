@@ -12,7 +12,7 @@ function BlockText({ data, onDayChange, selectDay }) {
             <div className="times">
               <p>{time.act}</p>
               <p>
-                {time.start} - {time.end}
+                {time.start} - {time.end === "24:00" ? "00:00" : time.end}
               </p>
             </div>
           );
@@ -22,15 +22,22 @@ function BlockText({ data, onDayChange, selectDay }) {
   }
 
   return (
-    <div className="StageViewDays">
-      <div className="listOfDays">
+    <div id="stage-view-days">
+      <div id="list-of-days">
         {days.map((day) => (
-          <button id={day} onClick={() => onDayChange(day)}>
+          <label className="button-days">
             {day.substring(0, 1).toUpperCase() + day.substring(1, day.length)}
-          </button>
+            <input
+              type="radio"
+              name="days"
+              id={day}
+              onClick={() => onDayChange(day)}
+              defaultChecked={day.substring(0, 3) === "mon"}
+            />{" "}
+          </label>
         ))}
       </div>
-      <div className={`weekdays`}>{filteredList()}</div>;
+      <div className="weekdays">{filteredList()}</div>
     </div>
   );
 }
