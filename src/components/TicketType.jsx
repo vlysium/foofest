@@ -23,7 +23,7 @@ function TicketType() {
           </div>
         </div>
 
-        <div className="concert-img">{/* <img src="/public/concert.png" alt="" /> */}</div>
+       {/*  <div className="concert-img"></div> */}
       </div>
     </>
   );
