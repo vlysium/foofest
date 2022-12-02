@@ -4,12 +4,30 @@ function BlockText({ data }) {
   let count = 0;
   const days = ["Monday", "Tuesday", "Wedensday", "Thursday", "Friday","Saturday","Sunday"]
   console.log(data);
-
+  
   function hideAndDisplay(id){
     console.log(id)
-    
     //document.querySelector(".weekday1").classList.add("showDay")
-
+    document.querySelectorAll(".weekdays").forEach((e,i) =>{
+      if(id == days[0] && i == 0) {
+        e.classList.add("showDay") 
+      } else if(id == days[1] && i == 1){
+        e.classList.add("showDay"); 
+      } else if(id == days[2] && i == 2){
+        e.classList.add("showDay"); 
+      } else if(id == days[3] && i == 3){
+        e.classList.add("showDay"); 
+      } else if(id == days[4] && i == 4){
+        e.classList.add("showDay"); 
+      } else if(id == days[5] && i == 5){
+        e.classList.add("showDay"); 
+      }else if(id == days[6] && i == 6){
+        e.classList.add("showDay"); 
+      } else{
+        e.classList.remove("showDay")
+        e.classList.add("weekdays")
+      }
+    })
 
   }
 
@@ -34,6 +52,7 @@ function BlockText({ data }) {
             <div className={`weekday${count} weekdays`}>
 
               {data[day].map((time) => {
+                
                 if (timeCounter < 11) {
                   timeCounter++;
 
@@ -42,7 +61,7 @@ function BlockText({ data }) {
                       <div className="times">
                         <p>{time.act}</p>
                         <p>
-                          {time.start} - {time.start}
+                          {time.start} - {time.end}
                         </p>
                       </div>
                       <hr />
@@ -54,7 +73,7 @@ function BlockText({ data }) {
                       <div className="times">
                         <p>{time.act}</p>
                         <p>
-                          {time.start} - {time.start}
+                          {time.start} - {time.end}
                         </p>
                       </div>
                     </>
