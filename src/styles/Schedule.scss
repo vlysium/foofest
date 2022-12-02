@@ -44,6 +44,7 @@ label {
     top: 0;
     cursor: pointer;
     appearance: none;
+    border-radius: 5px;
 
     &:checked {
       border: 2px solid v.$color-purple-normal;
@@ -57,7 +58,10 @@ label {
   gap: 1rem;
   justify-content: space-between;
   padding: 1rem;
-  border-bottom: 1px solid v.$color-white-normal;
+
+  & + .times {
+    border-top: 1px solid v.$color-white-normal;
+  }
 }
 
 #list-of-days,
