@@ -40,11 +40,10 @@ export default function CampingArea() {
         <input type="text" name="alfheim" id="alfheim" pattern="[0-9]" inputMode="numeric" />
       </fieldset>
       <div className="button-container">
-        
+      
         <button>BACK</button>
         <button>NEXT</button>
       </div>
-     
     </>
   );
 }
