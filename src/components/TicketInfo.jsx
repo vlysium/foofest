@@ -13,7 +13,8 @@ function TicketInfo() {
         <input type="date" name="birthday" id="birthday" placeholder="BIRTHDAY" required />
       </fieldset>
       <button>BACK</button>
-      <button>NEXT</button>
+      <button>NEXT</button>+
+      
     </>
   );
 }

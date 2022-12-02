@@ -9,6 +9,7 @@
     background-color: rgb(44, 42, 45);
     padding: 0.35rem;
   }
+  
   fieldset {
     border: none;
   }
@@ -32,6 +33,10 @@ img{
     }
     input {
       width: 50px;
+    }
+    .regular-label, .vip-label{
+      display: flex;
+      justify-content: space-between;
     }
     
   }
