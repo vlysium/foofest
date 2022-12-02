@@ -21,7 +21,7 @@ function ScheduleLayout({ date, time, band, stage, genre, image }) {
       const response = await fetch(scheduleUrl);
       const data = await response.json();
       setData(data);
-      console.log(data);
+      //console.log(data);
     }
     getData();
   }, [selectStage]);
