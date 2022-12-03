@@ -7,9 +7,9 @@ function BlockText({ data, onDayChange, selectDay }) {
   function filteredList() {
     for (const day in data) {
       if (day === selectDay) {
-        return data[day].map((time) => {
+        return data[day].map((time, index) => {
           return (
-            <div className="times">
+            <div key={index} className="times">
               <p>{time.act}</p>
               <p>
                 {time.start} - {time.end === "24:00" ? "00:00" : time.end}
@@ -24,8 +24,8 @@ function BlockText({ data, onDayChange, selectDay }) {
   return (
     <div id="stage-view-days">
       <div id="list-of-days">
-        {days.map((day) => (
-          <label className="button-days">
+        {days.map((day, index) => (
+          <label key={index+1} className="button-days">
             {day.substring(0, 1).toUpperCase() + day.substring(1, day.length)}
             <input
               type="radio"
