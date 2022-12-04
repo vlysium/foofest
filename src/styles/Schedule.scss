@@ -3,7 +3,8 @@
 h2 {
   color: orange;
   text-align: center;
-  //padding-block: 2rem;
+  padding: 1rem;
+  padding-bottom: 2rem;
 }
 h4 {
   padding: 1rem;
@@ -91,7 +92,7 @@ label {
 }
 
 @media (min-width: 800px) {
-  section {
+  #schedule {
     padding: 2rem;
   }
 
@@ -104,6 +105,9 @@ label {
     display: flex;
     padding: 1rem 0rem;
 
+  }
+  h2{
+    padding: 0rem 1rem 2rem 1rem;
   }
 
 }

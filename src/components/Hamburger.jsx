@@ -7,7 +7,7 @@ import "../styles/hamburger.scss"
 import Schedule from "../pages/Schedule"
 import Footer from "./Footer";
 import {useState, useEffect} from "react"
-
+import Error from "../pages/Error";
 
 function Hamburger() {
 const [changeIcon, setChangeIcon] = useState(true); 
@@ -129,7 +129,7 @@ const scrollHandler = () => {
             <Route path="/program" element={<Schedule />}></Route>
             <Route path="/about" element={<About />}></Route>
             <Route path="/" element={<Home />}></Route>
-            {/* <Route path="*" element={<PageNotFound />} /> make a 404 page incorrect url's*/}
+            <Route path="*" element={<Error />} />
           </Routes>
           <Footer />
         </Router>
