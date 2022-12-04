@@ -53,21 +53,31 @@ label {
 }
 
 .times {
-  display: flex;
+  display: grid;
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: space-between;
-  padding: 1rem;
+  padding: 1rem 0.5rem;
 
   & + .times {
     border-top: 1px solid v.$color-white-normal;
   }
 }
 
-#list-of-days,
+.boldFontAct{
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
 #list-of-stages {
   display: flex;
   flex-wrap: wrap;
+  gap: 8px 4px;
+  margin-bottom: 32px;
+}
+#list-of-days{
+    display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 8px 4px;
   margin-bottom: 32px;
 }
@@ -80,7 +90,7 @@ label {
   display: block;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 800px) {
   section {
     padding: 2rem;
   }
@@ -90,4 +100,10 @@ label {
     // grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
     gap: 2rem;
   }
+  .times{
+    display: flex;
+    padding: 1rem 0rem;
+
+  }
+
 }

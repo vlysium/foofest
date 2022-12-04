@@ -2,13 +2,22 @@
 
 #second {
   display: grid;
-  grid-template-rows: 1fr 1fr;
   width: 100%;
-  height: 90vh;
-  padding: 0%;
-  max-width: 1200px;
+  min-height: 90vh;
+  //max-width: 1200px;
   margin: auto;
+  //padding: 1rem;
+  justify-items: center;
+  background-color: v.$color-black-light;
 }
+.about-container{
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    min-height: 100%;
+}
+
 .aboutImage {
   background-image: url("../../public/about.webp");
   background-size: cover;
@@ -18,7 +27,7 @@
 }
 .aboutText {
   display: flex;
-  padding: 2rem;
+  padding: 1rem;
   flex-direction: column;
   gap: 2rem;
   button {
@@ -34,11 +43,20 @@
 @media (min-width: 800px) {
   #second {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
-    align-items: center;
+    padding: 0rem;
   }
   .aboutImage {
     height: 100%;
   }
+  .aboutText {
+    padding: 2rem;
+  }
+  .about-container{
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    min-height: 100%;
+    align-items: center;
+}
 }

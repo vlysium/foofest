@@ -5,7 +5,9 @@ import About from "../pages/About";
 import Home from "../pages/Home";
 import "../styles/hamburger.scss"
 import Schedule from "../pages/Schedule"
+import Footer from "./Footer";
 import {useState, useEffect} from "react"
+
 
 function Hamburger() {
 const [changeIcon, setChangeIcon] = useState(true); 
@@ -18,7 +20,7 @@ const [onMobile, setOnMobile] = useState(true)
 // Place a display: none; class on the slideout element, but with a delay of 0,3s. The same lenght of time as the slideout animation
   useEffect(() => {
      window.addEventListener("resize", scrollHandler);
-  
+
     if(changeIcon === true) {
       const timer = setTimeout(() => {
         console.log("hide")
@@ -60,7 +62,7 @@ const scrollHandler = () => {
           <div className="menuIcon">
             <Link onClick={() => setChangeIcon(true)} to="/">
               {onMobile ? (
-                <h3>FooFest</h3>
+                <h3>FOOFEST</h3>
               ) : (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -127,7 +129,9 @@ const scrollHandler = () => {
             <Route path="/program" element={<Schedule />}></Route>
             <Route path="/about" element={<About />}></Route>
             <Route path="/" element={<Home />}></Route>
+            {/* <Route path="*" element={<PageNotFound />} /> make a 404 page incorrect url's*/}
           </Routes>
+          <Footer />
         </Router>
       </div>
     </>

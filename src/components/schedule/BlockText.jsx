@@ -8,14 +8,27 @@ function BlockText({ data, onDayChange, selectDay }) {
     for (const day in data) {
       if (day === selectDay) {
         return data[day].map((time, index) => {
-          return (
-            <div key={index} className="times">
-              <p>{time.act}</p>
-              <p>
-                {time.start} - {time.end === "24:00" ? "00:00" : time.end}
-              </p>
-            </div>
-          );
+          if(time.act == "break") {
+            return (
+              <div key={index} className="times">
+                <p>{time.act}</p>
+                <p>
+                  {time.start} - {time.end === "24:00" ? "00:00" : time.end}
+                </p>
+              </div>
+            );
+          } else{
+            return (
+              <div key={index} className="times">
+                <p className="boldFontAct">{time.act}</p>
+                <p>
+                  {time.start} - {time.end === "24:00" ? "00:00" : time.end}
+                </p>
+              </div>
+            );
+          }
+          
+          
         });
       }
     }

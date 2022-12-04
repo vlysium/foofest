@@ -5,6 +5,7 @@ function About() {
   return (
     <>
       <section id="second">
+        <div className="about-container">
         <div className="aboutText">
           <h2>About Us</h2>
           <p>
@@ -15,9 +16,10 @@ function About() {
             voluptatem aspernatur, accusantium vel assumenda atque. Minima
             quaerat dolores asperiores? Expedita, repellat repellendus!
           </p>
-          <button>Read More</button>
+          <a href="/about"><button>Read More</button></a>
         </div>
         <div className="aboutImage"></div>
+        </div>
       </section>
     </>
   );

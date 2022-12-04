@@ -37,6 +37,7 @@
   padding: 1rem 2rem;
       justify-content: space-between;
   height: 80px;
+  align-items: center;
   button {
     width: 50px;
     height: 50px;
@@ -91,5 +92,10 @@ ul {
   .slideOut{
     padding: 1rem;
   }
+  ul{
+    a{
+      font-size: calc(6vw + 3vh);
+    }
 
+  }
 }
