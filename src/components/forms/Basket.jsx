@@ -1,6 +1,7 @@
-import React from 'react'
+
 
 function Basket() {
+
   return (
     <section id="basket">
       <h3>YOUR ORDER</h3>
