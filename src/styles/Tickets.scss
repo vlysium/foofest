@@ -64,13 +64,21 @@
       input {
         width: 50px;
       }
-      div {
+      .avail-box {
         background-color: rgb(44, 42, 45);
         border-radius: 5px;
         width: 50px;
         display: grid;
         justify-items: center;
         align-items: center;
+      }
+    /*   .without-camping{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+      } */
+      #no-camping{
+        grid-column: 3/4;
       }
     }
 

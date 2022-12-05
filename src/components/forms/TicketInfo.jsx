@@ -1,18 +1,20 @@
 import React from 'react'
 
-function TicketInfo() {
+function TicketInfo({addBasket}) {
+  
   return (
     <>
       <h3>Ticket info</h3>
-      
+
       <fieldset id="ticket-info">
-        <h5>TICKET</h5>
+   
+            <h5>TICKET</h5>
         <label htmlFor="fullname">
-          Fullname <input type="text" name="fullname" id="fullname" /* placeholder="FULLNAME" */ autoComplete="name" />
+          Fullname <input type="text" name="fullname" id="fullname"autoComplete="name" />
         </label>
 
         <label htmlFor="email">
-          Email <input type="email" name="email" id="email" /* placeholder="EMAIL" */ autoComplete="email" />
+          Email <input type="email" name="email" id="email"  autoComplete="email" />
         </label>
 
         <label htmlFor="birthday">

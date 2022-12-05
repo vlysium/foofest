@@ -10,6 +10,7 @@ import Payment from "../components/forms/Payment";
 function Tickets() {
   const [spots, setSpots] = useState([]);
   const [ addBasket, setAddBasket ] = useState({r: 0, v: 0});
+  const [campingArea, setCampingArea] = useState([]);
   /*
     URL:
     "http://localhost:8080/available-spots"
@@ -22,7 +23,7 @@ function Tickets() {
       const response = await fetch(url);
       const data = await response.json();
       setSpots(data);
-      console.log(data);
+      //console.log(data);
     }
     getSpots();
   }, []);
@@ -37,15 +38,26 @@ function Tickets() {
     }
     
   }
+  function addCampingArea(event){
+   addBasket.area = event.target.id;
+    console.log(addBasket)
+
+  }
 
   return (
     <section id="ticket-section">
-      <button onClick={()=>{console.log(addBasket);}}>Check ticket info</button>
+      <button
+        onClick={() => {
+          console.log(addBasket);
+        }}
+      >
+        Check ticket info
+      </button>
       <form action="" id="tickets">
         <TicketType addTickets={addTickets} />
-        <CampingArea spots={spots}/>
+        <CampingArea spots={spots} addCampingArea={addCampingArea} addBasket={addBasket} />
         <Optionals />
-        <TicketInfo />
+        <TicketInfo addBasket={addBasket} />
         <Payment addBasket={addBasket} />
       </form>
       <div className="concert-img"></div>
