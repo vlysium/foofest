@@ -1,210 +1,213 @@
 //mobile version
-#ticket-section{
+#ticket-section {
+  width: 100%;
 
-
-#tickets {
+  #tickets {
     display: grid;
     justify-content: center;
-  padding: 1rem;
+    padding: 1rem;
 
-  label {
-    color: white;
-    border-radius: 5px;
-    background-color: rgb(44, 42, 45);
-    padding: 0.35rem;
-    
-  }
-  
-  fieldset {
-    border: none;
-  }
-  input {
-    background-color: rgb(44, 42, 45);
-    border: none;
-    border-radius: 5px;
-    color: white;
-  }
-  .button-container{
-    display: flex;
-    justify-content: space-between;
-  }
-  .single-button{
-    display: grid;
-    justify-items: end;
+    label {
+      color: white;
+      border-radius: 5px;
+      background-color: rgb(44, 42, 45);
+      padding: 0.35rem;
+    }
 
-  }
-img{
-    width: 100%;
-    height: 100%;
-}
-  #ticket-type {
-    display: grid;
-    grid-template-columns: 1.5fr 0.5fr;
-    gap: 1rem;
-   /*  display: flex;
+    fieldset {
+      border: none;
+    }
+    input {
+      background-color: rgb(44, 42, 45);
+      border: none;
+      border-radius: 5px;
+      color: white;
+    }
+    .button-container {
+      display: flex;
+      justify-content: space-between;
+    }
+    .single-button {
+      display: grid;
+      justify-items: end;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+    }
+    #ticket-type {
+      display: grid;
+      grid-template-columns: 1.5fr 0.5fr;
+      gap: 1rem;
+      /*  display: flex;
     flex-wrap: wrap;
     justify-content: space-between ;
     gap: 1rem; */
 
-    label {
-      min-width: 200px;
+      label {
+        min-width: 200px;
+      }
+      input {
+        width: 50px;
+      }
+      .regular-label,
+      .vip-label {
+        display: flex;
+        justify-content: space-between;
+      }
     }
-    input {
-      width: 50px;
-    }
-    .regular-label, .vip-label{
-      display: flex;
-      justify-content: space-between;
-    }
-    
-  }
 
-  #camping-area {
-    display: grid;
-    grid-template-columns: 1.5fr 0.5fr 0.5fr;
-    gap: 1rem;
-    input {
-      width: 50px;
-    }
-    div {
-      background-color: rgb(44, 42, 45);
-      border-radius: 5px;
-      width: 50px;
+    #camping-area {
       display: grid;
-      justify-items: center;
-      align-items: center;
+      grid-template-columns: 1.5fr 0.5fr 0.5fr;
+      gap: 1rem;
+      input {
+        width: 50px;
+      }
+      div {
+        background-color: rgb(44, 42, 45);
+        border-radius: 5px;
+        width: 50px;
+        display: grid;
+        justify-items: center;
+        align-items: center;
+      }
     }
-  }
 
-  .optionals {
-    display: grid;
-    grid-template-columns: 1.5fr 0.35fr;
-    gap: 0.5rem;
+    .optionals {
+      display: grid;
+      grid-template-columns: 1.5fr 0.35fr;
+      gap: 0.5rem;
 
-   /*  input[type="checkbox"] {
+      /*  input[type="checkbox"] {
       width: 30px;
       height: 30px;
       
     } */
-    label{
-      display: flex;
-      justify-content: space-between;
+      label {
+        display: flex;
+        justify-content: space-between;
+      }
     }
-  }
-  #ticket-info {
-    display: grid;
-    /*  grid-template-columns: 0.5fr 1fr; */
-    h5{
+    #ticket-info {
+      display: grid;
+      /*  grid-template-columns: 0.5fr 1fr; */
+      h5 {
+        color: white;
+      }
+      label {
+        color: white;
+      }
+      input {
+        width: 100%;
+        padding: 8px;
+      }
+      input::placeholder {
+        color: white;
+      }
+      input[type="date"] {
+        color: white;
+        padding: 8px;
+      }
+    }
+
+    #basket {
       color: white;
-    }
-    label{
-       color: white;
-    }
-    input {
-      width: 100%;
-      padding: 8px;
-    }
-    input::placeholder {
-      color: white;
-    }
-    input[type="date"] {
-      color: white;
-      padding: 8px;
-    }
-  }
+      .basket-container {
+        background-color: rgb(44, 42, 45);
+        padding: 5px;
+        border-radius: 5px;
+      }
 
-  #basket {
-    color: white;
-    .basket-container {
-      background-color: rgb(44, 42, 45);
-      padding: 5px;
-      border-radius: 5px;
+      ul {
+        list-style: none;
+      }
+      p {
+        text-align: end;
+      }
     }
+    #creditcard-info {
+      display: grid;
+      grid-template-rows: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    
+      label {
+        background-color: transparent;
+      }
+      input {
+        padding: 10px;
+      }
+      .cardnumber {
+        grid-column: 1/ 3;
+        grid-row: 1/2;
+      }
 
-    ul {
-      list-style: none;
-    }
-    p {
-      text-align: end;
-    }
-  }
-  #creditcard-info {
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    /* display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 0.3rem; */
-    label {
-      background-color: transparent;
-    }
-    input {
-      padding: 10px;
-    }
-    .cardnumber {
-      grid-column: 1/ 3;
-      grid-row: 1/2;
-    }
+      .expires {
+        grid-column: 1/2;
+        grid-row: 2/3;
+      }
+      .cvc {
+        grid-column: 2/3;
+        grid-row: 2/3;
+        width: 50px;
+      }
+      .cardholder {
+        grid-column: 1/ 3;
+        grid-row: 3/4;
+      }
 
-    .expires {
-      grid-column: 1/2;
-      grid-row: 2/3;
-    }
-    .cvc {
-      grid-column: 2/3;
-      grid-row: 2/3;
-    }
-    .cardholder {
-      grid-column: 1/ 3;
-      grid-row: 3/4;
-    }
-
-    #cardnumber,
-    #cardholder {
-      width: 100%;
-    }
-    #expires,
-    #cvc {
-      display: block;
-    }
-     .expire-container{
-      display: flex;
-      flex-direction: column;
+      #cardnumber,
+      #cardholder {
+        width: 100%;
+      }
+      
+      #cvc {
+        display: block;
+        width: 120px;
+      
+      }
+     
+      .expire-container {
+        /*   display: flex;
+      flex-direction: row;
       justify-content: space-between;
       background-color: rgb(44, 42, 45);
       border-radius: 5px;
       align-items: center;
-      width: 100%;
-     }
-    /*    #expire-day,
+      width: 100%; */
+
+        display: flex;
+        background-color: rgb(44, 42, 45);
+        border-radius: 5px;
+        align-items: center;
+        width: 110px;
+      }
+         #expire-day,
     #expire-month {
       width: 50px;
       display: block;
-    } */
-    button {
-      width: 100%;
-      border-radius: 5px;
-      
+    }
+      button {
+        width: 100%;
+        border-radius: 5px;
+      }
     }
   }
-}
 }
 //web
 @media (min-width: 600px) {
-  #ticket-section{
-    #tickets{
-        padding: 0;
-        .type-container{
-             display: grid;
-             gap: 1rem;
+  #ticket-section {
+    #tickets {
+      padding: 0;
+      .type-container {
+        display: grid;
+        gap: 1rem;
         grid-template-columns: 1fr 1fr;
         #ticket-type {
-       justify-items: center;
-    
-  }
-/*   .concert-img{
+          justify-items: center;
+        }
+        /*   .concert-img{
             width: 100%;
             height: auto;            
        background-image: url(public/concert.png);
@@ -212,16 +215,14 @@ img{
         background-position: 50%;
 
     } */
-}
+      }
     }
-      .concert-img{
-            width: 100%;
-            height: auto;            
-       background-image: url(public/concert.png);
-        background-size: cover; 
-        background-position: 50%;
-
+    .concert-img {
+      width: 100%;
+      height: auto;
+      background-image: url(public/concert.png);
+      background-size: cover;
+      background-position: 50%;
     }
-    
-}
+  }
 }
