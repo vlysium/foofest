@@ -1,14 +1,12 @@
 
-export default function CampingArea() {
+export default function CampingArea({spots}) {
+  console.log(spots)
   return (
     <>
       <h3>CAMPING AREA</h3>
 
       <fieldset id="camping-area" className="scene-names">
-        {/*   <label htmlFor="no-camping">
-          Whitout camping
-          <input type="radio" name="no-camping" id="no-camping" />
-        </label> */}
+      
         <label htmlFor="svartheim">Svartheim</label>
         <div className="avail-box">
           <p>22</p>

@@ -31,7 +31,7 @@ function Tickets() {
     <section id="ticket-section">
       <form action="" id="tickets">
         <TicketType />
-        <CampingArea />
+        <CampingArea spots={spots}/>
         <Optionals />
         <TicketInfo />
         <Payment />
