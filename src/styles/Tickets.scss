@@ -95,7 +95,7 @@ img{
       color: white;
     }
     label{
-      background-color: transparent;
+       color: white;
     }
     input {
       width: 100%;
@@ -129,6 +129,7 @@ img{
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr;
+    gap: 1rem;
     /* display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -167,15 +168,18 @@ img{
     }
      .expire-container{
       display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       background-color: rgb(44, 42, 45);
       border-radius: 5px;
       align-items: center;
+      width: 100%;
      }
-       #expire-day,
+    /*    #expire-day,
     #expire-month {
       width: 50px;
       display: block;
-    }
+    } */
     button {
       width: 100%;
       border-radius: 5px;
