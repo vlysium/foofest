@@ -1,6 +1,6 @@
 import Basket from "./Basket";
 import CreditCardInfo from "./CreditCardInfo";
-import OrderComplete from "../components/OrderComplete";
+import OrderComplete from "./OrderComplete";
 
 function Payment() {
   return (
