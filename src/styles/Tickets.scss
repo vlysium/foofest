@@ -1,4 +1,7 @@
 //mobile version
+#ticket-section{
+
+
 #tickets {
     display: grid;
     justify-content: center;
@@ -183,9 +186,10 @@ img{
     }
   }
 }
-
+}
 //web
 @media (min-width: 600px) {
+  #ticket-section{
     #tickets{
         padding: 0;
         .type-container{
@@ -214,5 +218,6 @@ img{
         background-position: 50%;
 
     }
-
+    
+}
 }
