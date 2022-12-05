@@ -130,7 +130,7 @@
       display: grid;
       grid-template-rows: 1fr 1fr 1fr;
       grid-template-columns: 1fr 1fr;
-      gap: 1rem;
+     
     
       label {
         background-color: transparent;
@@ -185,7 +185,7 @@
       }
          #expire-day,
     #expire-month {
-      width: 50px;
+      width: 60px;
       display: block;
     }
       button {
