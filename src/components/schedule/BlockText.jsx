@@ -4,6 +4,15 @@ function BlockText({ scheduleData, bandsData, onDayChange, selectDay }) {
   const days = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
   //console.log(scheduleData);
 
+  function bandDetails(act) {
+    // if it is not a break
+    if (act.act !== "break") {
+      // filter /bands by name of the act from /schedule
+      const band = bandsData.filter((item) => item.name === act.act)[0];
+      return band;
+    }
+  }
+
   function filteredList() {
     // filter list by day
     for (const day in scheduleData) {
@@ -11,9 +20,9 @@ function BlockText({ scheduleData, bandsData, onDayChange, selectDay }) {
         return scheduleData[day].map((act, index) => {
           // break or act?
           if (act.act == "break") {
-            return <Act act={act} isBreak={true} key={index} bandsData={bandsData} scheduleData={scheduleData}></Act>;
+            return <Act act={act} isBreak={true} key={index} bandsData={bandDetails(act)}></Act>;
           } else {
-            return <Act act={act} isBreak={false} key={index} bandsData={bandsData} scheduleData={scheduleData}></Act>;
+            return <Act act={act} isBreak={false} key={index} bandsData={bandDetails(act)}></Act>;
           }
         });
       }

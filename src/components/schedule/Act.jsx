@@ -1,10 +1,10 @@
-function Act({ act, index, bandsData, scheduleData, isBreak }) {
+function Act({ act, index, bandsData, isBreak }) {
   function displayBandDetails() {
     // if it is not a break
     if (!isBreak) {
-      // filter /bands by name of the act from /schedule
-      const band = bandsData.filter((item) => item.name === act.act)[0];
-      console.log(band);
+      // destructure bandsData
+      const { name, members, logo, logoCredits, bio, genre } = bandsData;
+      console.log(name);
     }
   }
 
@@ -19,3 +19,12 @@ function Act({ act, index, bandsData, scheduleData, isBreak }) {
 }
 
 export default Act;
+
+/*
+  name: string
+  members: array
+  logo: string
+  logoCredits: string
+  bio: string
+  genre: string
+*/

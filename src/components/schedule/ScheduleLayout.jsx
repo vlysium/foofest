@@ -26,7 +26,7 @@ function ScheduleLayout({ date, time, band, stage, genre, image }) {
       //console.log(data);
     }
     getScheduleData();
-  }, [selectStage, selectDay]);
+  }, []);
 
   useEffect(() => {
     async function getBandsData() {
