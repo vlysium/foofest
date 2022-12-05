@@ -42,7 +42,7 @@ function Tickets() {
     <section id="ticket-section">
       <button onClick={()=>{console.log(addBasket);}}>Check ticket info</button>
       <form action="" id="tickets">
-        <TicketType />
+        <TicketType addTickets={addTickets} />
         <CampingArea spots={spots}/>
         <Optionals />
         <TicketInfo />
