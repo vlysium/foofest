@@ -1,34 +1,20 @@
-import React from "react";
+import Act from "./Act";
 
-function BlockText({ data, onDayChange, selectDay }) {
+function BlockText({ scheduleData, bandsData, onDayChange, selectDay }) {
   const days = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
-  //console.log(data);
+  //console.log(scheduleData);
 
   function filteredList() {
-    for (const day in data) {
+    // filter list by day
+    for (const day in scheduleData) {
       if (day === selectDay) {
-        return data[day].map((time, index) => {
-          if(time.act == "break") {
-            return (
-              <div key={index} className="times">
-                <p>{time.act}</p>
-                <p>
-                  {time.start} - {time.end === "24:00" ? "00:00" : time.end}
-                </p>
-              </div>
-            );
-          } else{
-            return (
-              <div key={index} className="times">
-                <p className="boldFontAct">{time.act}</p>
-                <p>
-                  {time.start} - {time.end === "24:00" ? "00:00" : time.end}
-                </p>
-              </div>
-            );
+        return scheduleData[day].map((act, index) => {
+          // break or act?
+          if (act.act == "break") {
+            return <Act act={act} isBreak={true} key={index} bandsData={bandsData} scheduleData={scheduleData}></Act>;
+          } else {
+            return <Act act={act} isBreak={false} key={index} bandsData={bandsData} scheduleData={scheduleData}></Act>;
           }
-          
-          
         });
       }
     }
@@ -38,7 +24,7 @@ function BlockText({ data, onDayChange, selectDay }) {
     <div id="stage-view-days">
       <div id="list-of-days">
         {days.map((day, index) => (
-          <label key={index+1} className="button-days">
+          <label key={index + 1} className="button-days">
             {day.substring(0, 1).toUpperCase() + day.substring(1, day.length)}
             <input
               type="radio"

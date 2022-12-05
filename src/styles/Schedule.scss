@@ -52,19 +52,7 @@ label {
   }
 }
 
-.times {
-  display: grid;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: space-between;
-  padding: 1rem 0.5rem;
-
-  & + .times {
-    border-top: 1px solid v.$color-white-normal;
-  }
-}
-
-.boldFontAct {
+.act {
   font-weight: 700;
   font-size: 1.1rem;
 }
@@ -83,7 +71,30 @@ label {
 }
 
 .weekdays {
-  // display: none;
+  .times {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 80px;
+    justify-content: space-between;
+    padding: 1rem 0.5rem;
+
+    & + .times {
+      border-top: 1px solid v.$color-white-normal;
+    }
+  }
+
+  .times:nth-child(odd) {
+    background-color: v.$color-black-normal;
+    cursor: pointer;
+
+    &:hover {
+      background-color: v.$color-black-light;
+
+      p {
+        color: v.$color-purple-normal;
+      }
+    }
+  }
 }
 
 .show-day {
@@ -94,8 +105,8 @@ label {
   #schedule {
     padding: 2rem;
     h2 {
-    padding: 0rem 1rem 2rem 1rem;
-  }
+      padding: 0rem 1rem 2rem 1rem;
+    }
   }
 
   #stage-view-days {
@@ -107,5 +118,4 @@ label {
     display: flex;
     padding: 1rem 0rem;
   }
-  
 }
