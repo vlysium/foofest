@@ -28,7 +28,7 @@ function Tickets() {
   }, []);
 
   return (
-    <section>
+    <section id="ticket-section">
       <form action="" id="tickets">
         <TicketType />
         <CampingArea />
