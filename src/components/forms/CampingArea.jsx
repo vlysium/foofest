@@ -1,5 +1,5 @@
 
-export default function CampingArea({ spots, addCampingArea, addBasket}) {
+export default function CampingArea({ spots, addToTicket, ticket }) {
   //console.log(spots);
   return (
     <>
@@ -8,12 +8,13 @@ export default function CampingArea({ spots, addCampingArea, addBasket}) {
       <fieldset id="camping-area" className="scene-names">
         <label htmlFor="no-camping">Without camping</label>
         <input
-          onChange={() => addCampingArea(event)}
+          onChange={(evt) => addToTicket("campingArea", evt.target.value)}
           type="radio"
           name="area"
           id="no-camping"
           pattern="[0-9]"
           inputMode="numeric"
+          value="none"
         />
 
         {spots.map((area, index) => (
@@ -23,12 +24,14 @@ export default function CampingArea({ spots, addCampingArea, addBasket}) {
               <p>{area.available}</p>
             </div>
             <input
-              onChange={() => addCampingArea(event)}
+              disabled={ticket.r + ticket.v > area.available}
+              onChange={(evt) => addToTicket("campingArea", evt.target.value)}
               type="radio"
               name="area"
               id={area.area}
               pattern="[0-9]"
               inputMode="numeric"
+              value={area.area}
             />
           </>
         ))}

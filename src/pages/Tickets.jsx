@@ -9,8 +9,8 @@ import Payment from "../components/forms/Payment";
 
 function Tickets() {
   const [spots, setSpots] = useState([]);
-  const [ addBasket, setAddBasket ] = useState({r: 0, v: 0});
-  const [campingArea, setCampingArea] = useState([]);
+  const [ ticket, setTicket ] = useState({r: 0, v: 0});
+  //const [campingArea, setCampingArea] = useState([]);
   /*
     URL:
     "http://localhost:8080/available-spots"
@@ -18,6 +18,7 @@ function Tickets() {
   */
   const url = "http://localhost:8080/available-spots";
 
+  // API
   useEffect(() => {
     async function getSpots() {
       const response = await fetch(url);
@@ -28,37 +29,51 @@ function Tickets() {
     getSpots();
   }, []);
 
-  function addTickets (event) {
-  
-    if (event.target.id === "regluar-amount") {
+// hvor mange billetter er valgt
+  function addToTicket (property, value) {
+
+    setTicket((old) => {
+        const copy = { ...old };
+
+        copy[property] = value;
+
+        return copy;
+    })
+
+
+
+    /* if (event.target.id === "regluar-amount") {
       console.log()
-      addBasket.r = event.target.value
+      ticket.r = event.target.value
     } else{
-      addBasket.v = event.target.value
-    }
+      ticket.v = event.target.value
+    } */
     
   }
-  function addCampingArea(event){
-   addBasket.area = event.target.id;
-    console.log(addBasket)
+  // er der valgt camping og hvilken.
+  /* function addCampingArea(event){
+   ticket.area = event.target.id;
+    console.log(ticket)
 
-  }
+  } */
 
   return (
     <section id="ticket-section">
       <button
         onClick={() => {
-          console.log(addBasket);
+          console.log(ticket);
         }}
       >
         Check ticket info
       </button>
       <form action="" id="tickets">
-        <TicketType addTickets={addTickets} />
-        <CampingArea spots={spots} addCampingArea={addCampingArea} addBasket={addBasket} />
+        <TicketType addToTicket={addToTicket} />
+        <CampingArea spots={spots} addToTicket={addToTicket} ticket={ticket} />
         <Optionals />
-        <TicketInfo addBasket={addBasket} />
-        <Payment addBasket={addBasket} />
+        {[...Array(ticket.r+ticket.v).keys()].map((info) => (
+          <TicketInfo ticket={ticket} />
+        ))}
+        <Payment ticket={ticket} />
       </form>
       <div className="concert-img"></div>
     </section>
