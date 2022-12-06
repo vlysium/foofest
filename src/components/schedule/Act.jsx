@@ -1,17 +1,16 @@
-function Act({ act, index, bandsData, isBreak }) {
+function Act({ act, index, bandsData, isBreak, onOpenPopUp }) {
   function displayBandDetails() {
     // if it is not a break
     if (!isBreak) {
-      // destructure bandsData
-      const { name, members, logo, logoCredits, bio, genre } = bandsData;
-      console.log(name);
+      //console.log(bandsData);
+      onOpenPopUp(bandsData);
     }
   }
 
   return (
     <div key={index} className="times" onClick={() => displayBandDetails()}>
       <p className={isBreak ? "break" : "act"}>{act.act}</p>
-      <p>
+      <p className="time-playing">
         {act.start} - {act.end === "24:00" ? "00:00" : act.end}
       </p>
     </div>
@@ -19,12 +18,3 @@ function Act({ act, index, bandsData, isBreak }) {
 }
 
 export default Act;
-
-/*
-  name: string
-  members: array
-  logo: string
-  logoCredits: string
-  bio: string
-  genre: string
-*/

@@ -2,7 +2,7 @@ import React from "react";
 import BlockText from "./BlockText";
 import { useState, useEffect } from "react";
 
-function ScheduleLayout({ date, time, band, stage, genre, image }) {
+function ScheduleLayout({ onOpenPopUp }) {
   const [scheduleData, setScheduleData] = useState([]);
   const [bandsData, setBandsData] = useState([]);
   const [selectStage, setSelectStage] = useState("midgard");
@@ -44,38 +44,22 @@ function ScheduleLayout({ date, time, band, stage, genre, image }) {
 
   let StageView = null;
 
-  if (selectStage === "midgard") {
-    StageView = (
-      <BlockText
-        scheduleData={scheduleData.Midgard}
-        bandsData={bandsData}
-        onDayChange={onDayChange}
-        selectDay={selectDay}
-      />
-    );
-  } else if (selectStage === "jotunheim") {
-    StageView = (
-      <BlockText
-        scheduleData={scheduleData.Jotunheim}
-        bandsData={bandsData}
-        onDayChange={onDayChange}
-        selectDay={selectDay}
-      />
-    );
-  } else if (selectStage === "vanaheim") {
-    StageView = (
-      <BlockText
-        scheduleData={scheduleData.Vanaheim}
-        bandsData={bandsData}
-        onDayChange={onDayChange}
-        selectDay={selectDay}
-      />
-    );
+  function selectedStage() {
+    switch (selectStage) {
+      case "midgard":
+        return scheduleData.Midgard;
+
+      case "jotunheim":
+        return scheduleData.Jotunheim;
+
+      case "vanaheim":
+        return scheduleData.Vanaheim;
+    }
   }
 
   //console.log(scheduleData);
   return (
-    <>
+    <div id="schedule-grid">
       <div id="list-of-stages">
         <label>
           Midgard
@@ -90,8 +74,14 @@ function ScheduleLayout({ date, time, band, stage, genre, image }) {
           <input type="radio" name="stage" onClick={() => setSelectStage("vanaheim")} />
         </label>
       </div>
-      {StageView}
-    </>
+      <BlockText
+        scheduleData={selectedStage()}
+        bandsData={bandsData}
+        onDayChange={onDayChange}
+        selectDay={selectDay}
+        onOpenPopUp={onOpenPopUp}
+      />
+    </div>
   );
 }
 

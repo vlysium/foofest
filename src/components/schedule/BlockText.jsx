@@ -1,6 +1,6 @@
 import Act from "./Act";
 
-function BlockText({ scheduleData, bandsData, onDayChange, selectDay }) {
+function BlockText({ scheduleData, bandsData, onDayChange, selectDay, onOpenPopUp }) {
   const days = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
   //console.log(scheduleData);
 
@@ -18,12 +18,15 @@ function BlockText({ scheduleData, bandsData, onDayChange, selectDay }) {
     for (const day in scheduleData) {
       if (day === selectDay) {
         return scheduleData[day].map((act, index) => {
-          // break or act?
-          if (act.act == "break") {
-            return <Act act={act} isBreak={true} key={index} bandsData={bandDetails(act)}></Act>;
-          } else {
-            return <Act act={act} isBreak={false} key={index} bandsData={bandDetails(act)}></Act>;
-          }
+          return (
+            <Act
+              act={act}
+              isBreak={act.act === "break" ? true : false}
+              key={index}
+              bandsData={bandDetails(act)}
+              onOpenPopUp={onOpenPopUp}
+            ></Act>
+          );
         });
       }
     }

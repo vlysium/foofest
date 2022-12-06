@@ -5,22 +5,26 @@ import { useState } from "react";
 
 function Schedule() {
   const [popUpIsOpen, setPopUpIsOpen] = useState("");
+  const [displayData, setDisplayData] = useState({});
 
-  function onClosePopUp() {
-    setPopUpIsOpen(false);
+  function handleClosePopUp() {
+    // close the pop-up if the user clicks outside the actual pop-up or the close button
+    if (event.target.id === "pop-up" || event.target.id === "close-pop-up") {
+      setPopUpIsOpen(false);
+    }
   }
 
-  function onOpenPopUp() {
+  function handleOpenPopUp(data) {
     setPopUpIsOpen(true);
+    setDisplayData(data);
+    //console.log(data);
   }
 
   return (
     <section id="schedule">
       <h2>FOOFEST 2023 PROGRAM</h2>
-      <div id="schedule-grid">
-        <ScheduleLayout />
-      </div>
-      <PopUp popUpIsOpen={popUpIsOpen} onClosePopUp={onClosePopUp} />
+      <ScheduleLayout onOpenPopUp={handleOpenPopUp} />
+      <PopUp popUpIsOpen={popUpIsOpen} onClosePopUp={handleClosePopUp} data={displayData} />
     </section>
   );
 }
