@@ -1,11 +1,7 @@
 
 
 
-function TicketType({addTickets}) {
- 
-
-  
-
+function TicketType({ addToTicket }) {
   return (
     <>
       <div className="type-container">
@@ -17,7 +13,7 @@ function TicketType({addTickets}) {
               <span>799,-</span>
             </label>
             <input
-              onChange={() => addTickets(event)}
+              onChange={(evt) => addToTicket("r", Number(evt.target.value))}
               type="text"
               name="regular"
               id="regluar-amount"
@@ -29,7 +25,7 @@ function TicketType({addTickets}) {
               <span>1299,-</span>
             </label>
             <input
-              onChange={() => addTickets(event)}
+              onChange={(evt) => addToTicket("v", Number(evt.target.value))}
               type="text"
               name="vip"
               id="vip-amount"
