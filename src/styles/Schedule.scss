@@ -1,0 +1,111 @@
+@use "./utils/variables" as v;
+
+#schedule {
+  background-color: v.$color-black-dark;
+  min-height: 80vh;
+  padding: 1rem;
+
+  #schedule-grid {
+    max-width: 1200px;
+    margin: auto;
+  }
+  h2 {
+    //color: orange;
+    text-align: center;
+    padding: 1rem;
+    padding-bottom: 2rem;
+  }
+  h4 {
+    padding: 1rem;
+  }
+
+  img {
+    grid-column: 1/3;
+    max-width: 100%;
+    margin: auto;
+  }
+
+
+label {
+  border: none;
+  background-color: v.$color-black-light;
+  color: v.$color-white-normal;
+  padding: 0.5rem;
+  position: relative;
+  flex: 1;
+  text-align: center;
+  min-width: 120px;
+
+  input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    cursor: pointer;
+    appearance: none;
+    border-radius: 5px;
+
+    &:checked {
+      border: 2px solid v.$color-purple-normal;
+    }
+  }
+}
+}
+.times {
+  display: grid;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+  padding: 1rem 0.5rem;
+
+  & + .times {
+    border-top: 1px solid v.$color-white-normal;
+  }
+}
+
+.boldFontAct {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+#list-of-stages {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 4px;
+  margin-bottom: 32px;
+}
+#list-of-days {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 8px 4px;
+  margin-bottom: 32px;
+}
+
+.weekdays {
+  // display: none;
+}
+
+.show-day {
+  display: block;
+}
+
+@media (min-width: 800px) {
+  #schedule {
+    padding: 2rem;
+    h2 {
+    padding: 0rem 1rem 2rem 1rem;
+  }
+  }
+
+  #stage-view-days {
+    display: grid;
+    // grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 2rem;
+  }
+  .times {
+    display: flex;
+    padding: 1rem 0rem;
+  }
+  
+}
