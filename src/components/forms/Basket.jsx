@@ -5,7 +5,7 @@ function Basket({ ticket }) {
  const [campingPrice, setCampingPrice] = useState(false)
   
  useEffect(() => {
-   if (ticket.campingArea === "none") {
+   if (ticket.campingArea === "none" ||ticket.campingArea === undefined) {
       setCampingPrice(false);
    } else {
       setCampingPrice(true);
