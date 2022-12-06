@@ -4,8 +4,8 @@ import TicketType from "../components/forms/TicketType";
 import "../styles/Tickets.scss";
 import CampingArea from "../components/forms/CampingArea";
 import Optionals from "../components/forms/Optionals";
-import TicketInfo from "../components/forms/TicketInfo";
 import Payment from "../components/forms/Payment";
+import TicketInfoList from "../components/forms/TicketInfoList";
 
 function Tickets() {
   const [spots, setSpots] = useState([]);
@@ -39,23 +39,8 @@ function Tickets() {
 
         return copy;
     })
-
-
-
-    /* if (event.target.id === "regluar-amount") {
-      console.log()
-      ticket.r = event.target.value
-    } else{
-      ticket.v = event.target.value
-    } */
-    
   }
-  // er der valgt camping og hvilken.
-  /* function addCampingArea(event){
-   ticket.area = event.target.id;
-    console.log(ticket)
 
-  } */
 
   return (
     <section id="ticket-section">
@@ -69,10 +54,9 @@ function Tickets() {
       <form action="" id="tickets">
         <TicketType addToTicket={addToTicket} />
         <CampingArea spots={spots} addToTicket={addToTicket} ticket={ticket} />
-        <Optionals />
-        {[...Array(ticket.r+ticket.v).keys()].map((info) => (
-          <TicketInfo ticket={ticket} />
-        ))}
+        <Optionals addToTicket={addToTicket} ticket={ticket} />
+        <TicketInfoList ticket={ticket} addToTicket={addToTicket} />
+
         <Payment ticket={ticket} />
       </form>
       <div className="concert-img"></div>
