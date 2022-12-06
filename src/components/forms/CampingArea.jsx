@@ -7,7 +7,14 @@ export default function CampingArea({ spots, addCampingArea, addBasket}) {
 
       <fieldset id="camping-area" className="scene-names">
         <label htmlFor="no-camping">Without camping</label>
-        <input type="radio" name="area" id="no-camping" pattern="[0-9]" inputMode="numeric" />
+        <input
+          onChange={() => addCampingArea(event)}
+          type="radio"
+          name="area"
+          id="no-camping"
+          pattern="[0-9]"
+          inputMode="numeric"
+        />
 
         {spots.map((area, index) => (
           <>
@@ -15,7 +22,14 @@ export default function CampingArea({ spots, addCampingArea, addBasket}) {
             <div className="avail-box">
               <p>{area.available}</p>
             </div>
-            <input onChange={()=>addCampingArea(event)} type="radio" name="area" id={area.area} pattern="[0-9]" inputMode="numeric" />
+            <input
+              onChange={() => addCampingArea(event)}
+              type="radio"
+              name="area"
+              id={area.area}
+              pattern="[0-9]"
+              inputMode="numeric"
+            />
           </>
         ))}
       </fieldset>

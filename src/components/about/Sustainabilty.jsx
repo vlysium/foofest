@@ -4,7 +4,7 @@ function Sustainabilty() {
   return (
     <section id="second">
       <div className="about-container">
-        <div className="aboutImage"></div>
+        <div className="aboutImage aboutImage2"></div>
         <div className="aboutText">
           <h2>Sustainability</h2>
           <p>
@@ -18,9 +18,9 @@ function Sustainabilty() {
             <br /> <br /> We are committed to creating a safe and fun experience
             for everyone while still being mindful of the environment.
           </p>
-          <a href="/about">
+          {/* <a href="/about">
             <button>Read More</button>
-          </a>
+          </a> */}
         </div>
       </div>
     </section>
