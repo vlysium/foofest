@@ -1,36 +1,32 @@
-import { useState } from "react";
-import { info } from "sass";
+import { useState, useEffect } from "react";
+
 
 function Basket({ ticket }) {
  const [campingPrice, setCampingPrice] = useState(false)
   
+ useEffect(() => {
    if (ticket.campingArea === "none") {
-      useState(false);
+      setCampingPrice(false);
    } else {
-      useState(true);
+      setCampingPrice(true);
    }
+  },[ticket]);
 
   return (
     <section id="basket">
       <h3>YOUR ORDER</h3>
       <div className="basket-container">
         <ul>
-          {Object.keys((ticket).map((info, index)) => {
-            return(
-              <li info={info}></li>
-            )
-
-          }
          
-          {/*    <li>
+            <li>
             Regular x {ticket.r} , {ticket.r * 799},-
           </li>
           <li>
             VIP x {ticket.v} , {ticket.v * 1299},-
           </li>
           <li>
-            Camping {ticket.campingArea} {campingPrice ? "" : "99,-"}
-          </li> */}
+            Camping {ticket.campingArea} {campingPrice ? "99,-" : ""}
+          </li>
         </ul>
         <p>Your total is...</p>
       </div>
