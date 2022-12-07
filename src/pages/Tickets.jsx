@@ -44,13 +44,6 @@ function Tickets() {
 
   return (
     <section id="ticket-section">
-      <button
-        onClick={() => {
-          console.log(ticket);
-        }}
-      >
-        Check ticket info
-      </button>
       <form action="" id="tickets">
         <TicketType addToTicket={addToTicket} />
         <CampingArea spots={spots} addToTicket={addToTicket} ticket={ticket} />

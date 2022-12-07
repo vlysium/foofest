@@ -59,7 +59,7 @@
 
     #camping-area {
       display: grid;
-      grid-template-columns: 1.5fr 0.5fr 0.5fr;
+      //grid-template-columns: 1.5fr 0.5fr 0.5fr;
       gap: 1rem;
       input {
         width: 50px;
@@ -79,6 +79,11 @@
       } */
       #no-camping{
         grid-column: 3/4;
+      }
+      .campContainer{
+        display: grid;
+    grid-template-columns: 1.5fr 0.5fr 0.5fr;
+    gap: 1rem;
       }
     }
 

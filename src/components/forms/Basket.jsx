@@ -2,14 +2,40 @@ import { useState, useEffect } from "react";
 
 
 function Basket({ ticket }) {
+ const [regular, setRegular] = useState(false)
+ const [vip, setVip] = useState(false)
  const [campingPrice, setCampingPrice] = useState(false)
+ const [green, setGreen] = useState(false)
+ const [tents, setTents] = useState(false)
   
+
  useEffect(() => {
+   if (ticket.r <= 0) {
+      setRegular(false);
+   } else {
+      setRegular(true);
+   }
+   if (ticket.v <= 0) {
+     setVip(false);
+   } else {
+     setVip(true);
+   }
+   if (ticket.tentAmount === "none" || ticket.tentAmount === undefined) {
+     setTents(false);
+   } else {
+     setTents(true);
+   }
+   if (ticket.greenCamping === "none" || ticket.greenCamping === undefined) {
+     setGreen(false);
+   } else {
+     setGreen(true);
+   }
    if (ticket.campingArea === "none" ||ticket.campingArea === undefined) {
       setCampingPrice(false);
    } else {
       setCampingPrice(true);
    }
+
   },[ticket]);
 
   return (
@@ -17,16 +43,13 @@ function Basket({ ticket }) {
       <h3>YOUR ORDER</h3>
       <div className="basket-container">
         <ul>
-         
-            <li>
-            Regular x {ticket.r} , {ticket.r * 799},-
-          </li>
           <li>
-            VIP x {ticket.v} , {ticket.v * 1299},-
+            {regular ? `Regular Ticket x ${ticket.r} , ${ticket.r * 799},-` : ""}
           </li>
-          <li>
-            Camping {ticket.campingArea} {campingPrice ? "99,-" : ""}
-          </li>
+          <li>{vip ? `VIP Ticket x ${ticket.v} , ${ticket.v * 1299},-` : ""}</li>
+          <li>{campingPrice ? `Camping ${ticket.campingArea} 99,-` : ""}</li>
+          <li>{green ? `Green Camping: ${ticket.greenCamping},-` : ""}</li>
+          <li>{tents ? `Camp Set-up: ${ticket.tentAmount},-` : ""}</li>
         </ul>
         <p>Your total is...</p>
       </div>

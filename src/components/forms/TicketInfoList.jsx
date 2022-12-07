@@ -21,11 +21,11 @@ function TicketInfoList({ ticket, addToTicket }) {
   }
   return (
     <section ref={sectionEl}>
-      {[...Array(ticket.r).keys()].map((info) => (
-        <TicketInfo ticket={ticket} type={"REGULAR"} />
+      {[...Array(ticket.r).keys()].map((info, index) => (
+        <TicketInfo ticket={ticket} type={"REGULAR"} key={index} />
       ))}
-      {[...Array(ticket.v).keys()].map((info) => (
-        <TicketInfo ticket={ticket} type={"VIP"} />
+      {[...Array(ticket.v).keys()].map((info, index) => (
+        <TicketInfo ticket={ticket} type={"VIP"} key={index} />
       ))}
       <button onClick={finishedAdding}>NEXT</button>
     </section>
