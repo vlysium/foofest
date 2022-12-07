@@ -15,11 +15,11 @@ function Camping() {
   );
 
   return (
-    <>
+    <section id="about-camping">
       <AboutCamping text={paragraph} />
       <GreenCamping />
       <CrewSetUp />
-    </>
+    </section>
   );
 }
 
