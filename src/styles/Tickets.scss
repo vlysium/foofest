@@ -1,12 +1,15 @@
+@use "./utils/variables" as v;
+
 //mobile version
 #ticket-section {
   width: 100%;
-
+  //padding: 2rem;
   #tickets {
     display: grid;
     justify-content: center;
     padding: 1rem;
-
+    min-height: 80vh;
+    align-content: space-between;
     label {
       color: white;
       border-radius: 5px;
@@ -72,18 +75,18 @@
         justify-items: center;
         align-items: center;
       }
-    /*   .without-camping{
+      /*   .without-camping{
         display: flex;
         justify-content: space-between;
         width: 100%;
       } */
-      #no-camping{
+      #no-camping {
         grid-column: 3/4;
       }
-      .campContainer{
+      .campContainer {
         display: grid;
-    grid-template-columns: 1.5fr 0.5fr 0.5fr;
-    gap: 1rem;
+        grid-template-columns: 1.5fr 0.5fr 0.5fr;
+        gap: 1rem;
       }
     }
 
@@ -129,7 +132,7 @@
       color: white;
       .basket-container {
         background-color: rgb(44, 42, 45);
-       
+
         border-radius: 5px;
       }
 
@@ -144,8 +147,7 @@
       display: grid;
       grid-template-rows: 1fr 1fr 1fr;
       grid-template-columns: 1fr 1fr;
-     
-    
+
       label {
         background-color: transparent;
       }
@@ -175,13 +177,12 @@
       #cardholder {
         width: 100%;
       }
-      
+
       #cvc {
         display: block;
         width: 120px;
-      
       }
-     
+
       .expire-container {
         /*   display: flex;
       flex-direction: row;
@@ -197,11 +198,11 @@
         align-items: center;
         width: 110px;
       }
-         #expire-day,
-    #expire-month {
-      width: 60px;
-      display: block;
-    }
+      #expire-day,
+      #expire-month {
+        width: 60px;
+        display: block;
+      }
       button {
         width: 100%;
         border-radius: 5px;
@@ -209,15 +210,126 @@
     }
   }
 }
+
+// ANT DESIGN
+
+#ticket-section {
+  .ant-steps {
+    .ant-steps-item-wait {
+      // Steps to complete
+      .ant-steps-item-icon,
+      .ant-steps-item-tail {
+        background-color: v.$color-white-normal;
+        .ant-steps-item-title {
+          color: red;
+        }
+      }
+    }
+  }
+  .css-dev-only-do-not-override-1ij74fp.ant-steps.ant-steps-vertical {
+    flex-direction: row;
+  }
+  // current selected
+  .css-dev-only-do-not-override-1ij74fp.ant-steps
+    .ant-steps-item-process
+    > .ant-steps-item-container
+    > .ant-steps-item-content
+    > .ant-steps-item-title {
+    color: white;
+  }
+  // tail
+  .css-dev-only-do-not-override-1ij74fp.ant-steps
+    .ant-steps-item-finish
+    > .ant-steps-item-container
+    > .ant-steps-item-content
+    > .ant-steps-item-title::after {
+    background-color: #fc006500;
+  }
+  .ant-steps-item-tail {
+    background-color: transparent !important;
+  }
+  // tail mobile
+  .css-dev-only-do-not-override-1ij74fp.ant-steps
+    .ant-steps-item-finish
+    > .ant-steps-item-container
+    > .ant-steps-item-tail::after {
+    background-color: #fc006500;
+  }
+  #ticket-section .ant-steps .ant-steps-item-wait .ant-steps-item-icon,
+  #ticket-section .ant-steps .ant-steps-item-wait .ant-steps-item-tail {
+    background-color: #fc006500;
+  }
+  // title competed
+  .css-dev-only-do-not-override-1ij74fp.ant-steps
+    .ant-steps-item-finish
+    > .ant-steps-item-container
+    > .ant-steps-item-content
+    > .ant-steps-item-title {
+    color: white;
+  }
+  // active circle
+  .css-dev-only-do-not-override-1ij74fp.ant-steps
+    .ant-steps-item-process
+    .ant-steps-item-icon {
+    background-color: v.$color-purple-normal;
+    border: v.$color-purple-normal;
+  }
+
+  //checkmark
+  .css-dev-only-do-not-override-1ij74fp.ant-steps
+    .ant-steps-item-finish
+    .ant-steps-item-icon
+    > .ant-steps-icon {
+    color: v.$color-purple-normal;
+  }
+  //completed circle
+  .css-dev-only-do-not-override-1ij74fp.ant-steps
+    .ant-steps-item-finish
+    .ant-steps-item-icon {
+    background-color: v.$color-white-normal;
+  }
+  // Title not completed
+  .css-dev-only-do-not-override-1ij74fp.ant-steps
+    .ant-steps-item-wait
+    .ant-steps-item-icon
+    > .ant-steps-icon {
+    color: v.$color-black-light;
+  }
+  // button color
+  .css-dev-only-do-not-override-1ij74fp.ant-btn-primary {
+    background-color: v.$color-purple-normal;
+  }
+  // button placement
+  .steps-action {
+    display: flex;
+  }
+  .one-button {
+    justify-content: end;
+  }
+  .two-button {
+    justify-content: space-between;
+  }
+}
+
 //web
 @media (min-width: 600px) {
   #ticket-section {
+        display: grid;
+    grid-template-columns: 1fr 1fr;
     #tickets {
-      padding: 0;
+      padding: 2rem !important;
+      display: flex;
+      padding: 1rem;
+      margin: auto;
+      min-height: 80vh;
+      max-width: 600px;
+      flex-direction: column;
+      justify-content: space-between;
       .type-container {
         display: grid;
         gap: 1rem;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
+        justify-items: center;
         #ticket-type {
           justify-items: center;
         }

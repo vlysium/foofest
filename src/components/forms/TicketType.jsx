@@ -33,9 +33,9 @@ function TicketType({ addToTicket }) {
               inputMode="numeric"
             />
           </fieldset>
-          <div className="single-button">
+          {/* <div className="single-button">
             <button>NEXT</button>
-          </div>
+          </div> */}
         </div>
 
         {/*  <div className="concert-img"></div> */}

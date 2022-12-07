@@ -26,7 +26,7 @@ function CreditCardInfo() {
           Cardholder fullname <input type="text" name="cardholder" id="cardholder" required autoComplete="name" />
         </label>
       </fieldset>
-      <button>COMPLETE PAYMENT</button>
+     {/*  <button>COMPLETE PAYMENT</button> */}
     </>
   );
 }
