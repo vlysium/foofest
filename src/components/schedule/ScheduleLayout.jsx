@@ -2,8 +2,9 @@ import React from "react";
 import BlockText from "./BlockText";
 import { useState, useEffect } from "react";
 
-function ScheduleLayout({ date, time, band, stage, genre, image }) {
-  const [data, setData] = useState([]);
+function ScheduleLayout({ onOpenPopUp }) {
+  const [scheduleData, setScheduleData] = useState([]);
+  const [bandsData, setBandsData] = useState([]);
   const [selectStage, setSelectStage] = useState("midgard");
   const [selectDay, setSelectDay] = useState("mon");
 
@@ -15,16 +16,27 @@ function ScheduleLayout({ date, time, band, stage, genre, image }) {
     "https://vjr-foofest.fly.dev/bands"
   */
   const scheduleUrl = "http://localhost:8080/schedule";
+  const bandsUrl = "http://localhost:8080/bands";
 
   useEffect(() => {
-    async function getData() {
+    async function getScheduleData() {
       const response = await fetch(scheduleUrl);
       const data = await response.json();
-      setData(data);
+      setScheduleData(data);
       //console.log(data);
     }
-    getData();
-  }, [selectStage]);
+    getScheduleData();
+  }, []);
+
+  useEffect(() => {
+    async function getBandsData() {
+      const response = await fetch(bandsUrl);
+      const data = await response.json();
+      setBandsData(data);
+      //console.log(data);
+    }
+    getBandsData();
+  }, []);
 
   function onDayChange(day) {
     setSelectDay(day.substring(0, 3));
@@ -32,17 +44,22 @@ function ScheduleLayout({ date, time, band, stage, genre, image }) {
 
   let StageView = null;
 
-  if (selectStage === "midgard") {
-    StageView = <BlockText data={data.Midgard} onDayChange={onDayChange} selectDay={selectDay} />;
-  } else if (selectStage === "jotunheim") {
-    StageView = <BlockText data={data.Jotunheim} onDayChange={onDayChange} selectDay={selectDay} />;
-  } else if (selectStage === "vanaheim") {
-    StageView = <BlockText data={data.Vanaheim} onDayChange={onDayChange} selectDay={selectDay} />;
+  function selectedStage() {
+    switch (selectStage) {
+      case "midgard":
+        return scheduleData.Midgard;
+
+      case "jotunheim":
+        return scheduleData.Jotunheim;
+
+      case "vanaheim":
+        return scheduleData.Vanaheim;
+    }
   }
 
-  //console.log(data);
+  //console.log(scheduleData);
   return (
-    <>
+    <div id="schedule-grid">
       <div id="list-of-stages">
         <label>
           Midgard
@@ -57,8 +74,14 @@ function ScheduleLayout({ date, time, band, stage, genre, image }) {
           <input type="radio" name="stage" onClick={() => setSelectStage("vanaheim")} />
         </label>
       </div>
-      {StageView}
-    </>
+      <BlockText
+        scheduleData={selectedStage()}
+        bandsData={bandsData}
+        onDayChange={onDayChange}
+        selectDay={selectDay}
+        onOpenPopUp={onOpenPopUp}
+      />
+    </div>
   );
 }
 

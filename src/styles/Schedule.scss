@@ -8,15 +8,63 @@
   #schedule-grid {
     max-width: 1200px;
     margin: auto;
+
+    #list-of-stages {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 4px;
+      margin-bottom: 32px;
+    }
+
+    #list-of-days {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 8px 4px;
+      margin-bottom: 32px;
+    }
+
+    .weekdays {
+      .times {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem 80px;
+        justify-content: space-between;
+        padding: 1rem 0.5rem;
+
+        & + .times {
+          border-top: 1px solid v.$color-black-lighter;
+        }
+
+        .act {
+          font-weight: 700;
+          font-size: 1.1rem;
+        }
+
+        .time-playing {
+          font-style: italic;
+        }
+      }
+
+      .times:nth-child(odd) {
+        background-color: v.$color-black-normal;
+        cursor: pointer;
+
+        &:hover {
+          background-color: v.$color-black-light;
+
+          p {
+            color: v.$color-purple-normal;
+          }
+        }
+      }
+    }
   }
-  h2 {
+
+  > h2 {
     //color: orange;
     text-align: center;
     padding: 1rem;
     padding-bottom: 2rem;
-  }
-  h4 {
-    padding: 1rem;
   }
 
   img {
@@ -25,77 +73,149 @@
     margin: auto;
   }
 
+  #pop-up {
+    display: none;
 
-label {
-  border: none;
-  background-color: v.$color-black-light;
-  color: v.$color-white-normal;
-  padding: 0.5rem;
-  position: relative;
-  flex: 1;
-  text-align: center;
-  min-width: 120px;
+    &[open] {
+      display: block;
+      position: fixed;
+      display: grid;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: transparent;
+      border: none;
+      padding: 20px;
 
-  input {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-    cursor: pointer;
-    appearance: none;
-    border-radius: 5px;
+      backdrop-filter: blur(6px) brightness(0.6);
 
-    &:checked {
-      border: 2px solid v.$color-purple-normal;
+      #band-details {
+        display: grid;
+        grid-template-rows: 1fr 4fr;
+        margin: auto;
+        background-color: v.$color-black-light;
+        border-radius: 5px;
+        max-width: 680px;
+        max-height: calc(100vh - 40px);
+        overflow-y: hidden;
+        position: relative;
+
+        #close-pop-up {
+          position: absolute;
+          display: block;
+          width: 36px;
+          height: 36px;
+          right: 0;
+          background-color: transparent;
+          border: none;
+          margin: 8px;
+
+          &::before,
+          &::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background-color: v.$color-white-normal;
+            left: 0;
+          }
+
+          &::before {
+            transform: rotate(-45deg);
+          }
+
+          &::after {
+            transform: rotate(45deg);
+          }
+        }
+
+        #details-logo {
+          border-radius: 5px 5px 0px 0px;
+          width: 100%;
+          height: auto;
+          aspect-ratio: 3 / 2;
+          object-fit: cover;
+        }
+
+        div {
+          padding: 0px 24px 24px 24px;
+          max-height: max-content;
+          width: 100%;
+          overflow-y: scroll;
+
+          #details-logo-credits {
+            font-size: 0.75rem;
+            font-style: italic;
+          }
+
+          #details-band-name {
+            font-size: clamp(1.728rem, 1.1785rem + 2.198vw, 2.827rem);
+            color: v.$color-purple-normal;
+          }
+
+          @supports (-webkit-text-stroke: 1px white) {
+            #details-band-name {
+              -webkit-text-stroke: 2px v.$color-purple-normal;
+              -webkit-text-fill-color: transparent;
+            }
+          }
+
+          #details-band-members {
+            font-weight: 500;
+            font-size: 1.2rem;
+            margin-block: 0.25rem 1rem;
+            color: v.$color-purple-light;
+          }
+
+          #details-genre {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 700;
+            background-color: v.$color-purple-normal;
+            padding: 0.25rem 1rem;
+            border-radius: 5px;
+            margin-block: 1.5rem 1rem;
+          }
+        }
+      }
     }
   }
-}
-}
-.times {
-  display: grid;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: space-between;
-  padding: 1rem 0.5rem;
 
-  & + .times {
-    border-top: 1px solid v.$color-white-normal;
+  label {
+    border: none;
+    background-color: v.$color-black-light;
+    color: v.$color-white-normal;
+    padding: 0.5rem;
+    border-radius: 5px;
+    position: relative;
+    flex: 1;
+    text-align: center;
+    min-width: 120px;
+
+    input {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      cursor: pointer;
+      appearance: none;
+      border-radius: 5px;
+
+      &:checked {
+        border: 2px solid v.$color-purple-normal;
+      }
+    }
   }
-}
-
-.boldFontAct {
-  font-weight: 700;
-  font-size: 1.1rem;
-}
-
-#list-of-stages {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 4px;
-  margin-bottom: 32px;
-}
-#list-of-days {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 8px 4px;
-  margin-bottom: 32px;
-}
-
-.weekdays {
-  // display: none;
-}
-
-.show-day {
-  display: block;
 }
 
 @media (min-width: 800px) {
   #schedule {
     padding: 2rem;
     h2 {
-    padding: 0rem 1rem 2rem 1rem;
-  }
+      padding: 0rem 1rem 2rem 1rem;
+    }
   }
 
   #stage-view-days {
@@ -107,5 +227,4 @@ label {
     display: flex;
     padding: 1rem 0rem;
   }
-  
 }

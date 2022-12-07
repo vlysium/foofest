@@ -1,34 +1,32 @@
-import React from "react";
+import Act from "./Act";
 
-function BlockText({ data, onDayChange, selectDay }) {
+function BlockText({ scheduleData, bandsData, onDayChange, selectDay, onOpenPopUp }) {
   const days = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
-  //console.log(data);
+  //console.log(scheduleData);
+
+  function bandDetails(act) {
+    // if it is not a break
+    if (act.act !== "break") {
+      // filter /bands by name of the act from /schedule
+      const band = bandsData.filter((item) => item.name === act.act)[0];
+      return band;
+    }
+  }
 
   function filteredList() {
-    for (const day in data) {
+    // filter list by day
+    for (const day in scheduleData) {
       if (day === selectDay) {
-        return data[day].map((time, index) => {
-          if(time.act == "break") {
-            return (
-              <div key={index} className="times">
-                <p>{time.act}</p>
-                <p>
-                  {time.start} - {time.end === "24:00" ? "00:00" : time.end}
-                </p>
-              </div>
-            );
-          } else{
-            return (
-              <div key={index} className="times">
-                <p className="boldFontAct">{time.act}</p>
-                <p>
-                  {time.start} - {time.end === "24:00" ? "00:00" : time.end}
-                </p>
-              </div>
-            );
-          }
-          
-          
+        return scheduleData[day].map((act, index) => {
+          return (
+            <Act
+              act={act}
+              isBreak={act.act === "break" ? true : false}
+              key={index}
+              bandsData={bandDetails(act)}
+              onOpenPopUp={onOpenPopUp}
+            ></Act>
+          );
         });
       }
     }
@@ -38,7 +36,7 @@ function BlockText({ data, onDayChange, selectDay }) {
     <div id="stage-view-days">
       <div id="list-of-days">
         {days.map((day, index) => (
-          <label key={index+1} className="button-days">
+          <label key={index + 1} className="button-days">
             {day.substring(0, 1).toUpperCase() + day.substring(1, day.length)}
             <input
               type="radio"
