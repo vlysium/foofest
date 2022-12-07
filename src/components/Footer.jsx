@@ -8,14 +8,14 @@ function Footer() {
           <h4>FOOFEST</h4>
         </a>
         <div>
-          <a href="/about">About</a>
-          <a href="/contact">Contact</a>
+          <a href="/about">ABOUT</a>
+          <a href="/contact">NEWS</a>
         </div>
       </div>
       <div>
-        <a href="/tickets">Tickets</a>
-        <a href="/volunteer">Volunteer</a>
-        <a href="/praktical-info">Praktical Info</a>
+        <a href="/tickets">TICKETS</a>
+        <a href="/volunteer">VOLUNTEER</a>
+        <a href="/camping">CAMPING</a>
       </div>
       <div className="footer-icons-container">
         <div className="footer-icons">

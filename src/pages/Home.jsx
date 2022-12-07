@@ -5,7 +5,7 @@ import QuickAbout from "../components/about/QuickAbout";
 import Schedule from "./Schedule";
 import { Link } from "react-router-dom";
 function Home() {
-  const aboutShortText = (
+  const ShortText =  {about: (
     <p>
       Welcome to FooFest! <br />
       <br /> We are an annual music festival that celebrates the best in music
@@ -19,7 +19,7 @@ function Home() {
       <br />
       <br /> Join us for an unforgettable experience!
     </p>
-  );
+  )}
 
 
   const oneHour = new Date(
@@ -36,7 +36,7 @@ function Home() {
         </Link>
       </section>
       <QuickAbout
-        text={aboutShortText}
+        text={ShortText.about}
         button={
           <a href="/about">
             <button>Read More</button>

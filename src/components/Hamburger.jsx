@@ -109,9 +109,6 @@ const scrollHandler = () => {
                 <Link to="/program">PROGRAM</Link>
               </li>
               <li onClick={() => setChangeIcon(true)}>
-                <a>LINE-UP</a>
-              </li>
-              <li onClick={() => setChangeIcon(true)}>
                 <Link to="/about">ABOUT</Link>
               </li>
               <li onClick={() => setChangeIcon(true)}>
