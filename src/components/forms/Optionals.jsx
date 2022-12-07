@@ -19,10 +19,10 @@ function Optionals({ticket, addToTicket}) {
         </label>
         <input type="checkbox" name="three-person" id="green-campingthree-person" /> */}
       </fieldset>
-      <div className="button-container">
+     {/*  <div className="button-container">
         <button>BACK</button>
         <button>NEXT</button>
-      </div>
+      </div> */}
     </>
   );
 }

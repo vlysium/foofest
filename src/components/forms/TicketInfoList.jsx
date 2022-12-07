@@ -1,9 +1,13 @@
 import { useRef } from "react";
 import TicketInfo from "./TicketInfo";
 
-function TicketInfoList({ ticket, addToTicket }) {
+function TicketInfoList({ ticket, addToTicket  }) {
   const sectionEl = useRef(null);
+ 
+ 
   function finishedAdding() {
+   event.preventDefault();
+
     console.log(sectionEl.current);
     const tickets = [];
     // 1. find alle .ticketInfo.queryselectorALL()
@@ -22,10 +26,20 @@ function TicketInfoList({ ticket, addToTicket }) {
   return (
     <section ref={sectionEl}>
       {[...Array(ticket.r).keys()].map((info, index) => (
-        <TicketInfo ticket={ticket} type={"REGULAR"} key={index} />
+        <TicketInfo
+          ticket={ticket}
+          type={"REGULAR"}
+          key={index}
+          finishedAdding={finishedAdding}
+        />
       ))}
       {[...Array(ticket.v).keys()].map((info, index) => (
-        <TicketInfo ticket={ticket} type={"VIP"} key={index} />
+        <TicketInfo
+          ticket={ticket}
+          type={"VIP"}
+          key={index}
+          finishedAdding={finishedAdding}
+        />
       ))}
       <button onClick={finishedAdding}>NEXT</button>
     </section>

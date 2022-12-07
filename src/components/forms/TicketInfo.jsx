@@ -1,6 +1,6 @@
 import React from 'react'
 
-function TicketInfo({addToTicketBasket, type}) {
+function TicketInfo({type, finishedAdding}) {
   
   return (
     <div className="ticketInfo">
@@ -11,15 +11,15 @@ function TicketInfo({addToTicketBasket, type}) {
           <span className='type'>{type}</span> TICKET
         </h5>
         <label htmlFor="fullname">
-          Fullname <input type="text" name="fullname" className="fullname" autoComplete="name" onChange={(evt) => addToTicket("fullname", evt.target.value)} />
+          Fullname <input type="text" name="fullname" className="fullname" autoComplete="name" onChange={finishedAdding}/>
         </label>
 
         <label htmlFor="email">
-          Email <input type="email" name="email" className="email" autoComplete="email" />
+          Email <input type="email" name="email" className="email" autoComplete="email" onChange={finishedAdding} />
         </label>
 
         <label htmlFor="birthday">
-          Birthday <input type="date" name="birthday" className="birthday" placeholder="BIRTHDAY" />
+          Birthday <input type="date" name="birthday" className="birthday" placeholder="BIRTHDAY" onChange={finishedAdding}/>
         </label>
       </fieldset>
       {/*  <div className="button-container">
