@@ -13,8 +13,8 @@ function CreditCardInfo() {
         <label htmlFor="expires" className="expires">
           Expire
           <div className="expire-container">
-            <input type="month" name="expires" id="expire-day" pattern="[0-9]" inputMode="numeric" maxLength="2" minLength="2" required /> /
-            <input type="month" name="expires" id="expire-month" pattern="[0-9]" inputMode="numeric" maxLength="2" minLength="2" required />
+            <input type="text" name="expires" id="expire-day" pattern="[0-9]" inputMode="numeric" maxLength="2" minLength="2" required /> /
+            <input type="text" name="expires" id="expire-month" pattern="[0-9]" inputMode="numeric" maxLength="2" minLength="2" required />
           </div>
         </label>
 

@@ -1,15 +1,32 @@
+import { useState, useEffect } from "react";
 
 
-function Basket() {
+function Basket({ ticket }) {
+ const [campingPrice, setCampingPrice] = useState(false)
+  
+ useEffect(() => {
+   if (ticket.campingArea === "none" ||ticket.campingArea === undefined) {
+      setCampingPrice(false);
+   } else {
+      setCampingPrice(true);
+   }
+  },[ticket]);
 
   return (
     <section id="basket">
       <h3>YOUR ORDER</h3>
       <div className="basket-container">
         <ul>
-          <li>Regular x 2 , 1598,- </li>
-          <li>VIP x 1 , 1299,- </li>
-          <li>Camping x 1, 99,- </li>
+         
+            <li>
+            Regular x {ticket.r} , {ticket.r * 799},-
+          </li>
+          <li>
+            VIP x {ticket.v} , {ticket.v * 1299},-
+          </li>
+          <li>
+            Camping {ticket.campingArea} {campingPrice ? "99,-" : ""}
+          </li>
         </ul>
         <p>Your total is...</p>
       </div>
@@ -17,4 +34,15 @@ function Basket() {
   );
 }
 
-export default Basket
+export default Basket;
+
+/*
+
+     {props.cart.map((item) => (
+          <li key={item.id}>
+            {item.productdisplayname} x {item.amount}, {item.amount * item.price},-
+            <button onClick={() => props.removeFromCart(item.id)}>X</button>
+          </li>
+        ))}
+
+*/
