@@ -1,6 +1,6 @@
 @use "./utils/variables" as v;
 
-#second {
+#about-camping {
   display: grid;
   width: 100%;
   min-height: 90vh;
@@ -28,28 +28,18 @@
 .aboutImage1{
   background-image: url("../../public/about.webp");
 }
-.aboutImage2{
-  background-image: url("../../public/sustainability.webp");
-  order: 1;
-}
+
 .aboutText {
   display: flex;
   padding: 2rem 1rem;
   flex-direction: column;
   gap: 2rem;
-  button {
-    width: 100px;
-    background: v.$color-magenta-normal;
-    height: 30px;
-    border: none;
-    color: v.$color-white-normal;
-    border-radius: 5px;
-  }
+ 
 }
 
 
 @media (min-width: 800px) {
-  #second {
+  #about-camping {
     display: grid;
     padding: 0rem;
   }
@@ -67,7 +57,5 @@
     min-height: 100%;
     align-items: center;
 }
-.aboutImage2{
-  order: 0;
-}
+
 }

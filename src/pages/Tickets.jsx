@@ -1,15 +1,16 @@
 import { useState, useEffect } from "react";
 
-import TicketType from "../components/TicketType";
+import TicketType from "../components/forms/TicketType";
 import "../styles/Tickets.scss";
-import CampingArea from "../components/CampingArea";
-import Optionals from "../components/Optionals";
-import TicketInfo from "../components/TicketInfo";
-import Payment from "../components/Payment";
+import CampingArea from "../components/forms/CampingArea";
+import Optionals from "../components/forms/Optionals";
+import Payment from "../components/forms/Payment";
+import TicketInfoList from "../components/forms/TicketInfoList";
 
 function Tickets() {
   const [spots, setSpots] = useState([]);
-
+  const [ ticket, setTicket ] = useState({r: 0, v: 0});
+  //const [campingArea, setCampingArea] = useState([]);
   /*
     URL:
     "http://localhost:8080/available-spots"
@@ -17,24 +18,46 @@ function Tickets() {
   */
   const url = "http://localhost:8080/available-spots";
 
+  // API
   useEffect(() => {
     async function getSpots() {
       const response = await fetch(url);
       const data = await response.json();
       setSpots(data);
-      console.log(data);
+      //console.log(data);
     }
     getSpots();
   }, []);
 
+// hvor mange billetter er valgt
+  function addToTicket (property, value) {
+
+    setTicket((old) => {
+        const copy = { ...old };
+
+        copy[property] = value;
+
+        return copy;
+    })
+  }
+
+
   return (
-    <section>
+    <section id="ticket-section">
+      <button
+        onClick={() => {
+          console.log(ticket);
+        }}
+      >
+        Check ticket info
+      </button>
       <form action="" id="tickets">
-        <TicketType />
-        <CampingArea />
-        <Optionals />
-        <TicketInfo />
-        <Payment />
+        <TicketType addToTicket={addToTicket} />
+        <CampingArea spots={spots} addToTicket={addToTicket} ticket={ticket} />
+        <Optionals addToTicket={addToTicket} ticket={ticket} />
+        <TicketInfoList ticket={ticket} addToTicket={addToTicket} />
+
+        <Payment ticket={ticket} />
       </form>
       <div className="concert-img"></div>
     </section>

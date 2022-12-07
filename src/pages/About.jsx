@@ -11,7 +11,7 @@ function About() {
             <br /> FooFest brings some of the best musicians and artists to the
             stage. Our lineup is eclectic and diverse, with something for
             everyone. We feature both national and international acts, as well
-            as smaller, up-and-coming acts.
+            as smaller, up and coming acts.
             <br />
             <br /> We strive to provide a safe, welcoming environment for
             everyone. Our security team works hard to ensure that everyone is
