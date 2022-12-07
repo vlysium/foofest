@@ -13,32 +13,47 @@
   align-items: center;
   flex-direction: column;
   padding: 2rem;
-  padding-bottom: 5rem;
-  div{
+  position: relative;
+  //padding-bottom: 5rem;
+
+  div {
     display: flex;
   }
+
   button {
     width: 100px;
-    background: v.$color-magenta-normal;
+    background: v.$color-purple-normal;
     height: 30px;
     border: none;
     color: v.$color-white-normal;
     border-radius: 5px;
+     
   }
 }
-
+a{
+   z-index: 3;
+}
+#first-section::after {
+  content: "";
+  display: block;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.475);
+  z-index: 1;
+  inset: 0 0 0 0;
+}
 //countdown font size
 .react-countdown-simple__date-time,
 .react-countdown-simple__colon {
-  font-size: clamp(1rem, 8vw, 4rem) !important;
+  font-size: clamp(1rem, 8vw, 6rem) !important;
   color: transparent;
   -webkit-text-stroke-width: 2px;
   -webkit-text-stroke-color: v.$color-cyan-normal;
+  z-index: 2;
 }
 
 @media (min-width: 800px) {
-.react-countdown-simple__date-time,
-.react-countdown-simple__colon {
-  -webkit-text-stroke-width: 3px;
-}
+  .react-countdown-simple__date-time,
+  .react-countdown-simple__colon {
+    -webkit-text-stroke-width: 3px;
+  }
 }

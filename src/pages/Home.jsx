@@ -31,11 +31,13 @@ function Home() {
   return (
     <>
       <section id="first-section">
-        {/* <h1>Welcome To FOOFEST</h1> */}
-        <Countdown targetDate={oneHour} />
-        <Link to="/tickets">
-          <button>Buy Now</button>
-        </Link>
+      
+          {/* <h1>Welcome To FOOFEST</h1> */}
+          <Countdown targetDate={oneHour} />
+          <Link to="/tickets">
+            <button>Buy Now</button>
+          </Link>
+       
       </section>
       <QuickAbout
         text={ShortText.about}

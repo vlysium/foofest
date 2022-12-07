@@ -49,7 +49,7 @@
     display: grid;
     align-content: center;
     -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: v.$color-magenta-normal;
+    -webkit-text-stroke-color: v.$color-purple-normal;
   }
   a{
     display: grid;
@@ -58,7 +58,7 @@
     h3{
       color: transparent;
       -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: v.$color-magenta-normal;
+    -webkit-text-stroke-color: v.$color-purple-normal;
     }
   }
 }
@@ -80,7 +80,7 @@ ul {
     
   }
   a:hover {
-    color:v.$color-magenta-normal;
+    color:v.$color-purple-normal;
   }
 }
 
