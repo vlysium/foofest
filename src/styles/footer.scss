@@ -34,6 +34,16 @@ footer{
     color: v.$color-white-normal;
     cursor: pointer;
 }
+.footer-icons-container{
+        align-items: center;
+        address{
+                color: white;
+            }
+            a{
+                color: white;
+                text-decoration: none;
+            }
+}
 }
 
 @media (min-width: 800px){
