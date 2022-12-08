@@ -5,6 +5,8 @@ import QuickAbout from "../components/about/QuickAbout";
 import Schedule from "./Schedule";
 import { Link } from "react-router-dom";
 import AboutCamping from "../camping/AboutCamping";
+import NewsStories from "../components/news/NewsStories";
+import stories from "../assets/newstories.json";
 function Home() {
   const ShortText = {
     about: (
@@ -34,12 +36,21 @@ function Home() {
   return (
     <>
       <section id="first-section">
-        {/* <h1>Welcome To FOOFEST</h1> */}
         <Countdown targetDate={oneHour} />
         <Link to="/tickets">
           <button>Buy Now</button>
         </Link>
       </section>
+      <NewsStories
+        stories={stories.slice(0, 3)}
+        newsHeadline={<h2>News Feed</h2>}
+        newButton={
+          <a href="/news">
+            <button>Read More</button>
+          </a>
+        }
+      />
+      <Schedule />
       <QuickAbout
         text={ShortText.about}
         button={
@@ -48,7 +59,6 @@ function Home() {
           </a>
         }
       />
-      <Schedule />
       <AboutCamping
         text={ShortText.camping}
         button={

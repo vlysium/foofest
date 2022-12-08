@@ -9,7 +9,7 @@ function Footer() {
         </a>
         <div>
           <a href="/about">ABOUT</a>
-          <a href="/contact">NEWS</a>
+          <a href="/news">NEWS</a>
         </div>
       </div>
       <div>
