@@ -15,7 +15,7 @@
     "headline": "FooFest's 5 Headlining Acts",
     "image": "/fiveActs.webp",
     "story": "FooFest is thrilled to announce the five headline acts for this year’s festival: Pink Floyd, The Who, Rogahn Group, MacGyver LLC, and Beatty and Sons. \n\nPink Floyd is one of the most iconic rock bands of all time, with over 250 million records sold worldwide. The Who is also one of the most influential rock bands of all time, having sold over 100 million records. Rogahn Group are an up-and-coming alternative rock band from the UK, and MacGyver LLC are an indie-pop band from the US. Last but not least, Beatty and Sons are a folk-rock band from Canada. \n\nThis year’s festival is sure to be an unforgettable experience for rock fans of all ages. Don’t miss out – get your tickets now!",
-    "url":"5acts"
+    "url": "5acts"
   },
   {
     "headline": "FooFest Announces team up with local charity",
@@ -34,5 +34,41 @@
     "image": "/lastYear.webp",
     "story": "FooFest was an incredible experience last year, and we are so thankful to all of the people who joined us! From the amazing performances to the wonderful people we met, it was an unforgettable experience. \n\nWe were blown away by the enthusiasm and energy of our attendees. It was truly inspiring to see so many people come together to enjoy music, art, and just have a good time. \n\nWe want to thank all of our attendees for making last year’s festival a success. We hope to see you again this year!",
     "url": "thank-you-for-last-year"
+  },
+  {
+    "headline": "A Perfect Circle",
+    "image": "/lastYear.webp",
+    "story": "A Perfect Circle is set to perform at this year’s FooFest, bringing their unique blend of alternative rock, progressive rock, and art rock to the stage. The band, which was formed in 1999 by vocalist Maynard James Keenan and guitarist Billy Howerdel, has released four studio albums and their music has been featured in a variety of films and television shows. They have also embarked on several world tours, gaining a large and devoted fan base. Fans of A Perfect Circle are sure to be in for a treat when they take the stage at FooFest, so don’t miss out on this opportunity to see them live!",
+    "url": "a-perfect-circle"
+  },
+  {
+    "headline": "A FoorFest Feast",
+    "image": "/lastYear.webp",
+    "story": "FooFest has a wide variety of delicious food options to choose from. From classic festival favorites like hot dogs and burgers to vegan and vegetarian options, there’s something to suit everyone’s taste. Our vendors offer a range of cuisines including Mexican, Italian, Thai, and Indian, so no matter what your preference there’s sure to be something to tantalize your taste buds. Plus, there are plenty of snacks and sweet treats to choose from, so you’ll never go hungry! With so many delicious options, FooFest is the perfect place to enjoy some great food and a great time.",
+    "url": "a-foofest-feast"
+  },
+  {
+    "headline": "Dibbert LLC",
+    "image": "/lastYear.webp",
+    "story": "Dibbert LLC is set to perform at this year’s FooFest! This jazz ensemble is comprised of two talented musicians: vocalist and guitarist Meda Cremin & Kallie Keebler. Together, they create a unique sound that blends elements of jazz, funk, and soul. Dibbert LLC has released two studio albums and have performed at some of the most prestigious jazz festivals in the US. Festival goers are sure to be in for a treat when they take the stage at FooFest, so don’t miss out on this opportunity to see them perform live!",
+    "url": "dibbert-llc"
+  },
+  {
+    "headline": "Activities at the campground ",
+    "image": "/lastYear.webp",
+    "story": "FooFest camping site is the perfect place to make the most of your festival experience! There are a variety of activities to choose from, so you can find something to suit your interests. Enjoy a game of volleyball or football in the camping grounds, or take part in an interactive workshop. Make some new friends in the communal area, or take a dip in the on-site pool. There’s even a movie night, so you can sit back and relax with friends after a long day of music and fun. With so many activities to choose from, FooFest camping site is the perfect place to make great memories!",
+    "url": "activities-at-the-campground "
+  },
+  {
+    "headline": "Activities at the campground ",
+    "image": "/lastYear.webp",
+    "story": "FooFest camping site is the perfect place to make the most of your festival experience! There are a variety of activities to choose from, so you can find something to suit your interests. Enjoy a game of volleyball or football in the camping grounds, or take part in an interactive workshop. Make some new friends in the communal area, or take a dip in the on-site pool. There’s even a movie night, so you can sit back and relax with friends after a long day of music and fun. With so many activities to choose from, FooFest camping site is the perfect place to make great memories!",
+    "url": "activities-at-the-campground "
+  },
+  {
+    "headline": "Sustainable FooFest",
+    "image": "/lastYear.webp",
+    "story": "At FooFest, we understand the importance of creating a sustainable event that minimizes our impact on the environment. That’s why we’re taking a stand on sustainability and promoting green initiatives this year! We’re encouraging festival goers to bring their own reusable water bottles and cutlery to reduce the use of single-use plastics. We’re also partnering with local businesses to reduce our carbon footprint and promote eco-friendly products. In our efforts to create a greener festival, we’ve implemented a number of measures to reduce our environmental impact. We’re providing compostable and recyclable materials for food and drinks, and encouraging vendors to use eco-friendly packaging. We’re also providing free public transportation to the festival grounds, and offering discounts to those who carpool. In addition, we’ve partnered with local organizations to support their green initiatives. We’re donating a portion of our profits to local tree planting projects, and are encouraging our vendors to utilize green energy sources. We’re also offering education sessions on sustainability, so festival goers can learn more about the importance of protecting our planet.",
+    "url": "sustainable-foofest"
   }
 ]
