@@ -23,7 +23,8 @@ function PopUp({ popUpIsOpen, onClosePopUp, data }) {
       " and " +
       arrayToString.substring(arrayToString.lastIndexOf(",") + 2);
 
-    return replaceLastComma;
+    // don't concatinate text if there is only 1 member
+    return members.length === 1 ? members.join("") : replaceLastComma;
   }
 
   function handleClick() {
