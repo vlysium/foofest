@@ -10,7 +10,7 @@ function NewsStories({ stories, newButton, newsHeadline, articleIngo }) {
       <div>{newsHeadline}</div>
       <div className="story-wrapper">
         <div className="story-grid">
-          {stories.map((story, index) => (
+          {stories.reverse().map((story, index) => (
             <>
               <div className="news-card" key={index}>
                 <div style={{ backgroundImage: `url(../../public${story.image})` }} className="newsImage"></div>
@@ -18,15 +18,15 @@ function NewsStories({ stories, newButton, newsHeadline, articleIngo }) {
                   <h4>{story.headline}</h4>
                   <p>{story.story}</p>
 
-                  <button onClick={() => articleIngo(story.story, story.url, story.headline)}>
+                  <button onClick={() => articleIngo(story.story, story.url, story.headline, story.image)}>
                     <Link to={`/news/${story.url}`}>Read More</Link>
                   </button>
                 </div>
               </div>
             </>
           ))}
-          {newButton}
         </div>
+        <div>{newButton}</div>
       </div>
     </section>
   );

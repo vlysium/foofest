@@ -14,7 +14,7 @@ function Footer() {
       </div>
       <div>
         <a href="/tickets">TICKETS</a>
-        <a href="/volunteer">VOLUNTEER</a>
+        <a href="/jobs">VOLUNTEER</a>
         <a href="/camping">CAMPING</a>
       </div>
       <div className="footer-icons-container">
