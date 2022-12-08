@@ -3,10 +3,8 @@ import NewsStories from "../components/news/NewsStories";
 import "../styles/news.scss"
 import stories from "../assets/newstories.json"
 
-function News() {
-  return (
-    <NewsStories stories={stories} />
-  );
+function News({ articleIngo }) {
+  return <NewsStories stories={stories} articleIngo={articleIngo} />;
 }
 
 export default News;
