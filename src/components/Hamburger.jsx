@@ -55,9 +55,9 @@ const scrollHandler = () => {
     setOnMobile(false);
   }
 }
-
-function articleIngo(story, url, headline) {
-  getArticleContent((old) => old = {'story':story, 'url':url, 'headline':headline})
+// Receives the Article infomation from the News page and sendes it to the react router component <Article/>
+function articleIngo(story, url, headline, image) {
+  getArticleContent((old) => old = {'story':story, 'url':url, 'headline':headline, 'image':image})
 }
 
 
@@ -121,9 +121,6 @@ function articleIngo(story, url, headline) {
                 <Link to="/jobs">JOBS</Link>
               </li>
               <li onClick={() => setChangeIcon(true)}>
-                <a>CONTACT</a>
-              </li>
-              <li onClick={() => setChangeIcon(true)}>
                 <Link to="/news">NEWS</Link>
               </li>
             </ul>
@@ -135,9 +132,24 @@ function articleIngo(story, url, headline) {
             <Route path="/program" element={<Schedule />}></Route>
             <Route path="/about" element={<About />}></Route>
             <Route path="/jobs" element={<Jobs />}></Route>
-            <Route path="/news" element={<News articleIngo={articleIngo} />}></Route>
-            <Route path={`/news/${articleContent.url}`} element={<Article headline={articleContent.headline} story={articleContent.story}/>}></Route>
-            <Route path="/" element={<Home />}></Route>
+            <Route
+              path="/news"
+              element={<News articleIngo={articleIngo} />}
+            ></Route>
+            <Route
+              path={`/news/${articleContent.url}`}
+              element={
+                <Article
+                  headline={articleContent.headline}
+                  story={articleContent.story}
+                  image={articleContent.image}
+                />
+              }
+            ></Route>
+            <Route
+              path="/"
+              element={<Home articleIngo={articleIngo} />}
+            ></Route>
             <Route path="*" element={<Error />} />
           </Routes>
           <Footer />

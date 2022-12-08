@@ -9,7 +9,7 @@ function NewsStories({ stories, newButton, newsHeadline, articleIngo }) {
     <section id="new-section">
       <div>{newsHeadline}</div>
       <div className="story-grid">
-        {stories.map((story, index) => (
+        {stories.reverse().map((story, index) => (
           <>
             <div className="news-card" key={index}>
               <div
@@ -22,7 +22,7 @@ function NewsStories({ stories, newButton, newsHeadline, articleIngo }) {
 
                 <button
                   onClick={() =>
-                    articleIngo(story.story, story.url, story.headline)
+                    articleIngo(story.story, story.url, story.headline, story.image)
                   }
                 >
                   <Link to={`/news/${story.url}`}>Read More</Link>
@@ -31,7 +31,10 @@ function NewsStories({ stories, newButton, newsHeadline, articleIngo }) {
             </div>
           </>
         ))}
-        {newButton}
+        
+      </div>
+      <div>
+      {newButton}
       </div>
     </section>
   );
