@@ -62,3 +62,22 @@ p {
 button {
   cursor: pointer;
 }
+
+a {
+  width: max-content;
+}
+
+.btn {
+  background-color: v.$color-purple-normal;
+  border: none;
+  color: v.$color-white-normal;
+  border-radius: 5px;
+  padding: 0.5rem 1.5rem;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.8rem;
+  transition: background-color 0.15s;
+
+  &:hover {
+    background-color: v.$color-purple-light;
+  }
+}

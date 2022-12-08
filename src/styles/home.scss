@@ -19,19 +19,9 @@
   div {
     display: flex;
   }
-
-  button {
-    width: 100px;
-    background: v.$color-purple-normal;
-    height: 30px;
-    border: none;
-    color: v.$color-white-normal;
-    border-radius: 5px;
-     
-  }
 }
-a{
-   z-index: 3;
+a {
+  z-index: 3;
 }
 #first-section::after {
   content: "";
