@@ -9,7 +9,7 @@ import TicketInfoList from "../components/forms/TicketInfoList";
 
 function Tickets() {
   const [spots, setSpots] = useState([]);
-  const [ ticket, setTicket ] = useState({r: 0, v: 0});
+  const [ticket, setTicket] = useState({ r: 0, v: 0 });
   const [current, setCurrent] = useState(0);
 
   /*
@@ -30,43 +30,40 @@ function Tickets() {
     getSpots();
   }, []);
 
-// hvor mange billetter er valgt
-  function addToTicket (property, value) {
-
+  // hvor mange billetter er valgt
+  function addToTicket(property, value) {
     setTicket((old) => {
-        const copy = { ...old };
+      const copy = { ...old };
 
-        copy[property] = value;
+      copy[property] = value;
 
-        return copy;
-    })
+      return copy;
+    });
   }
 
-// Progress tracker from Ant Design
-const steps = [
-  {
-    title: "",
-    content: <TicketType addToTicket={addToTicket} />,
-  },
-  {
-    title: "",
-    content: (
-      <CampingArea spots={spots} addToTicket={addToTicket} ticket={ticket} />
-    ),
-  },
-  {
-    title: "",
-    content: <Optionals addToTicket={addToTicket} ticket={ticket} />,
-  },
-  {
-    title: "",
-    content: <TicketInfoList ticket={ticket} addToTicket={addToTicket}/>,
-  },
-  {
-    title: "",
-    content: <Payment ticket={ticket} />,
-  },
-];
+  // Progress tracker from Ant Design
+  const steps = [
+    {
+      title: "",
+      content: <TicketType addToTicket={addToTicket} />,
+    },
+    {
+      title: "",
+      content: <CampingArea spots={spots} addToTicket={addToTicket} ticket={ticket} />,
+    },
+    {
+      title: "",
+      content: <Optionals addToTicket={addToTicket} ticket={ticket} />,
+    },
+    {
+      title: "",
+      content: <TicketInfoList ticket={ticket} addToTicket={addToTicket} />,
+    },
+    {
+      title: "",
+      content: <Payment ticket={ticket} />,
+    },
+  ];
 
   //const [current, setCurrent] = useState(0);
   const next = () => {
@@ -80,39 +77,20 @@ const steps = [
     title: item.title,
   }));
 
-
-
-
   return (
     <section id="ticket-section">
       <form action="" id="tickets">
         <Steps current={current} items={items} />
         <div className="steps-content">{steps[current].content}</div>
-        <div
-          className={
-            current > 0 ? "steps-action two-button" : "steps-action one-button"
-          }
-        >
-          {current > 0 && (
-            <Button
-              style={{
-                margin: "0 8px",
-              }}
-              onClick={() => prev()}
-            >
-              Previous
-            </Button>
-          )}
+        <div className={current > 0 ? "steps-action two-button" : "steps-action one-button"}>
+          {current > 0 && <Button onClick={() => prev()}>Previous</Button>}
           {current < steps.length - 1 && (
             <Button type="primary" onClick={() => next()}>
               Next
             </Button>
           )}
           {current === steps.length - 1 && (
-            <Button
-              type="primary"
-              onClick={() => message.success("Processing complete!")}
-            >
+            <Button type="primary" onClick={() => message.success("Processing complete!")}>
               Done
             </Button>
           )}

@@ -268,31 +268,21 @@
     color: white;
   }
   // active circle
-  .css-dev-only-do-not-override-1ij74fp.ant-steps
-    .ant-steps-item-process
-    .ant-steps-item-icon {
+  .css-dev-only-do-not-override-1ij74fp.ant-steps .ant-steps-item-process .ant-steps-item-icon {
     background-color: v.$color-purple-normal;
     border: v.$color-purple-normal;
   }
 
   //checkmark
-  .css-dev-only-do-not-override-1ij74fp.ant-steps
-    .ant-steps-item-finish
-    .ant-steps-item-icon
-    > .ant-steps-icon {
+  .css-dev-only-do-not-override-1ij74fp.ant-steps .ant-steps-item-finish .ant-steps-item-icon > .ant-steps-icon {
     color: v.$color-purple-normal;
   }
   //completed circle
-  .css-dev-only-do-not-override-1ij74fp.ant-steps
-    .ant-steps-item-finish
-    .ant-steps-item-icon {
+  .css-dev-only-do-not-override-1ij74fp.ant-steps .ant-steps-item-finish .ant-steps-item-icon {
     background-color: v.$color-white-normal;
   }
   // Title not completed
-  .css-dev-only-do-not-override-1ij74fp.ant-steps
-    .ant-steps-item-wait
-    .ant-steps-item-icon
-    > .ant-steps-icon {
+  .css-dev-only-do-not-override-1ij74fp.ant-steps .ant-steps-item-wait .ant-steps-item-icon > .ant-steps-icon {
     color: v.$color-black-light;
   }
   // button color
@@ -314,7 +304,7 @@
 //web
 @media (min-width: 600px) {
   #ticket-section {
-        display: grid;
+    display: grid;
     grid-template-columns: 1fr 1fr;
     #tickets {
       padding: 2rem !important;
