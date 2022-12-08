@@ -56,6 +56,10 @@ const scrollHandler = () => {
   }
 }
 
+function articleIngo(story, url, headline) {
+  getArticleContent((old) => old = {'story':story, 'url':url, 'headline':headline})
+}
+
 
   return (
     <>
@@ -131,9 +135,8 @@ const scrollHandler = () => {
             <Route path="/program" element={<Schedule />}></Route>
             <Route path="/about" element={<About />}></Route>
             <Route path="/jobs" element={<Jobs />}></Route>
-            <Route path="/news/*" element={<News getArticleContent={getArticleContent}/>}>
-              <Route path="post" element={<Article />}></Route>
-            </Route>
+            <Route path="/news" element={<News articleIngo={articleIngo} />}></Route>
+            <Route path={`/news/${articleContent.url}`} element={<Article headline={articleContent.headline} story={articleContent.story}/>}></Route>
             <Route path="/" element={<Home />}></Route>
             <Route path="*" element={<Error />} />
           </Routes>

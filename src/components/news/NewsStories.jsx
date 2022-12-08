@@ -3,8 +3,8 @@ import "../../styles/news.scss";
 import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 import Article from "./Article";
 
-function NewsStories({ stories, newButton, newsHeadline }) {
-  console.log(stories);
+function NewsStories({ stories, newButton, newsHeadline, articleIngo }) {
+  //console.log(stories);
   return (
     <section id="new-section">
       <div>{newsHeadline}</div>
@@ -19,8 +19,14 @@ function NewsStories({ stories, newButton, newsHeadline }) {
               <div className="storyContent">
                 <h4>{story.headline}</h4>
                 <p>{story.story}</p>
-                <Link to={story.url}>Read More</Link>
-                
+
+                <button
+                  onClick={() =>
+                    articleIngo(story.story, story.url, story.headline)
+                  }
+                >
+                  <Link to={`/news/${story.url}`}>Read More</Link>
+                </button>
               </div>
             </div>
           </>
