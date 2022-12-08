@@ -38,32 +38,32 @@ function Home() {
       <section id="first-section">
         <Countdown targetDate={oneHour} />
         <Link to="/tickets">
-          <button>Buy Now</button>
+          <button className="btn">Buy Now</button>
         </Link>
       </section>
       <NewsStories
         stories={stories.slice(0, 3)}
         newsHeadline={<h2>News Feed</h2>}
         newButton={
-          <a href="/news">
-            <button>Read More</button>
-          </a>
+          <Link href="/news">
+            <button className="btn">Read More</button>
+          </Link>
         }
       />
       <Schedule />
       <QuickAbout
         text={ShortText.about}
         button={
-          <a href="/about">
-            <button>Read More</button>
-          </a>
+          <Link href="/about">
+            <button className="btn">Read More</button>
+          </Link>
         }
       />
       <AboutCamping
         text={ShortText.camping}
         button={
           <Link to="/Camping">
-            <button>Read More</button>
+            <button className="btn">Read More</button>
           </Link>
         }
       />
