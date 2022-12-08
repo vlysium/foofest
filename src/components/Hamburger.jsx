@@ -10,13 +10,13 @@ import {useState, useEffect} from "react"
 import Error from "../pages/Error";
 import Jobs from "../pages/Jobs";
 import News from "../pages/News";
-
+import Article from "./news/Article";
 function Hamburger() {
 const [changeIcon, setChangeIcon] = useState(true); 
 const [hideEl, setHideEl] = useState("")
 const [showEl, setShowEl] = useState("")
 const [onMobile, setOnMobile] = useState(true)
-
+const [articleContent, getArticleContent] = useState({})
 
 
 // Place a display: none; class on the slideout element, but with a delay of 0,3s. The same lenght of time as the slideout animation
@@ -131,7 +131,9 @@ const scrollHandler = () => {
             <Route path="/program" element={<Schedule />}></Route>
             <Route path="/about" element={<About />}></Route>
             <Route path="/jobs" element={<Jobs />}></Route>
-            <Route path="/news" element={<News />}></Route>
+            <Route path="/news/*" element={<News getArticleContent={getArticleContent}/>}>
+              <Route path="post" element={<Article />}></Route>
+            </Route>
             <Route path="/" element={<Home />}></Route>
             <Route path="*" element={<Error />} />
           </Routes>

@@ -5,8 +5,7 @@ import stories from "../assets/newstories.json"
 
 function News() {
   return (
-    
-      <NewsStories stories={stories}/>
+    <NewsStories stories={stories} getArticleContent={getArticleContent} />
   );
 }
 

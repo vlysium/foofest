@@ -40,8 +40,8 @@ function Home() {
       </section>
       <NewsStories
         stories={stories.slice(0, 3)}
-        newsHeadline={<h2>News Stories</h2>}
-        newButton={<a href="/news">Read More</a>}
+        newsHeadline={<h2>News Feed</h2>}
+        newButton={<a href="/news"><button>Read More</button></a>}
       />
       <Schedule />
       <QuickAbout
