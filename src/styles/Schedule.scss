@@ -48,6 +48,11 @@
       .times:nth-child(odd) {
         background-color: v.$color-black-normal;
         cursor: pointer;
+        transition: background-color 0.15s;
+
+        p {
+          transition: color 0.15s;
+        }
 
         &:hover {
           background-color: v.$color-black-light;
@@ -203,6 +208,8 @@
       cursor: pointer;
       appearance: none;
       border-radius: 5px;
+      border: 2px solid v.$color-black-light;
+      transition: border 0.15s;
 
       &:checked {
         border: 2px solid v.$color-purple-normal;
