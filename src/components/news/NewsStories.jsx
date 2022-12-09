@@ -16,7 +16,7 @@ function NewsStories({ stories, newButton, newsHeadline, articleIngo }) {
                 <div style={{ backgroundImage: `url(../../public${story.image})` }} className="newsImage"></div>
                 <div className="storyContent">
                   <h4>{story.headline}</h4>
-                  <p>{story.story}</p>
+                  <p>{story.story.substring(0, 145).trimEnd() + "..."}</p>
 
                   <button
                     className="btn"
