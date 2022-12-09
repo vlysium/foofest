@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { DatePicker, Space } from "antd";
+import dayjs from "dayjs";
 // https://bobbyhadz.com/blog/react-check-if-email-is-valid 
 
 
@@ -6,8 +8,9 @@ function TicketInfo({ type, finishedAdding }) {
 
   const [message, setMessage] = useState("");
   const [error, setError] = useState(null);
+ const [txt, setTxt] = useState('');
 
-
+ // validate the email
   function isValidEmail(email) {
     return /\S+@\S+\.\S+/.test(email);
   }
@@ -18,15 +21,27 @@ function TicketInfo({ type, finishedAdding }) {
     } else {
       setError(null);
     }
-
     setMessage(event.target.value);
     finishedAdding()
   };
 
+  
+ // validate the name
+  const onInputChange = e => {
+    const { value } = e.target;
+    console.log('Input value: ', value);
+ 
+    const re = /^[A-ø a-ø]+$/;
+    if (value === "" || re.test(value)) {
+      setTxt(value);
+    }
+    finishedAdding()
+  }
+  const dateFormatList = "DD/MM/YYYY";
+
   return (
     <div className="ticketInfo">
-
-      <fieldset id="ticket-info">
+      <fieldset className="ticket-info">
         <h5>
           <span className="type">{type}</span> TICKET
         </h5>
@@ -37,7 +52,8 @@ function TicketInfo({ type, finishedAdding }) {
             name="fullname"
             className="fullname"
             autoComplete="name"
-            onChange={finishedAdding}
+            onChange={onInputChange}
+            value={txt}
           />
         </label>
 
@@ -56,12 +72,12 @@ function TicketInfo({ type, finishedAdding }) {
 
         <label htmlFor="birthday">
           Birthday{" "}
-          <input
-            type="date"
-            name="birthday"
-            className="birthday"
-            placeholder="BIRTHDAY"
+          <DatePicker
             onChange={finishedAdding}
+            className="birthday"
+            placeholder="Select date"
+            //defaultValue={dayjs("01/01/2000", dateFormatList)}
+            format={dateFormatList}
           />
         </label>
       </fieldset>

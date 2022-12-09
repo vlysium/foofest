@@ -1,10 +1,10 @@
 
-export default function CampingArea({ spots, addToTicket, ticket }) {
+export default function CampingArea({ spots, addToTicket, ticket, emptyField }) {
   //console.log(spots);
   return (
     <>
       <h3>CAMPING AREA</h3>
-
+      {emptyField? <p style={{color:"red"}}>Please pick one of the option below</p>:""}
       <fieldset id="camping-area" className="scene-names">
         <div className="campContainer">
           <label htmlFor="no-camping">Without camping</label>
@@ -38,7 +38,7 @@ export default function CampingArea({ spots, addToTicket, ticket }) {
           </div>
         ))}
       </fieldset>
-{/*       <div className="button-container">
+      {/*       <div className="button-container">
         <button>BACK</button>
         <button>NEXT</button>
       </div> */}
