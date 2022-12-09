@@ -11,6 +11,7 @@ import Error from "../pages/Error";
 import Jobs from "../pages/Jobs";
 import News from "../pages/News";
 import Article from "./news/Article";
+import ScrollToTop from "../utils/ScrollToTop";
 
 function Hamburger() {
   const [changeIcon, setChangeIcon] = useState(true);
@@ -64,6 +65,7 @@ function Hamburger() {
     <>
       <div className={changeIcon ? "" : "setBodyFixed"}>
         <Router>
+          <ScrollToTop />
           <div className="menuIcon">
             <Link onClick={() => setChangeIcon(true)} to="/">
               {onMobile ? (
