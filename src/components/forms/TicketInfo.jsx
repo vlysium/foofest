@@ -8,18 +8,18 @@ function TicketInfo({type, finishedAdding}) {
 
       <fieldset id="ticket-info">
         <h5>
-          <span className='type'>{type}</span> TICKET
+          <span className="type">{type}</span> TICKET
         </h5>
         <label htmlFor="fullname">
-          Fullname <input type="text" name="fullname" className="fullname" autoComplete="name" onChange={finishedAdding}/>
+          Fullname <input type="text" name="fullname" className="fullname" autoComplete="name" onChange={finishedAdding} required />
         </label>
 
         <label htmlFor="email">
-          Email <input type="email" name="email" className="email" autoComplete="email" onChange={finishedAdding} />
+          Email <input type="email" name="email" className="email" autoComplete="email" onChange={finishedAdding} required />
         </label>
 
         <label htmlFor="birthday">
-          Birthday <input type="date" name="birthday" className="birthday" placeholder="BIRTHDAY" onChange={finishedAdding}/>
+          Birthday <input type="date" name="birthday" className="birthday"  onChange={finishedAdding} required />
         </label>
       </fieldset>
       {/*  <div className="button-container">
