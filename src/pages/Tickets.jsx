@@ -151,12 +151,6 @@ function Tickets() {
             </Button>
           )}
         </div>
-        {/* <TicketType addToTicket={addToTicket} />
-        <CampingArea spots={spots} addToTicket={addToTicket} ticket={ticket} />
-        <Optionals addToTicket={addToTicket} ticket={ticket} />
-        <TicketInfoList ticket={ticket} addToTicket={addToTicket} />
-
-        <Payment ticket={ticket} /> */}
       </form>
       <div className="concert-img"></div>
     </section>

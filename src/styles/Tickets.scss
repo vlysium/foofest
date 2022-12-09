@@ -103,6 +103,9 @@
         display: flex;
         justify-content: space-between;
       }
+      #green-camping{
+        min-height: 0;
+      }
     }
     #ticket-info {
       display: grid;

@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import AboutCamping from "../camping/AboutCamping";
 import NewsStories from "../components/news/NewsStories";
 import data from "../assets/newstories.json";
+import Newsletter from "../components/Newsletter";
 function Home({ articleIngo }) {
   const ShortText = {
     about: (
@@ -36,7 +37,7 @@ function Home({ articleIngo }) {
   });
 
   console.log(stories);
-  const oneHour = new Date(new Date().setHours(new Date().getHours() + 100)).toISOString();
+  const oneHour = new Date( "2023-01-20").toISOString();
 
   return (
     <>
@@ -46,6 +47,7 @@ function Home({ articleIngo }) {
           <button className="btn">Buy Now</button>
         </Link>
       </section>
+      <Newsletter />
       <NewsStories
         articleIngo={articleIngo}
         stories={stories.slice(0, 3)}
