@@ -51,12 +51,13 @@
           max-height: 100%;
         }
         button {
-          width: 100px;
+          width: max-content;
+          /*width: 100px;
           background: v.$color-purple-normal;
           height: 30px;
           border: none;
           color: #f2f0f5;
-          border-radius: 5px;
+          border-radius: 5px;*/
           a {
             text-decoration: none;
             color: v.$color-white-normal;

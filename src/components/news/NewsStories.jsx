@@ -18,7 +18,10 @@ function NewsStories({ stories, newButton, newsHeadline, articleIngo }) {
                   <h4>{story.headline}</h4>
                   <p>{story.story}</p>
 
-                  <button onClick={() => articleIngo(story.story, story.url, story.headline, story.image)}>
+                  <button
+                    className="btn"
+                    onClick={() => articleIngo(story.story, story.url, story.headline, story.image)}
+                  >
                     <Link to={`/news/${story.url}`}>Read More</Link>
                   </button>
                 </div>
