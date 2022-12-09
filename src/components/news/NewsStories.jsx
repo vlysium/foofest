@@ -16,9 +16,12 @@ function NewsStories({ stories, newButton, newsHeadline, articleIngo }) {
                 <div style={{ backgroundImage: `url(../../public${story.image})` }} className="newsImage"></div>
                 <div className="storyContent">
                   <h4>{story.headline}</h4>
-                  <p>{story.story}</p>
+                  <p>{story.story.substring(0, 145).trimEnd() + "..."}</p>
 
-                  <button onClick={() => articleIngo(story.story, story.url, story.headline, story.image)}>
+                  <button
+                    className="btn"
+                    onClick={() => articleIngo(story.story, story.url, story.headline, story.image)}
+                  >
                     <Link to={`/news/${story.url}`}>Read More</Link>
                   </button>
                 </div>

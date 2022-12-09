@@ -12,37 +12,31 @@ function Home({ articleIngo }) {
     about: (
       <p>
         Welcome to FooFest! <br />
-        <br /> We are an annual music festival that celebrates the best in music
-        and entertainment. Our mission is to create a fun, safe, and memorable
-        experience for everyone. We feature national and international acts, as
-        well as smaller, up-and-coming acts.
+        <br /> We are an annual music festival that celebrates the best in music and entertainment. Our mission is to
+        create a fun, safe, and memorable experience for everyone. We feature national and international acts, as well
+        as smaller, up-and-coming acts.
         <br />
-        <br /> We strive to provide a safe, welcoming environment and to reduce
-        our carbon footprint. We also have plenty of other attractions including
-        food and drinks, interactive activities, and more!
+        <br /> We strive to provide a safe, welcoming environment and to reduce our carbon footprint. We also have
+        plenty of other attractions including food and drinks, interactive activities, and more!
         <br />
         <br /> Join us for an unforgettable experience!
       </p>
     ),
     camping: (
       <p>
-        Camping at FooFest offers great experiences – take advantage of the
-        atmosphere, make friends, and enjoy the festival. We have 5 camping
-        areas around the festival square, each with food, small shops, toilets,
-        showers, and interactive activities. Add camping to your festival ticket
-        for just 99,- for even more benefits!
+        Camping at FooFest offers great experiences – take advantage of the atmosphere, make friends, and enjoy the
+        festival. We have 5 camping areas around the festival square, each with food, small shops, toilets, showers, and
+        interactive activities. Add camping to your festival ticket for just 99,- for even more benefits!
       </p>
     ),
   };
-const stories = [];
-data.forEach((e) => {
-  stories.unshift(e);
-});
+  const stories = [];
+  data.forEach((e) => {
+    stories.unshift(e);
+  });
 
-console.log(stories);
-  const oneHour = new Date(
-    new Date().setHours(new Date().getHours() + 100)
-  ).toISOString();
+  console.log(stories);
+  const oneHour = new Date(new Date().setHours(new Date().getHours() + 100)).toISOString();
 
   return (
     <>
@@ -60,25 +54,11 @@ console.log(stories);
             <Link to="/news">News Feed</Link>
           </h2>
         }
-        
       />
       <Schedule />
-      <QuickAbout
-        text={ShortText.about}
-        button={
-          <Link href="/about">
-            <button className="btn">Read More</button>
-          </Link>
-        }
-      />
-      <AboutCamping
-        text={ShortText.camping}
-        button={
-          <Link to="/Camping">
-            <button className="btn">Read More</button>
-          </Link>
-        }
-      />
+
+      <AboutCamping text={ShortText.camping} />
+      <QuickAbout text={ShortText.about} />
     </>
   );
 }

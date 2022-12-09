@@ -360,10 +360,12 @@
     }
     .concert-img {
       width: 100%;
-      height: auto;
+      height: 100vh;
       background-image: url(public/concert.png);
       background-size: cover;
       background-position: 50%;
+      position: sticky;
+      top: 0;
     }
   }
 }
