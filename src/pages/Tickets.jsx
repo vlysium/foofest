@@ -7,11 +7,12 @@ import Optionals from "../components/forms/Optionals";
 import Payment from "../components/forms/Payment";
 import TicketInfoList from "../components/forms/TicketInfoList";
 
+
 function Tickets() {
   const [spots, setSpots] = useState([]);
   const [ticket, setTicket] = useState({ r: 0, v: 0 });
   const [current, setCurrent] = useState(0);
-
+  
   /*
     URL:
     "http://localhost:8080/available-spots"
@@ -28,7 +29,7 @@ function Tickets() {
       //console.log(data);
     }
     getSpots();
-  }, []);
+  }, [ticket]);
 
   // hvor mange billetter er valgt
   function addToTicket(property, value) {
@@ -49,7 +50,9 @@ function Tickets() {
     },
     {
       title: "",
-      content: <CampingArea spots={spots} addToTicket={addToTicket} ticket={ticket} />,
+      content: (
+        <CampingArea spots={spots} addToTicket={addToTicket} ticket={ticket} />
+      ),
     },
     {
       title: "",
@@ -61,9 +64,10 @@ function Tickets() {
     },
     {
       title: "",
-      content: <Payment ticket={ticket} />,
+      content: <Payment ticket={ticket} addToTicket={addToTicket} />,
     },
   ];
+
 
   //const [current, setCurrent] = useState(0);
   const next = () => {
@@ -82,15 +86,67 @@ function Tickets() {
       <form action="" id="tickets">
         <Steps current={current} items={items} />
         <div className="steps-content">{steps[current].content}</div>
-        <div className={current > 0 ? "steps-action two-button" : "steps-action one-button"}>
+        <div
+          className={
+            current > 0 ? "steps-action two-button" : "steps-action one-button"
+          }
+        >
           {current > 0 && <Button onClick={() => prev()}>Previous</Button>}
-          {current < steps.length - 1 && (
+          {current === 0 && (
+            <Button
+              type="primary"
+              onClick={() => {
+                if (ticket.r === 0 && ticket.v === 0) {
+                  console.log();
+                } else {
+                  next();
+                }
+              }}
+            >
+              Next
+            </Button>
+          )}
+          {current === 1 && (
+            <Button
+              type="primary"
+              onClick={() => {
+                if (ticket.campingArea === undefined) {
+                  console.log("pick an area");
+                } else {
+                 next();
+                  
+                }
+              }}
+            >
+              Next
+            </Button>
+          )}
+          {current === 2 && (
             <Button type="primary" onClick={() => next()}>
               Next
             </Button>
           )}
+          {current === 3 && (
+            <Button
+              type="primary"
+              onClick={() => {
+                if (ticket.info === undefined) {
+                  console.log("pick an area");
+                } else {
+                  next();
+                  console.log(ticket.info);
+                }
+                
+              }}
+            >
+              Next
+            </Button>
+          )}
           {current === steps.length - 1 && (
-            <Button type="primary" onClick={() => message.success("Processing complete!")}>
+            <Button
+              type="primary"
+              onClick={() => message.success("Processing complete!")}
+            >
               Done
             </Button>
           )}

@@ -66,6 +66,7 @@
       gap: 1rem;
       input {
         width: 50px;
+        accent-color:#9400f6;
       }
       .avail-box {
         background-color: rgb(44, 42, 45);
@@ -95,11 +96,9 @@
       grid-template-columns: 1.5fr 0.35fr;
       gap: 0.5rem;
 
-      /*  input[type="checkbox"] {
-      width: 30px;
-      height: 30px;
-      
-    } */
+      input:checked {
+        accent-color: #9400f6;
+      }
       label {
         display: flex;
         justify-content: space-between;
@@ -114,6 +113,10 @@
       label {
         color: white;
         background-color: transparent;
+        span{
+              font-size: 0.8rem;
+    color: red;
+        }
       }
       input {
         width: 100%;
@@ -268,24 +271,45 @@
     color: white;
   }
   // active circle
-  .css-dev-only-do-not-override-1ij74fp.ant-steps .ant-steps-item-process .ant-steps-item-icon {
+  .css-dev-only-do-not-override-1ij74fp.ant-steps
+    .ant-steps-item-process
+    .ant-steps-item-icon {
     background-color: v.$color-purple-normal;
     border: v.$color-purple-normal;
   }
 
   //checkmark
-  .css-dev-only-do-not-override-1ij74fp.ant-steps .ant-steps-item-finish .ant-steps-item-icon > .ant-steps-icon {
+  .css-dev-only-do-not-override-1ij74fp.ant-steps
+    .ant-steps-item-finish
+    .ant-steps-item-icon
+    > .ant-steps-icon {
     color: v.$color-purple-normal;
   }
   //completed circle
-  .css-dev-only-do-not-override-1ij74fp.ant-steps .ant-steps-item-finish .ant-steps-item-icon {
-    background-color: v.$color-white-normal;
+  .css-dev-only-do-not-override-1ij74fp.ant-steps
+    .ant-steps-item-finish
+    .ant-steps-item-icon {
+    //background-color: v.$color-white-normal;
+    background-color: transparent;
+    border: 2px solid #9400f6;
   }
   // Title not completed
-  .css-dev-only-do-not-override-1ij74fp.ant-steps .ant-steps-item-wait .ant-steps-item-icon > .ant-steps-icon {
+  .css-dev-only-do-not-override-1ij74fp.ant-steps
+    .ant-steps-item-wait
+    .ant-steps-item-icon
+    > .ant-steps-icon {
     color: v.$color-black-light;
   }
-  // button color
+  // button color previous
+
+  .ant-btn.css-dev-only-do-not-override-1ij74fp.ant-btn-default {
+    background-color: transparent;
+    border: 2px solid #9400f6;
+    box-shadow: 0 2px 0 rgb(0 0 0 / 2%);
+    color: white;
+  }
+
+  // button color next
   .css-dev-only-do-not-override-1ij74fp.ant-btn-primary {
     background-color: v.$color-purple-normal;
   }

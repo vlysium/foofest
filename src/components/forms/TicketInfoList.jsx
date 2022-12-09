@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import TicketInfo from "./TicketInfo";
 
-function TicketInfoList({ ticket, addToTicket  }) {
+function TicketInfoList({ ticket, addToTicket }) {
   const sectionEl = useRef(null);
  
  
@@ -25,6 +25,7 @@ function TicketInfoList({ ticket, addToTicket  }) {
   }
   return (
     <section ref={sectionEl}>
+      <h3>Ticket info</h3>
       {[...Array(ticket.r).keys()].map((info, index) => (
         <TicketInfo
           ticket={ticket}
@@ -41,7 +42,6 @@ function TicketInfoList({ ticket, addToTicket  }) {
           finishedAdding={finishedAdding}
         />
       ))}
-      <button onClick={finishedAdding}>NEXT</button>
     </section>
   );
 }
