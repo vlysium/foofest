@@ -20,6 +20,15 @@
       padding: 2rem;
       align-items: center;
       width: max-content;
+      .news-card{
+            display: grid;
+    /* max-height: 500px; */
+    height: 600px;
+    grid-template-rows: 200px 1fr;
+    background-color: #04011a;
+    max-width: 300px;
+    max-height: 600px;
+      }
     }
 
     @media (min-width: 708px) {
