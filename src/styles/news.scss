@@ -11,22 +11,18 @@
     }
   }
   .story-grid {
-
-
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 300px));
     min-height: 80vh;
-    width: 100%;
     gap: 2rem;
+    justify-content: center;
+
     padding: 2rem;
-    overflow-x: scroll;
     align-items: center;
-    scroll-snap-align: start;
   }
   .news-card {
     display: grid;
     max-height: 500px;
-    min-width: 300px;
-    max-width: 300px;
     background-color: green;
     grid-template-rows: 40% 1fr;
     background-color: v.$color-black-dark;
@@ -91,23 +87,11 @@
 }
 
 // WEB
-@media (min-width: 800px) {
-  #new-section {
-    .story-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 300px));
-      min-height: 80vh;
-      gap: 2rem;
-      justify-content: center;
-      padding: 2rem;
-      align-items: center;
-    }
-  }
-
-  .article {
-    .article-grid {
-      grid-template-rows: 1fr;
-      grid-template-columns: 1fr 1fr;
+@media (min-width:800px){
+    .article{
+    .article-grid{
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr 1fr;
     }
   }
 }
