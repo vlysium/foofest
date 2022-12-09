@@ -69,7 +69,7 @@ function Hamburger() {
           <div className="menuIcon">
             <Link onClick={() => setChangeIcon(true)} to="/">
               {onMobile ? (
-                <h3>FOOFEST</h3>
+                <h3 className="menu-logo">FOOFEST</h3>
               ) : (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
