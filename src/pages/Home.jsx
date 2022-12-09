@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 import AboutCamping from "../components/camping/AboutCamping";
 import NewsStories from "../components/news/NewsStories";
 import data from "../assets/newstories.json";
+import TicketsShop from "../components/shop/TicketsShop";
+
 function Home({ articleIngo }) {
   const ShortText = {
     about: (
@@ -56,6 +58,7 @@ function Home({ articleIngo }) {
         }
       />
       <Schedule />
+      <TicketsShop />
 
       <AboutCamping text={ShortText.camping} fromHomepage={true} />
       <QuickAbout text={ShortText.about} fromHomepage={true} />
