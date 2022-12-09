@@ -1,0 +1,32 @@
+@use "./utils/variables" as v;
+
+#tickets-shop {
+  min-height: 80vh;
+  padding: 2rem;
+
+  h2 {
+    text-align: center;
+  }
+
+  #shop-wrapper {
+    overflow-x: scroll;
+
+    #shop-layout {
+      display: flex;
+      gap: 24px;
+
+      .ticket-card {
+        padding: 16px;
+        border-radius: 5px;
+        background-color: v.$color-black-light;
+
+        > div {
+          display: flex;
+          justify-content: space-between;
+          gap: 20px;
+          align-items: center;
+        }
+      }
+    }
+  }
+}
