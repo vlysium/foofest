@@ -112,13 +112,13 @@ function Hamburger() {
                 <Link to="/program">PROGRAM</Link>
               </li>
               <li onClick={() => setChangeIcon(true)}>
-                <Link to="/about">ABOUT</Link>
+                <Link to="/news">NEWS</Link>
               </li>
               <li onClick={() => setChangeIcon(true)}>
                 <Link to="/jobs">JOBS</Link>
               </li>
               <li onClick={() => setChangeIcon(true)}>
-                <Link to="/news">NEWS</Link>
+                <Link to="/about">ABOUT</Link>
               </li>
             </ul>
           </nav>
