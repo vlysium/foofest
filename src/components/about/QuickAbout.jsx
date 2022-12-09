@@ -8,7 +8,7 @@ function QuickAbout({ text }) {
           <div className="about-text">
             <h2>About Us</h2>
             {text}
-            <Link href="/about">
+            <Link to="/about">
               <button className="btn">Read More</button>
             </Link>
           </div>

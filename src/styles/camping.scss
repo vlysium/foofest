@@ -1,7 +1,10 @@
 @use "./utils/variables" as v;
 
 #camping,
-#about {
+#about,
+#green-camping,
+#crew-setup,
+#sustainability {
   display: grid;
   width: 100%;
   min-height: 90vh;
@@ -9,14 +12,20 @@
   background-color: v.$color-black-light;
 
   .camping-container,
-  .about-container {
+  .about-container,
+  .green-camping-container,
+  .crew-setup-container,
+  .sustainability-container {
     display: grid;
     grid-template-columns: 1fr;
     //grid-template-rows: 1fr 1fr;
     min-height: 100%;
 
     .camping-text,
-    .about-text {
+    .about-text,
+    .green-camping-text,
+    .crew-setup-text,
+    .sustainability-text {
       display: flex;
       padding: 2rem 1rem;
       flex-direction: column;
@@ -34,7 +43,10 @@
     }
 
     .camping-image,
-    .about-image {
+    .about-image,
+    .green-camping-image,
+    .crew-setup-image,
+    .sustainability-image {
       background-size: cover;
       background-position: 50%;
       width: 100%;
@@ -46,31 +58,43 @@
 
 @media (min-width: 800px) {
   #camping,
-  #about {
+  #about,
+  #green-camping,
+  #crew-setup,
+  #sustainability {
     .camping-container,
-    .about-container {
+    .about-container,
+    .green-camping-container,
+    .crew-setup-container,
+    .sustainability-container {
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr;
-      min-height: 100%;
+      min-height: 100vh;
       align-items: center;
 
       .text-wrapper {
         width: 100%;
         padding: 32px;
 
-        .camping-text {
+        .camping-text,
+        .crew-setup-text,
+        .sustainability-text {
           margin-left: auto;
         }
       }
 
       .camping-image,
-      .about-image {
+      .about-image,
+      .green-camping-image,
+      .crew-setup-image,
+      .sustainability-image {
         height: 100%;
         width: 50vw;
       }
 
-      .about-image {
+      .about-image,
+      .green-camping-image {
         order: -1;
       }
     }
