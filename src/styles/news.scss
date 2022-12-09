@@ -1,6 +1,7 @@
 @use "./utils/variables" as v;
 
 #new-section {
+  scroll-snap-type: y mandatory;
   background-color: v.$color-black-light;
   h2 {
     text-align: center;
@@ -10,18 +11,22 @@
     }
   }
   .story-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 300px));
-    min-height: 80vh;
-    gap: 2rem;
-    justify-content: center;
 
+
+    display: flex;
+    min-height: 80vh;
+    width: 100%;
+    gap: 2rem;
     padding: 2rem;
+    overflow-x: scroll;
     align-items: center;
+    scroll-snap-align: start;
   }
   .news-card {
     display: grid;
     max-height: 500px;
+    min-width: 300px;
+    max-width: 300px;
     background-color: green;
     grid-template-rows: 40% 1fr;
     background-color: v.$color-black-dark;
@@ -63,7 +68,6 @@
     grid-template-rows: 1fr 1fr;
     gap: 1rem;
     min-height: 75vh;
-    
   }
   .newsImage {
     background-size: cover;
@@ -72,26 +76,38 @@
     height: 100%;
   }
   button {
-        width: 100px;
-        background: v.$color-purple-normal;
-        height: 30px;
-        border: none;
-        color: #f2f0f5;
-        border-radius: 5px;
-        margin-block: 1rem;
-        a{
-            color: #f2f0f5;
-            text-decoration: none;
-        }
+    width: 100px;
+    background: v.$color-purple-normal;
+    height: 30px;
+    border: none;
+    color: #f2f0f5;
+    border-radius: 5px;
+    margin-block: 1rem;
+    a {
+      color: #f2f0f5;
+      text-decoration: none;
     }
+  }
 }
 
 // WEB
-@media (min-width:800px){
-    .article{
-    .article-grid{
-        grid-template-rows: 1fr;
-        grid-template-columns: 1fr 1fr;
+@media (min-width: 800px) {
+  #new-section {
+    .story-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 300px));
+      min-height: 80vh;
+      gap: 2rem;
+      justify-content: center;
+      padding: 2rem;
+      align-items: center;
     }
-}
+  }
+
+  .article {
+    .article-grid {
+      grid-template-rows: 1fr;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
 }

@@ -6,7 +6,7 @@ import Schedule from "./Schedule";
 import { Link } from "react-router-dom";
 import AboutCamping from "../camping/AboutCamping";
 import NewsStories from "../components/news/NewsStories";
-import stories from "../assets/newstories.json";
+import data from "../assets/newstories.json";
 function Home({ articleIngo }) {
   const ShortText = {
     about: (
@@ -34,7 +34,12 @@ function Home({ articleIngo }) {
       </p>
     ),
   };
+const stories = [];
+data.forEach((e) => {
+  stories.unshift(e);
+});
 
+console.log(stories);
   const oneHour = new Date(
     new Date().setHours(new Date().getHours() + 100)
   ).toISOString();
@@ -55,11 +60,7 @@ function Home({ articleIngo }) {
             <Link to="/news">News Feed</Link>
           </h2>
         }
-        /* newButton={
-          <Link href="/news">
-            <button className="btn">Read More</button>
-          </Link>
-        } */
+        
       />
       <Schedule />
       <QuickAbout
