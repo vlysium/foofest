@@ -57,8 +57,8 @@ function Home({ articleIngo }) {
       />
       <Schedule />
 
-      <AboutCamping text={ShortText.camping} />
-      <QuickAbout text={ShortText.about} />
+      <AboutCamping text={ShortText.camping} fromHomepage={true} />
+      <QuickAbout text={ShortText.about} fromHomepage={true} />
     </>
   );
 }

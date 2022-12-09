@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function QuickAbout({ text }) {
+function QuickAbout({ text, fromHomepage }) {
   return (
     <section id="about">
       <div className="about-container">
@@ -8,9 +8,11 @@ function QuickAbout({ text }) {
           <div className="about-text">
             <h2>About Us</h2>
             {text}
-            <Link to="/about">
-              <button className="btn">Read More</button>
-            </Link>
+            {fromHomepage && (
+              <Link to="/about">
+                <button className="btn">Read More</button>
+              </Link>
+            )}
           </div>
         </div>
         <div className="about-image"></div>
