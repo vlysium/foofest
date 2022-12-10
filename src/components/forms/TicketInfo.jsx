@@ -48,6 +48,7 @@ function TicketInfo({ type, finishedAdding }) {
         <label htmlFor="fullname">
           Fullname{" "}
           <input
+          
             type="text"
             name="fullname"
             className="fullname"

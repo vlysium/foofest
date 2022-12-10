@@ -1,5 +1,29 @@
-
+import { useState } from "react";
 function CreditCardInfo({ finishedAdding, emptyField, ticket }) {
+  const [txt, setTxt] = useState("");
+// changes focus
+  const input = document.querySelectorAll("input");
+  input.forEach((e, i) => {
+    e.addEventListener("input", () => {
+      if (e.value.length === e.maxLength) {
+        input[i + 1].focus();
+      }
+    });
+  });
+// validate name
+  const onInputChange = (e) => {
+    const { value } = e.target;
+    console.log("Input value: ", value);
+
+    const re = /^[A-ø a-ø]+$/;
+    if (value === "" || re.test(value)) {
+      setTxt(value);
+    }
+    finishedAdding();
+  };
+
+
+
   return (
     <>
       <h3>CREDITCARD INFO</h3>
@@ -107,7 +131,8 @@ function CreditCardInfo({ finishedAdding, emptyField, ticket }) {
             id="cardholder"
             required
             autoComplete="name"
-            onChange={finishedAdding}
+            onChange={onInputChange}
+            value={txt}
           />
           {emptyField ? (
             <span style={{ color: "red" }}>Field Required</span>
