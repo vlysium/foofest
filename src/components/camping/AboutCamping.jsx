@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function AboutCamping({ text }) {
+function AboutCamping({ text, fromHomepage }) {
   return (
     <section id="camping">
       <div className="camping-container">
@@ -8,9 +8,11 @@ function AboutCamping({ text }) {
           <div className="camping-text">
             <h1>FOOFEST CAMPING</h1>
             {text}
-            <Link to="/Camping">
-              <button className="btn">Read More</button>
-            </Link>
+            {fromHomepage && (
+              <Link to="/Camping">
+                <button className="btn">Read More</button>
+              </Link>
+            )}
           </div>
         </div>
         <div className="camping-image"></div>

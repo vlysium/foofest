@@ -12,7 +12,7 @@ function Tickets() {
   const [spots, setSpots] = useState([]);
   const [ticket, setTicket] = useState({ r: 0, v: 0 });
   const [current, setCurrent] = useState(0);
-  
+  const [emptyField, setEmptyField] = useState(false)
   /*
     URL:
     "http://localhost:8080/available-spots"
@@ -46,12 +46,17 @@ function Tickets() {
   const steps = [
     {
       title: "",
-      content: <TicketType addToTicket={addToTicket} />,
+      content: <TicketType addToTicket={addToTicket} emptyField={emptyField} />,
     },
     {
       title: "",
       content: (
-        <CampingArea spots={spots} addToTicket={addToTicket} ticket={ticket} />
+        <CampingArea
+          spots={spots}
+          addToTicket={addToTicket}
+          ticket={ticket}
+          emptyField={emptyField}
+        />
       ),
     },
     {
@@ -60,11 +65,23 @@ function Tickets() {
     },
     {
       title: "",
-      content: <TicketInfoList ticket={ticket} addToTicket={addToTicket} />,
+      content: (
+        <TicketInfoList
+          ticket={ticket}
+          addToTicket={addToTicket}
+          emptyField={emptyField}
+        />
+      ),
     },
     {
       title: "",
-      content: <Payment ticket={ticket} addToTicket={addToTicket} />,
+      content: (
+        <Payment
+          ticket={ticket}
+          addToTicket={addToTicket}
+          emptyField={emptyField}
+        />
+      ),
     },
   ];
 
@@ -80,7 +97,10 @@ function Tickets() {
     key: item.title,
     title: item.title,
   }));
-
+  //skip the optionals tab if no camping is selected
+function skipOptions () {
+  setCurrent(current + 2);
+}
   return (
     <section id="ticket-section">
       <form action="" id="tickets">
@@ -97,8 +117,9 @@ function Tickets() {
               type="primary"
               onClick={() => {
                 if (ticket.r === 0 && ticket.v === 0) {
-                  console.log();
+                  setEmptyField(true);
                 } else {
+                  setEmptyField(false);
                   next();
                 }
               }}
@@ -111,10 +132,15 @@ function Tickets() {
               type="primary"
               onClick={() => {
                 if (ticket.campingArea === undefined) {
-                  console.log("pick an area");
+                  setEmptyField(true);
                 } else {
-                 next();
-                  
+                  if (ticket.campingArea === "none") {
+                    setEmptyField(false);
+                    skipOptions();
+                  } else {
+                    setEmptyField(false);
+                    next();
+                  }
                 }
               }}
             >
@@ -132,11 +158,34 @@ function Tickets() {
               onClick={() => {
                 if (ticket.info === undefined) {
                   console.log("pick an area");
+                  setEmptyField(true);
                 } else {
-                  next();
-                  console.log(ticket.info);
+                  setEmptyField(true);
+                  let counter = ticket.r + ticket.v;
+                  ticket.info.forEach((element) => {
+                    if (
+                      element.fullname == "" ||
+                      element.email == "" ||
+                      element.birthday == ""
+                    ) {
+                      console.log("not all fields are filled in");
+                    } else if (
+                      element.fullname != "" &&
+                      (element.email != "") & (element.birthday != "")
+                    ) {
+                      console.log((counter -= 1));
+                      console.log("All fields are now filled in");
+                      if (counter > 0) {
+                        console.log(
+                          "there is still " + counter + "fields left"
+                        );
+                      } else if (counter === 0) {
+                        setEmptyField(false);
+                        next();
+                      }
+                    }
+                  });
                 }
-                
               }}
             >
               Next
@@ -145,7 +194,28 @@ function Tickets() {
           {current === steps.length - 1 && (
             <Button
               type="primary"
-              onClick={() => message.success("Processing complete!")}
+              onClick={
+                () => {
+                  if (ticket.payment === undefined) {
+                    console.log("credit info not there");
+                  } else if (ticket.payment[0].number.toString().length < 16) {
+                    setEmptyField(true);
+                    console.log("please fill out the creditnumber");
+                  } else if (ticket.payment[0].day.toString().length < 2) {
+                    setEmptyField(true);
+                    console.log("month");
+                  } else if (ticket.payment[0].month.toString().length < 2) {
+                    setEmptyField(true);
+                    console.log("year");
+                  } else if (ticket.payment[0].cvc.toString().length < 3) {
+                    setEmptyField(true);
+                    console.log("cvc");
+                  } else {
+                    setEmptyField(false);
+                    message.success("Processing complete!");
+                  }
+                } /* message.success("Processing complete!") */
+              }
             >
               Done
             </Button>

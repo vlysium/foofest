@@ -4,7 +4,7 @@ import Countdown from "react-countdown-simple";
 import QuickAbout from "../components/about/QuickAbout";
 import Schedule from "./Schedule";
 import { Link } from "react-router-dom";
-import AboutCamping from "../camping/AboutCamping";
+import AboutCamping from "../components/camping/AboutCamping";
 import NewsStories from "../components/news/NewsStories";
 import data from "../assets/newstories.json";
 import Newsletter from "../components/Newsletter";
@@ -59,8 +59,8 @@ function Home({ articleIngo }) {
       />
       <Schedule />
 
-      <AboutCamping text={ShortText.camping} />
-      <QuickAbout text={ShortText.about} />
+      <AboutCamping text={ShortText.camping} fromHomepage={true} />
+      <QuickAbout text={ShortText.about} fromHomepage={true} />
     </>
   );
 }

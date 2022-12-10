@@ -3,7 +3,7 @@ import "../../styles/news.scss";
 import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 import Article from "./Article";
 
-function NewsStories({ stories, newButton, newsHeadline, articleIngo }) {
+function NewsStories({ stories, newButton, newsHeadline }) {
   //console.log(stories);
   return (
     <section id="new-section">
@@ -20,7 +20,6 @@ function NewsStories({ stories, newButton, newsHeadline, articleIngo }) {
 
                   <button
                     className="btn"
-                    onClick={() => articleIngo(story.story, story.url, story.headline, story.image)}
                   >
                     <Link to={`/news/${story.url}`}>Read More</Link>
                   </button>

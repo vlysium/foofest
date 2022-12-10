@@ -95,7 +95,9 @@
       display: grid;
       grid-template-columns: 1.5fr 0.35fr;
       gap: 0.5rem;
-
+      #green-camping{
+        min-height: 0;
+      }
       input:checked {
         accent-color: #9400f6;
       }
@@ -107,7 +109,7 @@
         min-height: 0;
       }
     }
-    #ticket-info {
+    .ticket-info {
       display: grid;
       /*  grid-template-columns: 0.5fr 1fr; */
       h5 {
@@ -218,7 +220,9 @@
 }
 
 // ANT DESIGN
-
+.steps-content{
+  padding: 1rem;
+}
 #ticket-section {
   .ant-steps {
     .ant-steps-item-wait {
@@ -232,6 +236,13 @@
       }
     }
   }
+  // brithday picker
+.css-dev-only-do-not-override-1ij74fp.ant-picker{
+background: transparent;
+border: none;
+}
+
+
   .css-dev-only-do-not-override-1ij74fp.ant-steps.ant-steps-vertical {
     flex-direction: row;
   }
@@ -363,7 +374,7 @@
     }
     .concert-img {
       width: 100%;
-      height: 100vh;
+      height: 100%;
       background-image: url(public/concert.png);
       background-size: cover;
       background-position: 50%;
