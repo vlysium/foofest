@@ -29,7 +29,7 @@ function Article() {
           }}
           className="newsImage"
         ></div>
-        <div>
+        <div className="article-content">
           <h2>{data[storyId].headline}</h2>
           <p>{data[storyId].story}</p>
         </div>

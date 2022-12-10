@@ -3,9 +3,8 @@ import CreditCardInfo from "./CreditCardInfo";
 import OrderComplete from "./OrderComplete";
 import { useRef } from "react";
 
-function Payment({ ticket, addToTicket, emptyField }) {
+function Payment({ ticket, addToTicket, emptyField, payComplet }) {
   const sectionEl = useRef(null);
-
   function finishedAdding() {
     event.preventDefault();
 
@@ -35,14 +34,17 @@ function Payment({ ticket, addToTicket, emptyField }) {
   return (
     <>
       <Basket ticket={ticket} />
-      <section ref={sectionEl}>
-        <CreditCardInfo
-          finishedAdding={finishedAdding}
-          emptyField={emptyField}
-          ticket={ticket}
-        />
-      </section>
-      <OrderComplete />
+      {payComplet ? (
+        <OrderComplete />
+      ) : (
+        <section ref={sectionEl}>
+          <CreditCardInfo
+            finishedAdding={finishedAdding}
+            emptyField={emptyField}
+            ticket={ticket}
+          />
+        </section>
+      )}
     </>
   );
 }

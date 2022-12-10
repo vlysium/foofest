@@ -13,6 +13,7 @@ function Tickets() {
   const [ticket, setTicket] = useState({ r: 0, v: 0 });
   const [current, setCurrent] = useState(0);
   const [emptyField, setEmptyField] = useState(false)
+  const [payComplet, setPayComplet] = useState(false);
   /*
     URL:
     "http://localhost:8080/available-spots"
@@ -77,6 +78,7 @@ function Tickets() {
       title: "",
       content: (
         <Payment
+          payComplet={payComplet}
           ticket={ticket}
           addToTicket={addToTicket}
           emptyField={emptyField}
@@ -116,6 +118,7 @@ function skipOptions () {
             <Button
               type="primary"
               onClick={() => {
+                setPayComplet(false)
                 if (ticket.r === 0 && ticket.v === 0) {
                   setEmptyField(true);
                 } else {
@@ -212,6 +215,7 @@ function skipOptions () {
                     console.log("cvc");
                   } else {
                     setEmptyField(false);
+                    setPayComplet(true)
                     message.success("Processing complete!");
                   }
                 } /* message.success("Processing complete!") */
