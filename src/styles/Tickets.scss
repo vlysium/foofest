@@ -164,10 +164,14 @@
         justify-content: space-between;
       }
     }
+    .credit-headline{
+       margin-top:  1.5rem;
+      }
     #creditcard-info {
       display: grid;
       grid-template-rows: 1fr 1fr 1fr;
       grid-template-columns: 1fr 1fr;
+      
 
       label {
         background-color: transparent;
@@ -205,13 +209,6 @@
       }
 
       .expire-container {
-        /*   display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      background-color: rgb(44, 42, 45);
-      border-radius: 5px;
-      align-items: center;
-      width: 100%; */
 
         display: flex;
         background-color: rgb(44, 42, 45);

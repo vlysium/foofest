@@ -80,7 +80,7 @@ function CreditCardInfo({ finishedAdding, emptyField, ticket }) {
 
   return (
     <>
-      <h3>CREDITCARD INFO</h3>
+      <h3 className="credit-headline">CREDITCARD INFO</h3>
       <fieldset id="creditcard-info" className="creditcard-info">
         <label htmlFor="cardnumber" className="cardnumber">
           Cardnumber

@@ -45,7 +45,7 @@ function PopUp({ popUpIsOpen, onClosePopUp, data }) {
           <p id="details-genre">{genre}</p>
           <h3 id="details-band-name">{name}</h3>
           <p id="details-band-members">{members ? displayBandMembers() : null}</p>
-          <h4>About</h4>
+          <h4>ABOUT</h4>
           <p id="details-bio">{bio}</p>
         </div>
       </div>

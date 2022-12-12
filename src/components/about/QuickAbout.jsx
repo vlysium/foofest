@@ -6,7 +6,7 @@ function QuickAbout({ text, fromHomepage }) {
       <div className="about-container">
         <div className="text-wrapper">
           <div className="about-text">
-            <h2>About Us</h2>
+            <h2>ABOUT FOOFEST</h2>
             {text}
             {fromHomepage && (
               <Link to="/about">

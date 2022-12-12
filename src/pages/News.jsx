@@ -16,7 +16,7 @@ function News({ articleIngo }) {
     <NewsStories
       stories={stories}
       articleIngo={articleIngo}
-      newsHeadline={<h2>News Feed</h2>}
+      newsHeadline={<h2>FOOFEST NEWS</h2>}
     />
   );
 }

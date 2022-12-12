@@ -10,7 +10,7 @@ function TicketsShop() {
 
   return (
     <section id="tickets-shop" className="max-width">
-      <h2>Foofest Tickets</h2>
+      <h2>FOOFEST TICKETS</h2>
       <div id="shop-wrapper">
         <ul id="shop-layout">
           <TicketCard

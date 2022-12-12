@@ -22,7 +22,7 @@ function Schedule() {
 
   return (
     <section id="schedule">
-      <h2>FOOFEST 2023 PROGRAM</h2>
+      <h2>FOOFEST PROGRAM</h2>
       <ScheduleLayout onOpenPopUp={handleOpenPopUp} />
       <PopUp popUpIsOpen={popUpIsOpen} onClosePopUp={handleClosePopUp} data={displayData} />
     </section>
