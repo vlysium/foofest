@@ -14,7 +14,7 @@ function Tickets() {
   const [current, setCurrent] = useState(0);
   const [emptyField, setEmptyField] = useState(false)
   const [payComplet, setPayComplet] = useState(false);
-  const [reserveID, setReserveID] = useState()
+  const [reserveID, setReserveID] = useState("")
   /* 
     URL:
     "http://localhost:8080/available-spots"
@@ -48,22 +48,23 @@ function Tickets() {
   function reserveSpot() {
     console.log("the reserveFunction has stareted")
     const payload = {
-      area: `${ticket.campingArea}`,
-      amount: `${ticket.r + ticket.v}`
+      area: ticket.campingArea,
+      amount: ticket.r + ticket.v
     };
     console.log(payload);
 
 //    const url = "http://localhost:8080/reserve-spot";
     fetch(`${url}reserve-spot`, {
-      method: "POST",
+      method: "PUT",
       header: {
-        "content-Type": "application/json",
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(payload),
     })
       .then((response) => response.json())
-      .then((response) => setReserveID(response.id))
+      .then((response) => console.log(response))
       .catch((err) => console.log(err));
+      
     
   }
   // Progress tracker from Ant Design
