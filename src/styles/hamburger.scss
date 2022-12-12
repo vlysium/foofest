@@ -60,7 +60,11 @@
       -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: v.$color-purple-normal;
     }
+    .menu-logo{
+      font-size: clamp(1.44rem, 1.16rem + 2vw, 2.5rem);
+    
   }
+}
 }
 .changeFont{
   font-size: 2.5rem !important;

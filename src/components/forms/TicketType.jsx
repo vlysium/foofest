@@ -1,12 +1,17 @@
 
 
 
-function TicketType({ addToTicket }) {
+function TicketType({ addToTicket, emptyField }) {
   return (
     <>
       <div className="type-container">
         <div>
           <h3>TICKETTYPE</h3>
+          {emptyField ? (
+            <p style={{ color: "red" }}>Please select a ticket type</p>
+          ) : (
+            ""
+          )}
           <fieldset id="ticket-type">
             <label htmlFor="regular" className="regular-label">
               <span>REGULAR </span>

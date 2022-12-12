@@ -58,7 +58,10 @@ function Hamburger() {
   };
   // Receives the Article infomation from the News page and sendes it to the react router component <Article/>
   function articleIngo(story, url, headline, image) {
-    getArticleContent((old) => (old = { story: story, url: url, headline: headline, image: image }));
+    getArticleContent(
+      (old) =>
+        (old = { story: story, url: url, headline: headline, image: image })
+    );
   }
 
   return (
@@ -69,7 +72,7 @@ function Hamburger() {
           <div className="menuIcon">
             <Link onClick={() => setChangeIcon(true)} to="/">
               {onMobile ? (
-                <h3>FOOFEST</h3>
+                <h3 className="menu-logo">FOOFEST</h3>
               ) : (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -100,7 +103,11 @@ function Hamburger() {
             </button>
           </div>
 
-          <nav className={changeIcon ? `right slideOut ${hideEl}` : `slideOut ${showEl}`}>
+          <nav
+            className={
+              changeIcon ? `right slideOut ${hideEl}` : `slideOut ${showEl}`
+            }
+          >
             <ul>
               <li onClick={() => setChangeIcon(true)}>
                 <Link to="/tickets">TICKETS</Link>
@@ -112,13 +119,13 @@ function Hamburger() {
                 <Link to="/program">PROGRAM</Link>
               </li>
               <li onClick={() => setChangeIcon(true)}>
-                <Link to="/about">ABOUT</Link>
+                <Link to="/news">NEWS</Link>
               </li>
               <li onClick={() => setChangeIcon(true)}>
                 <Link to="/jobs">JOBS</Link>
               </li>
               <li onClick={() => setChangeIcon(true)}>
-                <Link to="/news">NEWS</Link>
+                <Link to="/about">ABOUT</Link>
               </li>
             </ul>
           </nav>
@@ -129,14 +136,25 @@ function Hamburger() {
             <Route path="/program" element={<Schedule />}></Route>
             <Route path="/about" element={<About />}></Route>
             <Route path="/jobs" element={<Jobs />}></Route>
-            <Route path="/news" element={<News articleIngo={articleIngo} />}></Route>
             <Route
+              path="/news"
+              element={<News />}
+            ></Route>
+            <Route
+              path={`news/:id`}
+              element={<Article/>}
+            ></Route>
+
+            {/* <Route
               path={`/news/${articleContent.url}`}
               element={
                 <Article headline={articleContent.headline} story={articleContent.story} image={articleContent.image} />
               }
+            ></Route> */}
+            <Route
+              path="/"
+              element={<Home articleIngo={articleIngo} />}
             ></Route>
-            <Route path="/" element={<Home articleIngo={articleIngo} />}></Route>
             <Route path="*" element={<Error />} />
           </Routes>
           <Footer />

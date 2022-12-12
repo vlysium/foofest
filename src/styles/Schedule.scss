@@ -80,7 +80,7 @@
 
   #pop-up {
     display: none;
-    z-index: 10;
+    z-index: 200;
 
     &[open] {
       display: block;
@@ -102,7 +102,7 @@
         margin: auto;
         background-color: v.$color-black-light;
         border-radius: 5px;
-        max-width: 680px;
+        max-width: 540px;
         max-height: calc(100vh - 40px);
         overflow-y: hidden;
         position: relative;
