@@ -31,7 +31,7 @@ function CreditCardInfo({ finishedAdding, emptyField, ticket }) {
         <label htmlFor="cardnumber" className="cardnumber">
           Cardnumber
           <input
-            type="number"
+            type="text"
             onInput={(e) => {
               if (e.target.value.length > e.target.maxLength)
                 e.target.value = e.target.value.slice(0, e.target.maxLength);
@@ -57,7 +57,7 @@ function CreditCardInfo({ finishedAdding, emptyField, ticket }) {
           Expire
           <div className="expire-container">
             <input
-              type="number"
+              type="text"
               name="expires"
               className="expire-day"
               id="expire-day"
@@ -74,7 +74,7 @@ function CreditCardInfo({ finishedAdding, emptyField, ticket }) {
             />{" "}
             /
             <input
-              type="number"
+              type="text"
               name="expires"
               className="expire-month"
               id="expire-month"
@@ -100,7 +100,7 @@ function CreditCardInfo({ finishedAdding, emptyField, ticket }) {
         <label htmlFor="cvc" className="cvc">
           CVC{" "}
           <input
-            type="number"
+            type="text"
             name="cvc"
             className="cvc-number"
             id="cvc"
