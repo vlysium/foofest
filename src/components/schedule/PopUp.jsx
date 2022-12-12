@@ -10,7 +10,7 @@ function PopUp({ popUpIsOpen, onClosePopUp, data }) {
     if (logo.includes("https://")) {
       return logo;
     }
-    return null; // replace later
+    return `/logos/${logo}`;
   }
 
   function displayBandMembers() {
@@ -41,7 +41,7 @@ function PopUp({ popUpIsOpen, onClosePopUp, data }) {
         <button id="close-pop-up" onClick={() => handleClick()}></button>
         <img src={logo ? displayImage() : null} alt={"An image representing " + name} id="details-logo" />
         <div ref={content}>
-          {logoCredits ? <p id="details-logo-credits">{logoCredits}</p> : null}
+          {logoCredits ? <p id="details-logo-credits">{"Image credits: " + logoCredits}</p> : null}
           <p id="details-genre">{genre}</p>
           <h3 id="details-band-name">{name}</h3>
           <p id="details-band-members">{members ? displayBandMembers() : null}</p>
