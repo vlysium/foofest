@@ -1,6 +1,15 @@
 import { useState } from "react";
 function CreditCardInfo({ finishedAdding, emptyField, ticket }) {
   const [txt, setTxt] = useState("");
+  const [creidtNr, setCreidtNr] = useState("");
+  const [creidtNrSpan, setCreidtNrSpan] = useState(false);
+  const [month, setMonth] = useState("");
+  const [monthSpan, setMonthSpan] = useState("");
+  const [year, setYear] = useState("");
+  const [yearSpan, setYearSpan] = useState("");
+  const [cvc, setCvc] = useState("");
+  const [cvcSpan, setCvcSpan] = useState("");
+
 // changes focus
   const input = document.querySelectorAll("input");
   input.forEach((e, i) => {
@@ -10,15 +19,60 @@ function CreditCardInfo({ finishedAdding, emptyField, ticket }) {
       }
     });
   });
-// validate name
+// validate name & field length
   const onInputChange = (e) => {
     const { value } = e.target;
     console.log("Input value: ", value);
-
-    const re = /^[A-ø a-ø]+$/;
+  
+    if(e.target.id === "cardholder"){
+     const re = /^[A-ø a-ø]+$/;
     if (value === "" || re.test(value)) {
       setTxt(value);
     }
+  } else if (e.target.id === "cardnumber") {
+    const re = /^[0-9]+$/;
+    if (value === "" || re.test(value)) {
+      if (e.target.value.length < 16) {
+        setCreidtNrSpan(true);
+      } else {
+        setCreidtNrSpan(false);
+      }
+      setCreidtNr(value);
+    }
+  } else if (e.target.id === "expire-day") {
+    const re = /^[0-9]+$/;
+    if (value === "" || re.test(value)) {
+      if (e.target.value.length < 2) {
+        setMonthSpan(true);
+      } else {
+        setMonthSpan(false);
+      }
+      setMonth(value);
+    }
+  } else if (e.target.id === "expire-month") {
+    const re = /^[0-9]+$/;
+    if (value === "" || re.test(value)) {
+      if (e.target.value.length < 2) {
+        setYearSpan(true);
+      } else {
+        setYearSpan(false);
+      }
+      setYear(value);
+    }
+  } else if (e.target.id === "cvc") {
+    const re = /^[0-9]+$/;
+    if (value === "" || re.test(value)) {
+      if (e.target.value.length < 3) {
+        setCvcSpan(true);
+      } else {
+        setCvcSpan(false);
+      }
+      setCvc(value);
+    }
+  }
+
+
+
     finishedAdding();
   };
 
@@ -44,9 +98,10 @@ function CreditCardInfo({ finishedAdding, emptyField, ticket }) {
             maxLength="16"
             minLength="16"
             required
-            onChange={finishedAdding}
+            onChange={onInputChange}
+            value={creidtNr}
           />
-          {emptyField ? (
+          {creidtNrSpan ? (
             <span style={{ color: "red" }}>Field Required</span>
           ) : (
             ""
@@ -70,7 +125,8 @@ function CreditCardInfo({ finishedAdding, emptyField, ticket }) {
                   e.target.value = e.target.value.slice(0, e.target.maxLength);
               }}
               required
-              onChange={finishedAdding}
+              onChange={onInputChange}
+              value={month}
             />{" "}
             /
             <input
@@ -87,10 +143,11 @@ function CreditCardInfo({ finishedAdding, emptyField, ticket }) {
               maxLength="2"
               minLength="2"
               required
-              onChange={finishedAdding}
+              onChange={onInputChange}
+              value={year}
             />
           </div>
-          {emptyField ? (
+          {monthSpan || yearSpan ? (
             <span style={{ color: "red" }}>Field Required</span>
           ) : (
             ""
@@ -113,7 +170,8 @@ function CreditCardInfo({ finishedAdding, emptyField, ticket }) {
             }}
             minLength="3"
             required
-            onChange={finishedAdding}
+            onChange={onInputChange}
+            value={cvc}
           />
           {emptyField ? (
             <span style={{ color: "red" }}>Field Required</span>
@@ -134,11 +192,7 @@ function CreditCardInfo({ finishedAdding, emptyField, ticket }) {
             onChange={onInputChange}
             value={txt}
           />
-          {emptyField ? (
-            <span style={{ color: "red" }}>Field Required</span>
-          ) : (
-            ""
-          )}
+          {cvcSpan ? <span style={{ color: "red" }}>Field Required</span> : ""}
         </label>
       </fieldset>
       {/*  <button>COMPLETE PAYMENT</button> */}

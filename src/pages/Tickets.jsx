@@ -14,23 +14,26 @@ function Tickets() {
   const [current, setCurrent] = useState(0);
   const [emptyField, setEmptyField] = useState(false)
   const [payComplet, setPayComplet] = useState(false);
-  /*
+  const [reserveID, setReserveID] = useState()
+  /* 
     URL:
     "http://localhost:8080/available-spots"
     "https://vjr-foofest.fly.dev/available-spots"
   */
-  const url = "http://localhost:8080/available-spots";
+  const url = "http://localhost:8080/";
 
   // API
   useEffect(() => {
     async function getSpots() {
-      const response = await fetch(url);
+      const response = await fetch(url+"available-spots");
       const data = await response.json();
       setSpots(data);
       //console.log(data);
     }
     getSpots();
   }, [ticket]);
+
+
 
   // hvor mange billetter er valgt
   function addToTicket(property, value) {
@@ -42,12 +45,41 @@ function Tickets() {
       return copy;
     });
   }
+  function reserveSpot() {
+    console.log("the reserveFunction has stareted")
+    const payload = {
+      area: `${ticket.campingArea}`,
+      amount: `${ticket.r + ticket.v}`
+    };
+    console.log(payload);
 
+//    const url = "http://localhost:8080/reserve-spot";
+    fetch(`${url}reserve-spot`, {
+      method: "POST",
+      header: {
+        "content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    })
+      .then((response) => response.json())
+      .then((response) => setReserveID(response.id))
+      .catch((err) => console.log(err));
+    
+  }
   // Progress tracker from Ant Design
   const steps = [
     {
       title: "",
       content: <TicketType addToTicket={addToTicket} emptyField={emptyField} />,
+    },{
+      title: "",
+      content: (
+        <TicketInfoList
+          ticket={ticket}
+          addToTicket={addToTicket}
+          emptyField={emptyField}
+        />
+      ),
     },
     {
       title: "",
@@ -63,16 +95,6 @@ function Tickets() {
     {
       title: "",
       content: <Optionals addToTicket={addToTicket} ticket={ticket} />,
-    },
-    {
-      title: "",
-      content: (
-        <TicketInfoList
-          ticket={ticket}
-          addToTicket={addToTicket}
-          emptyField={emptyField}
-        />
-      ),
     },
     {
       title: "",
@@ -115,6 +137,7 @@ function skipOptions () {
         >
           {current > 0 && <Button onClick={() => prev()}>Previous</Button>}
           {current === 0 && (
+            //ticket Type
             <Button
               type="primary"
               onClick={() => {
@@ -130,7 +153,8 @@ function skipOptions () {
               Next
             </Button>
           )}
-          {current === 1 && (
+          {current === 2 && (
+            //Camping Area
             <Button
               type="primary"
               onClick={() => {
@@ -139,9 +163,11 @@ function skipOptions () {
                 } else {
                   if (ticket.campingArea === "none") {
                     setEmptyField(false);
+                    //reserveSpot();
                     skipOptions();
                   } else {
                     setEmptyField(false);
+                    reserveSpot()
                     next();
                   }
                 }
@@ -150,12 +176,14 @@ function skipOptions () {
               Next
             </Button>
           )}
-          {current === 2 && (
+          {current === 3 && (
+            // optionals
             <Button type="primary" onClick={() => next()}>
               Next
             </Button>
           )}
-          {current === 3 && (
+          {current === 1 && (
+            //ticket Info
             <Button
               type="primary"
               onClick={() => {
@@ -195,6 +223,7 @@ function skipOptions () {
             </Button>
           )}
           {current === steps.length - 1 && (
+            //paymeny
             <Button
               type="primary"
               onClick={
