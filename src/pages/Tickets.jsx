@@ -6,6 +6,8 @@ import CampingArea from "../components/forms/CampingArea";
 import Optionals from "../components/forms/Optionals";
 import Payment from "../components/forms/Payment";
 import TicketInfoList from "../components/forms/TicketInfoList";
+import Countdown from "react-countdown-simple";
+
 
 function Tickets() {
   const [spots, setSpots] = useState([]);
@@ -15,6 +17,9 @@ function Tickets() {
   const [payComplet, setPayComplet] = useState(false);
   const [reserveID, setReserveID] = useState("");
   const [reserveTime, setReserveTime] = useState("");
+   const oneHour = new Date(
+     new Date().setMinutes(new Date().getMinutes() +5)
+   ).toISOString();
   /* 
     URL:
     "http://localhost:8080/available-spots"
@@ -124,7 +129,21 @@ function Tickets() {
     <section id="ticket-section">
       <form action="" id="tickets">
         <Steps current={current} items={items} />
-        <div className="steps-content">{steps[current].content}</div>
+        <div className="steps-content">
+          {reserveID != "" ? (
+            <Countdown
+              targetDate={oneHour}
+              renderer={({ days, hours, minutes, seconds }) => (
+                <div className="timer">
+                  {minutes}:{seconds}
+                </div>
+              )}
+            />
+          ) : (
+            ""
+          )}
+          {steps[current].content}
+        </div>
         <div
           className={
             current > 0 ? "steps-action two-button" : "steps-action one-button"
