@@ -74,6 +74,10 @@
         }
       }
     }
+
+    @media (min-width: 708px) {
+      overflow-x: unset;
+    }
   }
 }
 .article {
@@ -92,20 +96,20 @@
       padding: 1rem;
     }
   }
-     button {
-      width: 100px;
-      background: v.$color-purple-normal;
-      height: 30px;
-      border: none;
+  button {
+    width: 100px;
+    background: v.$color-purple-normal;
+    height: 30px;
+    border: none;
+    color: #f2f0f5;
+    border-radius: 5px;
+    margin-block: 1rem;
+    margin-left: 1rem;
+    a {
       color: #f2f0f5;
-      border-radius: 5px;
-      margin-block: 1rem;
-      margin-left: 1rem;
-      a {
-        color: #f2f0f5;
-        text-decoration: none;
-      }
+      text-decoration: none;
     }
+  }
 }
 // WEB
 @media (min-width: 800px) {
