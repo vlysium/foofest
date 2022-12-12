@@ -10,7 +10,7 @@ function QuickAbout({ text, fromHomepage }) {
             {text}
             {fromHomepage && (
               <Link to="/about">
-                <button className="btn">Read More</button>
+                <button className="btn">READ MORE</button>
               </Link>
             )}
           </div>

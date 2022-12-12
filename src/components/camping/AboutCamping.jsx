@@ -10,7 +10,7 @@ function AboutCamping({ text, fromHomepage }) {
             {text}
             {fromHomepage && (
               <Link to="/camping">
-                <button className="btn">Read More</button>
+                <button className="btn">READ MORE</button>
               </Link>
             )}
           </div>

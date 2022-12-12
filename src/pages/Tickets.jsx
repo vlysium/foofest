@@ -144,12 +144,12 @@ function Tickets() {
           )}
           {steps[current].content}
         </div>
-        <div
-          className={
-            current > 0 ? "steps-action two-button" : "steps-action one-button"
-          }
-        >
-          {current > 0 && <Button onClick={() => prev()}>Previous</Button>}
+        <div className={current > 0 ? "steps-action two-button" : "steps-action one-button"}>
+          {current > 0 && (
+            <Button onClick={() => prev()}>
+              <b> PREVIOUS </b>
+            </Button>
+          )}
           {current === 0 && (
             //ticket Type
             <Button
@@ -164,7 +164,7 @@ function Tickets() {
                 }
               }}
             >
-              Next
+              <b>NEXT</b>
             </Button>
           )}
           {current === 2 && (
@@ -187,13 +187,13 @@ function Tickets() {
                 }
               }}
             >
-              Next
+              <b>NEXT</b>
             </Button>
           )}
           {current === 3 && (
             // optionals
             <Button type="primary" onClick={() => next()}>
-              Next
+              <b>NEXT</b>
             </Button>
           )}
           {current === 1 && (
@@ -208,22 +208,13 @@ function Tickets() {
                   setEmptyField(true);
                   let counter = ticket.r + ticket.v;
                   ticket.info.forEach((element) => {
-                    if (
-                      element.fullname == "" ||
-                      element.email == "" ||
-                      element.birthday == ""
-                    ) {
+                    if (element.fullname == "" || element.email == "" || element.birthday == "") {
                       console.log("not all fields are filled in");
-                    } else if (
-                      element.fullname != "" &&
-                      (element.email != "") & (element.birthday != "")
-                    ) {
+                    } else if (element.fullname != "" && (element.email != "") & (element.birthday != "")) {
                       console.log((counter -= 1));
                       console.log("All fields are now filled in");
                       if (counter > 0) {
-                        console.log(
-                          "there is still " + counter + "fields left"
-                        );
+                        console.log("there is still " + counter + "fields left");
                       } else if (counter === 0) {
                         setEmptyField(false);
                         next();
@@ -233,7 +224,7 @@ function Tickets() {
                 }
               }}
             >
-              Next
+              <b>NEXT</b>
             </Button>
           )}
           {current === steps.length - 1 && (
@@ -265,7 +256,7 @@ function Tickets() {
                 } /* message.success("Processing complete!") */
               }
             >
-              Done
+              <b>DONE</b>
             </Button>
           )}
         </div>
