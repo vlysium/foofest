@@ -6,25 +6,31 @@ import CampingArea from "../components/forms/CampingArea";
 import Optionals from "../components/forms/Optionals";
 import Payment from "../components/forms/Payment";
 import TicketInfoList from "../components/forms/TicketInfoList";
+import Countdown from "react-countdown-simple";
 
 
 function Tickets() {
   const [spots, setSpots] = useState([]);
   const [ticket, setTicket] = useState({ r: 0, v: 0 });
   const [current, setCurrent] = useState(0);
-  const [emptyField, setEmptyField] = useState(false)
+  const [emptyField, setEmptyField] = useState(false);
   const [payComplet, setPayComplet] = useState(false);
-  /*
+  const [reserveID, setReserveID] = useState("");
+  const [reserveTime, setReserveTime] = useState("");
+   const oneHour = new Date(
+     new Date().setMinutes(new Date().getMinutes() +5)
+   ).toISOString();
+  /* 
     URL:
     "http://localhost:8080/available-spots"
     "https://vjr-foofest.fly.dev/available-spots"
   */
-  const url = "http://localhost:8080/available-spots";
+  const url = "http://localhost:8080/";
 
   // API
   useEffect(() => {
     async function getSpots() {
-      const response = await fetch(url);
+      const response = await fetch(url + "available-spots");
       const data = await response.json();
       setSpots(data);
       //console.log(data);
@@ -42,12 +48,39 @@ function Tickets() {
       return copy;
     });
   }
+  function reserveSpot() {
+    console.log("the reserveFunction has stareted");
+    const payload = {
+      area: ticket.campingArea,
+      amount: ticket.r + ticket.v,
+    };
+    console.log(JSON.stringify(payload));
 
+    //    const url = "http://localhost:8080/reserve-spot";
+    fetch(`${url}reserve-spot`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    })
+      .then((response) => response.json())
+      .then((response) => setReserveID(response.id))
+      .catch((err) => console.log(err));
+  }
   // Progress tracker from Ant Design
   const steps = [
     {
       title: "",
       content: <TicketType addToTicket={addToTicket} emptyField={emptyField} />,
+    },
+    {
+      title: "",
+      content: (
+        <TicketInfoList
+          ticket={ticket}
+          addToTicket={addToTicket}
+          emptyField={emptyField}
+        />
+      ),
     },
     {
       title: "",
@@ -67,16 +100,6 @@ function Tickets() {
     {
       title: "",
       content: (
-        <TicketInfoList
-          ticket={ticket}
-          addToTicket={addToTicket}
-          emptyField={emptyField}
-        />
-      ),
-    },
-    {
-      title: "",
-      content: (
         <Payment
           payComplet={payComplet}
           ticket={ticket}
@@ -86,7 +109,6 @@ function Tickets() {
       ),
     },
   ];
-
 
   //const [current, setCurrent] = useState(0);
   const next = () => {
@@ -100,14 +122,28 @@ function Tickets() {
     title: item.title,
   }));
   //skip the optionals tab if no camping is selected
-function skipOptions () {
-  setCurrent(current + 2);
-}
+  function skipOptions() {
+    setCurrent(current + 2);
+  }
   return (
     <section id="ticket-section">
       <form action="" id="tickets">
         <Steps current={current} items={items} />
-        <div className="steps-content">{steps[current].content}</div>
+        <div className="steps-content">
+          {reserveID != "" ? (
+            <Countdown
+              targetDate={oneHour}
+              renderer={({ days, hours, minutes, seconds }) => (
+                <div className="timer">
+                  {minutes}:{seconds}
+                </div>
+              )}
+            />
+          ) : (
+            ""
+          )}
+          {steps[current].content}
+        </div>
         <div
           className={
             current > 0 ? "steps-action two-button" : "steps-action one-button"
@@ -115,10 +151,11 @@ function skipOptions () {
         >
           {current > 0 && <Button onClick={() => prev()}>Previous</Button>}
           {current === 0 && (
+            //ticket Type
             <Button
               type="primary"
               onClick={() => {
-                setPayComplet(false)
+                setPayComplet(false);
                 if (ticket.r === 0 && ticket.v === 0) {
                   setEmptyField(true);
                 } else {
@@ -130,7 +167,8 @@ function skipOptions () {
               Next
             </Button>
           )}
-          {current === 1 && (
+          {current === 2 && (
+            //Camping Area
             <Button
               type="primary"
               onClick={() => {
@@ -139,9 +177,11 @@ function skipOptions () {
                 } else {
                   if (ticket.campingArea === "none") {
                     setEmptyField(false);
+                    //reserveSpot();
                     skipOptions();
                   } else {
                     setEmptyField(false);
+                    reserveSpot();
                     next();
                   }
                 }
@@ -150,12 +190,14 @@ function skipOptions () {
               Next
             </Button>
           )}
-          {current === 2 && (
+          {current === 3 && (
+            // optionals
             <Button type="primary" onClick={() => next()}>
               Next
             </Button>
           )}
-          {current === 3 && (
+          {current === 1 && (
+            //ticket Info
             <Button
               type="primary"
               onClick={() => {
@@ -195,6 +237,7 @@ function skipOptions () {
             </Button>
           )}
           {current === steps.length - 1 && (
+            //paymeny
             <Button
               type="primary"
               onClick={
@@ -216,7 +259,7 @@ function skipOptions () {
                     console.log("cvc");
                   } else {
                     setEmptyField(false);
-                    setPayComplet(true)
+                    setPayComplet(true);
                     message.success("Processing complete!");
                   }
                 } /* message.success("Processing complete!") */

@@ -4,6 +4,13 @@
 #ticket-section {
   width: 100%;
   //padding: 2rem;
+  .timer{
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white;
+    font-size: 3rem;
+    display: flex;
+    justify-content: end;
+  }
   #tickets {
     display: grid;
     justify-content: center;

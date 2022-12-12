@@ -16,7 +16,7 @@ function Optionals({ticket, addToTicket}) {
             addToTicket("greenCamping", Number(evt.target.value))
           }
         />
-        <span class="checkmark"></span>
+        <span className="checkmark"></span>
       </fieldset>
       <p>Get the crew to set up your tents</p>
       <fieldset className="optionals">
@@ -34,7 +34,7 @@ function Optionals({ticket, addToTicket}) {
             addToTicket("tentAmount", Number(evt.target.value))
           }
         />
-        <span class="checkmark"></span>
+        <span className="checkmark"></span>
         {/* <label htmlFor="three-person" className="three-camp">
           <span>3 person camp</span> <span> 399,-</span>
         </label>
