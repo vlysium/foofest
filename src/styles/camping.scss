@@ -4,7 +4,9 @@
 #about,
 #green-camping,
 #crew-setup,
-#sustainability {
+#sustainability,
+#work,
+#volunteer {
   display: grid;
   width: 100%;
   min-height: 90vh;
@@ -15,7 +17,9 @@
   .about-container,
   .green-camping-container,
   .crew-setup-container,
-  .sustainability-container {
+  .sustainability-container,
+  .work-container,
+  .volunteer-container {
     display: grid;
     grid-template-columns: 1fr;
     //grid-template-rows: 1fr 1fr;
@@ -25,7 +29,9 @@
     .about-text,
     .green-camping-text,
     .crew-setup-text,
-    .sustainability-text {
+    .sustainability-text,
+    .work-text,
+    .volunteer-text {
       display: flex;
       padding: 2rem 1rem;
       flex-direction: column;
@@ -46,7 +52,9 @@
     .about-image,
     .green-camping-image,
     .crew-setup-image,
-    .sustainability-image {
+    .sustainability-image,
+    .work-image,
+    .volunteer-image {
       background-size: cover;
       background-position: 50%;
       width: 100%;
@@ -61,12 +69,16 @@
   #about,
   #green-camping,
   #crew-setup,
-  #sustainability {
+  #sustainability,
+  #work,
+  #volunteer {
     .camping-container,
     .about-container,
     .green-camping-container,
     .crew-setup-container,
-    .sustainability-container {
+    .sustainability-container,
+    .work-container,
+    .volunteer-container {
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr;
@@ -79,7 +91,8 @@
 
         .camping-text,
         .crew-setup-text,
-        .sustainability-text {
+        .sustainability-text,
+        .work-text {
           margin-left: auto;
         }
       }
@@ -88,13 +101,16 @@
       .about-image,
       .green-camping-image,
       .crew-setup-image,
-      .sustainability-image {
+      .sustainability-image,
+      .work-image,
+      .volunteer-image {
         height: 100%;
         width: 50vw;
       }
 
       .about-image,
-      .green-camping-image {
+      .green-camping-image,
+      .volunteer-image {
         order: -1;
       }
     }
