@@ -19,9 +19,9 @@ function Article() {
   console.log(params.id);
   return (
     <div className="article">
-      <button>
-        <Link to="/news">Back</Link>
-      </button>
+      <Link to="/news">
+        <button>Back</button>{" "}
+      </Link>
       <div className="article-grid">
         <div
           style={{

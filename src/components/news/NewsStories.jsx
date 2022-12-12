@@ -13,16 +13,16 @@ function NewsStories({ stories, newButton, newsHeadline }) {
           {stories.reverse().map((story, index) => (
             <>
               <div className="news-card" key={index}>
-                <div style={{ backgroundImage: `url(../../public${story.image})` }} className="newsImage"></div>
+                <div
+                  style={{ backgroundImage: `url(../../public${story.image})` }}
+                  className="newsImage"
+                ></div>
                 <div className="storyContent">
                   <h4>{story.headline}</h4>
                   <p>{story.story.substring(0, 145).trimEnd() + "..."}</p>
-
-                  <button
-                    className="btn"
-                  >
-                    <Link to={`/news/${story.url}`}>Read More</Link>
-                  </button>
+                  <Link to={`/news/${story.url}`}>
+                    <button className="btn">Read More</button>
+                  </Link>
                 </div>
               </div>
             </>
