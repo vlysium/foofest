@@ -7,7 +7,7 @@
   .timer{
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: white;
-    font-size: 3rem;
+    font-size: 2.5rem;
     display: flex;
     justify-content: end;
   }
@@ -150,13 +150,18 @@
         background-color: rgb(44, 42, 45);
 
         border-radius: 5px;
+        padding: 0.5rem;
       }
 
       ul {
         list-style: none;
+        margin-top: 0;
+        display: grid;
+        gap: 0.5rem;
       }
       p {
-        text-align: end;
+         display: flex;
+        justify-content: space-between;
       }
     }
     #creditcard-info {
@@ -248,7 +253,7 @@
 .css-dev-only-do-not-override-1ij74fp.ant-picker{
 background: transparent;
 border: none;
-
+padding: 0;
 }
 
 
@@ -330,11 +335,13 @@ border: none;
     border: 2px solid #9400f6;
     box-shadow: 0 2px 0 rgb(0 0 0 / 2%);
     color: white;
+    min-width: 100px;
   }
 
   // button color next
   .css-dev-only-do-not-override-1ij74fp.ant-btn-primary {
     background-color: v.$color-purple-normal;
+    min-width: 100px;
   }
   // button placement
   .steps-action {
@@ -370,6 +377,9 @@ border: none;
         justify-items: center;
         #ticket-type {
           justify-items: center;
+          label{
+            min-width: 250px;
+          }
         }
         /*   .concert-img{
             width: 100%;
@@ -390,5 +400,6 @@ border: none;
       position: sticky;
       top: 0;
     }
+     
   }
 }

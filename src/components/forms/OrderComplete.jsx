@@ -2,7 +2,7 @@
 function OrderComplete() {
   return (
   <>
-    <h3>Payment complete</h3>
+    <h3>PAYMENT COMPLETE</h3>
     <p>Thank you for your order!</p>
   </>
   )

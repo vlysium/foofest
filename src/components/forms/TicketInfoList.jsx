@@ -29,7 +29,7 @@ function TicketInfoList({ ticket, addToTicket, emptyField }) {
   }
   return (
     <section ref={sectionEl}>
-      <h3>Ticket info</h3>
+      <h3>TICKET INFO</h3>
       {emptyField ? <p style={{color:"red"}}>Please fill in all of the fields</p> : ""}
       {[...Array(ticket.r).keys()].map((info, index) => (
         <TicketInfo

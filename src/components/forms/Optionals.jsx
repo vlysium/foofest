@@ -1,7 +1,7 @@
 function Optionals({ticket, addToTicket}) {
   return (
     <>
-      <h3>Camping Optionals</h3>
+      <h3>CAMPING OPTIONALS</h3>
       <fieldset className="optionals">
         <label htmlFor="green-camping" className="eco-camping">
           <span>Green camping</span> <span>249,-</span>
