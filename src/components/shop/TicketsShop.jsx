@@ -14,20 +14,20 @@ function TicketsShop() {
       <div id="shop-wrapper">
         <ul id="shop-layout">
           <TicketCard
-            title="Regular"
-            text={card.regular}
-            price="799,-"
-            buttonText="Buy now"
-            link="tickets"
-            className="ticket-card"
-          />
-          <TicketCard
             title="VIP"
             text={card.vip}
             price="1299,-"
             buttonText="Buy now"
             link="tickets"
-            className="ticket-card highlighted"
+            className="ticket-card ticket-vip highlighted"
+          />
+          <TicketCard
+            title="Regular"
+            text={card.regular}
+            price="799,-"
+            buttonText="Buy now"
+            link="tickets"
+            className="ticket-card ticket-regular"
           />
           <TicketCard
             title="Camping"
@@ -35,7 +35,7 @@ function TicketsShop() {
             price="99,-"
             buttonText="Learn more"
             link="camping"
-            className="ticket-card"
+            className="ticket-card ticket-camping"
           />
         </ul>
       </div>
