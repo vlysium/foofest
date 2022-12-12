@@ -200,6 +200,7 @@ function skipOptions () {
               onClick={
                 () => {
                   if (ticket.payment === undefined) {
+                    setEmptyField(true);
                     console.log("credit info not there");
                   } else if (ticket.payment[0].number.toString().length < 16) {
                     setEmptyField(true);

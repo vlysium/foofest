@@ -15,7 +15,7 @@ function TicketType({ addToTicket, emptyField }) {
           <fieldset id="ticket-type">
             <label htmlFor="regular" className="regular-label">
               <span>REGULAR </span>
-              <span>799,-</span>
+              <span> <b>799,-</b></span>
             </label>
             <input
               onChange={(evt) => addToTicket("r", Number(evt.target.value))}
@@ -27,7 +27,7 @@ function TicketType({ addToTicket, emptyField }) {
             />
             <label htmlFor="vip" className="vip-label">
               <span>VIP,-</span>
-              <span>1299,-</span>
+              <span> <b> 1299,-</b></span>
             </label>
             <input
               onChange={(evt) => addToTicket("v", Number(evt.target.value))}
