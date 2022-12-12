@@ -125,10 +125,14 @@
       label {
         color: white;
         background-color: transparent;
+        
         span{
               font-size: 0.8rem;
     color: red;
         }
+      }
+      .birthday{
+        display: block;
       }
       input {
         width: 100%;
@@ -137,10 +141,7 @@
       input::placeholder {
         color: white;
       }
-      input[type="date"] {
-        color: white;
-        padding: 8px;
-      }
+     
     }
 
     #basket {
@@ -247,6 +248,7 @@
 .css-dev-only-do-not-override-1ij74fp.ant-picker{
 background: transparent;
 border: none;
+
 }
 
 
