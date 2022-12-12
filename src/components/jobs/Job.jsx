@@ -14,7 +14,11 @@ function Job() {
               and manage the performers. There are also opportunities to work in food service, providing meals for
               festival goers, or to help out with security and crowd control. No matter what job you take on, working at
               a festival is sure to be a rewarding and unforgettable experience. If you are interested in a job at
-              FooFest send your CV and application to <a href="#">jobs@foofest.com </a>.
+              FooFest send your CV and application to{" "}
+              <a href="#" onClick={(event) => event.preventDefault()}>
+                jobs@foofest.com
+              </a>
+              .
             </p>
           </div>
         </div>

@@ -14,7 +14,11 @@ function Voluenteer() {
               and exciting atmosphere. Plus, you'll get a free ticket to the festival and access to special perks like
               discounts on food and drinks! If you're looking for an opportunity to give back and have a great time,
               consider volunteering at FooFest – it's sure to be an unforgettable experience! If you want to volunteer
-              at Foofest send your CV and application to <a href="#">volunteer@foofest.com</a>.
+              at Foofest send your CV and application to{" "}
+              <a href="#" onClick={(event) => event.preventDefault()}>
+                volunteer@foofest.com
+              </a>
+              .
             </p>
           </div>
         </div>
