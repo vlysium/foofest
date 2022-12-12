@@ -67,6 +67,12 @@ button {
 a {
   width: max-content;
   text-decoration: none;
+  color: v.$color-cyan-normal;
+  transition: color 0.15s;
+
+  &:hover {
+    color: v.$color-cyan-light;
+  }
 }
 
 .btn {
