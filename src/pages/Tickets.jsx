@@ -7,16 +7,27 @@ import Optionals from "../components/forms/Optionals";
 import Payment from "../components/forms/Payment";
 import TicketInfoList from "../components/forms/TicketInfoList";
 import Countdown from "react-countdown-simple";
+import { insertOrder, reserve, postData } from "../components/forms/db.js";
 
 
 function Tickets() {
   const [spots, setSpots] = useState([]);
-  const [ticket, setTicket] = useState({ r: 0, v: 0 });
+  const [ticket, setTicket] = useState({
+    r: 0,
+    v: 0,
+    info: [],
+    campingArea: "",
+    greenCamping: 0,
+    tentAmount:0,
+  });
   const [current, setCurrent] = useState(0);
   const [emptyField, setEmptyField] = useState(false);
   const [payComplet, setPayComplet] = useState(false);
   const [reserveID, setReserveID] = useState("");
-  const [reserveTime, setReserveTime] = useState("");
+  const [supaData, setSupaData] = useState("");
+  const [resComplet, setResComplet] = useState('')
+  const [Timer, setTimer] = useState(false)
+
    const oneHour = new Date(
      new Date().setMinutes(new Date().getMinutes() +5)
    ).toISOString();
@@ -48,24 +59,40 @@ function Tickets() {
       return copy;
     });
   }
-  function reserveSpot() {
+
+  //RESERVESPOT
+async function reserveSpot() {
     console.log("the reserveFunction has stareted");
     const payload = {
       area: ticket.campingArea,
       amount: ticket.r + ticket.v,
     };
-    console.log(JSON.stringify(payload));
-
-    //    const url = "http://localhost:8080/reserve-spot";
-    fetch(`${url}reserve-spot`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-    })
-      .then((response) => response.json())
-      .then((response) => setReserveID(response.id))
-      .catch((err) => console.log(err));
+     const response = await reserve(payload);
+     setReserveID(response);
+     setTimer(true)
+     console.log(response);
   }
+// FULL RESERVATION
+ async function fullReservation () {
+ const response = await insertOrder({ id: reserveID });
+  setResComplet(response);
+  console.log(response);
+} 
+// POST TO SUPABASE
+ async function postToSupabase() {
+  const payload = {
+    regular: ticket.r,
+    vip: ticket.v,
+    campingArea: ticket.campingArea,
+    greenCamping: ticket.greenCamping,
+    tentAmount: ticket.tentAmount,
+    ticketInfo: ticket.info,
+  };
+   const response = await postData(payload);
+   setSupaData(response);
+   console.log(response);
+ } 
+
   // Progress tracker from Ant Design
   const steps = [
     {
@@ -122,7 +149,7 @@ function Tickets() {
     title: item.title,
   }));
   //skip the optionals tab if no camping is selected
-  function skipOptions() {
+  const skipOptions = () => {
     setCurrent(current + 2);
   }
   return (
@@ -130,10 +157,10 @@ function Tickets() {
       <form action="" id="tickets">
         <Steps current={current} items={items} />
         <div className="steps-content">
-          {reserveID != "" ? (
+          {Timer ? (
             <Countdown
               targetDate={oneHour}
-              renderer={({ days, hours, minutes, seconds }) => (
+              renderer={({ minutes, seconds }) => (
                 <div className="timer">
                   {minutes}:{seconds}
                 </div>
@@ -144,7 +171,11 @@ function Tickets() {
           )}
           {steps[current].content}
         </div>
-        <div className={current > 0 ? "steps-action two-button" : "steps-action one-button"}>
+        <div
+          className={
+            current > 0 ? "steps-action two-button" : "steps-action one-button"
+          }
+        >
           {current > 0 && (
             <Button onClick={() => prev()}>
               <b> PREVIOUS </b>
@@ -208,13 +239,22 @@ function Tickets() {
                   setEmptyField(true);
                   let counter = ticket.r + ticket.v;
                   ticket.info.forEach((element) => {
-                    if (element.fullname == "" || element.email == "" || element.birthday == "") {
+                    if (
+                      element.fullname == "" ||
+                      element.email == "" ||
+                      element.birthday == ""
+                    ) {
                       console.log("not all fields are filled in");
-                    } else if (element.fullname != "" && (element.email != "") & (element.birthday != "")) {
+                    } else if (
+                      element.fullname != "" &&
+                      (element.email != "") & (element.birthday != "")
+                    ) {
                       console.log((counter -= 1));
                       console.log("All fields are now filled in");
                       if (counter > 0) {
-                        console.log("there is still " + counter + "fields left");
+                        console.log(
+                          "there is still " + counter + "fields left"
+                        );
                       } else if (counter === 0) {
                         setEmptyField(false);
                         next();
@@ -251,6 +291,9 @@ function Tickets() {
                   } else {
                     setEmptyField(false);
                     setPayComplet(true);
+                    fullReservation();
+                    postToSupabase();
+                    setTimer(false)
                     message.success("Processing complete!");
                   }
                 } /* message.success("Processing complete!") */
