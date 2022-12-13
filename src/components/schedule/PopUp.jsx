@@ -10,7 +10,8 @@ function PopUp({ popUpIsOpen, onClosePopUp, data }) {
     if (logo.includes("https://")) {
       return logo;
     }
-    return `/logos/${logo}`;
+    const pattern = /(jpg|png)/i; // regex that captures "jpg" or "png", not case sensitive
+    return `/logos/${logo.replace(pattern, "webp")}`;
   }
 
   function displayBandMembers() {
