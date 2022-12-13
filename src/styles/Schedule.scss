@@ -29,9 +29,14 @@
       .times {
         display: flex;
         flex-wrap: wrap;
+        flex-direction: column;
         gap: 1rem 80px;
         justify-content: space-between;
         padding: 1rem 0.5rem;
+
+        @media (min-width: 600px) {
+          flex-direction: row;
+        }
 
         & + .times {
           border-top: 1px solid v.$color-white-darker;
@@ -46,7 +51,6 @@
 
         .act {
           font-weight: 700;
-          font-size: 1.1rem;
         }
 
         .time-playing {
@@ -234,15 +238,11 @@
     h2 {
       padding: 0rem 1rem 2rem 1rem;
     }
-  }
 
-  #stage-view-days {
-    display: grid;
-    // grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-    gap: 2rem;
-  }
-  .times {
-    display: flex;
-    padding: 1rem 0rem;
+    #stage-view-days {
+      display: grid;
+      // grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+      gap: 2rem;
+    }
   }
 }
