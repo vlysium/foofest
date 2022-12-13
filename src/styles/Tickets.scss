@@ -208,8 +208,8 @@
         color: v.$color-white-dark;
 
         span {
+          color: red;
           /*font-size: 0.8rem;*/
-          display: none;
         }
       }
       .birthday {
@@ -367,6 +367,10 @@
     background: transparent;
     border: none;
     padding: 0;
+
+    span {
+      display: none;
+    }
   }
 
   .css-dev-only-do-not-override-1ij74fp.ant-steps.ant-steps-vertical {

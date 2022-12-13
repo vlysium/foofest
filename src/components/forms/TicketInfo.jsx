@@ -13,21 +13,25 @@ function TicketInfo({ type, finishedAdding }) {
   }
 
   const handleChange = (event) => {
+    console.log(!isValidEmail(event.target.value));
+    setMessage(event.target.value);
+    finishedAdding();
+  };
+
+  function handleBlur(event) {
     if (!isValidEmail(event.target.value)) {
       setError("Email is invalid");
     } else {
       setError(null);
     }
-    setMessage(event.target.value);
-    finishedAdding();
-  };
+  }
 
   // validate the name
   const onInputChange = (e) => {
     const { value } = e.target;
     //console.log('Input value: ', value);
 
-    const re = /^[A-ø a-ø]+$/;
+    const re = /^[a-zæøåäöü\s]+$/gi;
     if (value === "" || re.test(value)) {
       setTxt(value);
     }
@@ -62,6 +66,7 @@ function TicketInfo({ type, finishedAdding }) {
             autoComplete="email"
             onChange={handleChange}
             value={message}
+            onBlur={handleBlur}
           />
           <span>{error}</span>
         </label>

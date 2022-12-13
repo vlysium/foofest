@@ -142,7 +142,7 @@ function CreditCardInfo({ finishedAdding, emptyField, ticket }) {
               inputMode="numeric"
               maxLength="2"
               minLength="2"
-              placeholder="dd"
+              placeholder="mm"
               onInput={(e) => {
                 if (e.target.value.length > e.target.maxLength)
                   e.target.value = e.target.value.slice(0, e.target.maxLength);
@@ -167,7 +167,7 @@ function CreditCardInfo({ finishedAdding, emptyField, ticket }) {
               }}
               maxLength="2"
               minLength="2"
-              placeholder="mm"
+              placeholder="yy"
               required
               onChange={onInputChange}
               onBlur={handleBlur}
