@@ -1,63 +1,63 @@
 @use "../styles/utils/variables" as v;
 
-
-footer{
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 2rem;
+  min-height: 150px;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  background-color: v.$color-black-dark;
+  .footer-logo-container {
+    align-items: center;
+    flex-direction: column;
+  }
+  div {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
-    padding: 2rem;
-    min-height: 150px;
-    justify-content: space-around;
-    flex-direction: column;
-    align-items: center;
-    .footer-logo-container{
-        align-items: center;
-        flex-direction: column;
-    }
-    div{
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-            justify-content: center;
+    justify-content: center;
     align-items: start;
     //width: 100%;
-    h4{
-        padding: 0;
-        margin: 0;
-        -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: v.$color-cyan-normal;
-    color: transparent;
+    h4 {
+      padding: 0;
+      margin: 0;
+      -webkit-text-stroke-width: 2px;
+      -webkit-text-stroke-color: v.$color-cyan-normal;
+      color: transparent;
     }
-    }
-    a{
+  }
+  a {
     text-decoration: none;
     color: v.$color-white-normal;
     cursor: pointer;
-}
-.footer-icons-container{
-        align-items: center;
-        address{
-                color: white;
-            }
-            a{
-                color: white;
-                text-decoration: none;
-            }
-}
+  }
+  .footer-icons-container {
+    align-items: center;
+    address {
+      color: white;
+    }
+    a {
+      color: white;
+      text-decoration: none;
+    }
+  }
 }
 
-@media (min-width: 800px){
-    footer{
-        flex-wrap: inherit;
-            flex-direction: row;
-        div{
-            flex-direction: column;
-        }
-        .footer-icons{
-            flex-direction: row;
-        }
-        .footer-logo-container{
-            align-items: start;
-        }
+@media (min-width: 800px) {
+  footer {
+    flex-wrap: inherit;
+    flex-direction: row;
+    div {
+      flex-direction: column;
     }
+    .footer-icons {
+      flex-direction: row;
+    }
+    .footer-logo-container {
+      align-items: start;
+    }
+  }
 }

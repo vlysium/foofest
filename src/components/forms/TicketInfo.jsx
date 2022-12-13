@@ -1,15 +1,13 @@
 import { useState } from "react";
 import { DatePicker } from "antd";
-// https://bobbyhadz.com/blog/react-check-if-email-is-valid 
-
+// https://bobbyhadz.com/blog/react-check-if-email-is-valid
 
 function TicketInfo({ type, finishedAdding }) {
-
   const [message, setMessage] = useState("");
   const [error, setError] = useState(null);
- const [txt, setTxt] = useState('');
+  const [txt, setTxt] = useState("");
 
- // validate the email
+  // validate the email
   function isValidEmail(email) {
     return /\S+@\S+\.\S+/.test(email);
   }
@@ -21,33 +19,31 @@ function TicketInfo({ type, finishedAdding }) {
       setError(null);
     }
     setMessage(event.target.value);
-    finishedAdding()
+    finishedAdding();
   };
 
-  
- // validate the name
-  const onInputChange = e => {
+  // validate the name
+  const onInputChange = (e) => {
     const { value } = e.target;
     //console.log('Input value: ', value);
- 
+
     const re = /^[A-ø a-ø]+$/;
     if (value === "" || re.test(value)) {
       setTxt(value);
     }
-    finishedAdding()
-  }
+    finishedAdding();
+  };
   const dateFormatList = "DD/MM/YYYY";
 
   return (
-    <div className="ticketInfo">
+    <details className="ticketInfo" open>
+      <summary>
+        <span className="type">{type}</span> TICKET
+      </summary>
       <fieldset className="ticket-info">
-        <h5>
-          <span className="type">{type}</span> TICKET
-        </h5>
-        <label htmlFor="fullname">
+        <label className="label-fullname">
           Fullname{" "}
           <input
-          
             type="text"
             name="fullname"
             className="fullname"
@@ -57,7 +53,7 @@ function TicketInfo({ type, finishedAdding }) {
           />
         </label>
 
-        <label htmlFor="email">
+        <label className="label-email">
           Email{" "}
           <input
             type="email"
@@ -70,7 +66,7 @@ function TicketInfo({ type, finishedAdding }) {
           <span>{error}</span>
         </label>
 
-        <label htmlFor="birthday">
+        <label className="label-birthday">
           Birthday{" "}
           <DatePicker
             onChange={finishedAdding}
@@ -85,7 +81,7 @@ function TicketInfo({ type, finishedAdding }) {
         <button>BACK</button>
         <button>NEXT</button>
       </div> */}
-    </div>
+    </details>
   );
 }
 

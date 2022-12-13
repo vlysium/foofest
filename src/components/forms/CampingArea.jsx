@@ -1,13 +1,12 @@
-
 export default function CampingArea({ spots, addToTicket, ticket, emptyField }) {
   //console.log(spots);
   return (
     <>
       <h3>CAMPING AREA</h3>
-      {emptyField? <p style={{color:"red"}}>Please pick one of the option below</p>:""}
+      {emptyField ? <p style={{ color: "red" }}>Please pick one of the option below</p> : ""}
       <fieldset id="camping-area" className="scene-names">
         <div className="campContainer">
-          <label htmlFor="no-camping">Without camping</label>
+          <label htmlFor="no-camping">No camping</label>
           <input
             onChange={(evt) => addToTicket("campingArea", evt.target.value)}
             type="radio"
@@ -16,6 +15,7 @@ export default function CampingArea({ spots, addToTicket, ticket, emptyField }) 
             pattern="[0-9]"
             inputMode="numeric"
             value="none"
+            defaultChecked
           />
         </div>
 
@@ -23,7 +23,7 @@ export default function CampingArea({ spots, addToTicket, ticket, emptyField }) 
           <div className="campContainer" key={index}>
             <label htmlFor={area.area}>{area.area}</label>
             <div className="avail-box">
-              <p>{area.available}</p>
+              <p>{area.available + " left"}</p>
             </div>
             <input
               disabled={ticket.r + ticket.v > area.available}

@@ -9,8 +9,9 @@ function CreditCardInfo({ finishedAdding, emptyField, ticket }) {
   const [yearSpan, setYearSpan] = useState("");
   const [cvc, setCvc] = useState("");
   const [cvcSpan, setCvcSpan] = useState("");
+  const [focusing, setFocusing] = useState(false);
 
-// changes focus
+  // changes focus
   const input = document.querySelectorAll("input");
   input.forEach((e, i) => {
     e.addEventListener("input", () => {
@@ -19,68 +20,93 @@ function CreditCardInfo({ finishedAdding, emptyField, ticket }) {
       }
     });
   });
-// validate name & field length
+
+  // set field values
   const onInputChange = (e) => {
     const { value } = e.target;
-  
-    if(e.target.id === "cardholder"){
-     const re = /^[A-ø a-ø]+$/;
-    if (value === "" || re.test(value)) {
-      setTxt(value);
+
+    if (e.target.id === "cardholder") {
+      const re = /^[a-zæøåäöü\s]+$/gi;
+      if (value === "" || re.test(value)) {
+        setTxt(value);
+      }
+    } else if (e.target.id === "cardnumber") {
+      const re = /^[\d]+$/g;
+      if (value === "" || re.test(value)) {
+        setCreidtNr(value);
+      }
+    } else if (e.target.id === "expire-day") {
+      const re = /^[\d]+$/g;
+      if (value === "" || re.test(value)) {
+        setMonth(value);
+      }
+    } else if (e.target.id === "expire-month") {
+      const re = /^[\d]+$/g;
+      if (value === "" || re.test(value)) {
+        setYear(value);
+      }
+    } else if (e.target.id === "cvc") {
+      const re = /^[\d]+$/g;
+      if (value === "" || re.test(value)) {
+        setCvc(value);
+      }
     }
-  } else if (e.target.id === "cardnumber") {
-    const re = /^[0-9]+$/;
-    if (value === "" || re.test(value)) {
+
+    finishedAdding();
+  };
+
+  // validate name & field length
+  function handleBlur(e) {
+    if (e.target.id === "cardnumber") {
       if (e.target.value.length < 16) {
         setCreidtNrSpan(true);
       } else {
         setCreidtNrSpan(false);
       }
-      setCreidtNr(value);
-    }
-  } else if (e.target.id === "expire-day") {
-    const re = /^[0-9]+$/;
-    if (value === "" || re.test(value)) {
+    } else if (e.target.id === "expire-day") {
+      setFocusing(false);
       if (e.target.value.length < 2) {
         setMonthSpan(true);
       } else {
         setMonthSpan(false);
       }
-      setMonth(value);
-    }
-  } else if (e.target.id === "expire-month") {
-    const re = /^[0-9]+$/;
-    if (value === "" || re.test(value)) {
+    } else if (e.target.id === "expire-month") {
+      setFocusing(false);
       if (e.target.value.length < 2) {
         setYearSpan(true);
       } else {
         setYearSpan(false);
       }
-      setYear(value);
-    }
-  } else if (e.target.id === "cvc") {
-    const re = /^[0-9]+$/;
-    if (value === "" || re.test(value)) {
+    } else if (e.target.id === "cvc") {
       if (e.target.value.length < 3) {
         setCvcSpan(true);
       } else {
         setCvcSpan(false);
       }
-      setCvc(value);
     }
-  }
-
-
 
     finishedAdding();
-  };
-
-
+  }
 
   return (
     <>
       <h3 className="credit-headline">CREDITCARD INFO</h3>
       <fieldset id="creditcard-info" className="creditcard-info">
+        <label htmlFor="cardholder" className="cardholder">
+          Cardholder fullname{" "}
+          <input
+            type="text"
+            name="cardholder"
+            className="card-holder"
+            id="cardholder"
+            required
+            autoComplete="name"
+            onChange={onInputChange}
+            onBlur={handleBlur}
+            value={txt}
+          />
+          {emptyField ? <span className="field-required">Field Required</span> : null}
+        </label>
         <label htmlFor="cardnumber" className="cardnumber">
           Cardnumber
           <input
@@ -98,18 +124,15 @@ function CreditCardInfo({ finishedAdding, emptyField, ticket }) {
             minLength="16"
             required
             onChange={onInputChange}
+            onBlur={handleBlur}
             value={creidtNr}
           />
-          {creidtNrSpan ? (
-            <span style={{ color: "red" }}>Field Required</span>
-          ) : (
-            ""
-          )}
+          {creidtNrSpan ? <span className="field-required">Field Required</span> : null}
         </label>
 
         <label htmlFor="expires" className="expires">
           Expire
-          <div className="expire-container">
+          <div className={focusing ? "expire-container focus-visible" : "expire-container"}>
             <input
               type="text"
               name="expires"
@@ -119,13 +142,16 @@ function CreditCardInfo({ finishedAdding, emptyField, ticket }) {
               inputMode="numeric"
               maxLength="2"
               minLength="2"
+              placeholder="dd"
               onInput={(e) => {
                 if (e.target.value.length > e.target.maxLength)
                   e.target.value = e.target.value.slice(0, e.target.maxLength);
               }}
               required
               onChange={onInputChange}
+              onBlur={handleBlur}
               value={month}
+              onFocus={() => setFocusing(true)}
             />{" "}
             /
             <input
@@ -141,16 +167,15 @@ function CreditCardInfo({ finishedAdding, emptyField, ticket }) {
               }}
               maxLength="2"
               minLength="2"
+              placeholder="mm"
               required
               onChange={onInputChange}
+              onBlur={handleBlur}
               value={year}
+              onFocus={() => setFocusing(true)}
             />
           </div>
-          {monthSpan || yearSpan ? (
-            <span style={{ color: "red" }}>Field Required</span>
-          ) : (
-            ""
-          )}
+          {monthSpan || yearSpan ? <span className="field-required">Field Required</span> : null}
         </label>
 
         <label htmlFor="cvc" className="cvc">
@@ -170,28 +195,10 @@ function CreditCardInfo({ finishedAdding, emptyField, ticket }) {
             minLength="3"
             required
             onChange={onInputChange}
+            onBlur={handleBlur}
             value={cvc}
           />
-          {emptyField ? (
-            <span style={{ color: "red" }}>Field Required</span>
-          ) : (
-            ""
-          )}
-        </label>
-
-        <label htmlFor="cardholder" className="cardholder">
-          Cardholder fullname{" "}
-          <input
-            type="text"
-            name="cardholder"
-            className="card-holder"
-            id="cardholder"
-            required
-            autoComplete="name"
-            onChange={onInputChange}
-            value={txt}
-          />
-          {cvcSpan ? <span style={{ color: "red" }}>Field Required</span> : ""}
+          {cvcSpan ? <span className="field-required">Field Required</span> : null}
         </label>
       </fieldset>
       {/*  <button>COMPLETE PAYMENT</button> */}
@@ -199,4 +206,4 @@ function CreditCardInfo({ finishedAdding, emptyField, ticket }) {
   );
 }
 
-export default CreditCardInfo
+export default CreditCardInfo;
