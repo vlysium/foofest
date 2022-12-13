@@ -21,13 +21,14 @@ $breakpoint: 1060px;
     #shop-layout {
       display: flex;
       gap: 24px;
-      align-items: center;
+      align-items: flex-end;
       padding: 32px 20px;
       width: max-content;
 
       @media (min-width: $breakpoint) {
         justify-content: space-between;
         margin-inline: auto;
+        align-items: center;
         flex-wrap: wrap;
         width: unset;
         max-width: 1080px;
