@@ -22,7 +22,6 @@ function CreditCardInfo({ finishedAdding, emptyField, ticket }) {
 // validate name & field length
   const onInputChange = (e) => {
     const { value } = e.target;
-    console.log("Input value: ", value);
   
     if(e.target.id === "cardholder"){
      const re = /^[A-ø a-ø]+$/;

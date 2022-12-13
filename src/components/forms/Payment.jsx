@@ -8,12 +8,12 @@ function Payment({ ticket, addToTicket, emptyField, payComplet }) {
   function finishedAdding() {
     event.preventDefault();
 
-    console.log(sectionEl.current);
+    //console.log(sectionEl.current);
     const creditCard = [];
     // 1. find alle .ticketInfo.queryselectorALL()
     const formsElements =
       sectionEl.current.querySelectorAll(".creditcard-info");
-    console.log(formsElements);
+    //console.log(formsElements);
 
     // 2. find alle formfelter og lave et object af hver formfield (object fullname: "", email:"", birthday: "")
 
@@ -30,6 +30,8 @@ function Payment({ ticket, addToTicket, emptyField, payComplet }) {
     // 3. addToTicket("info", "voresNyeArray" )
     addToTicket("payment", creditCard);
   }
+
+  
 
   return (
     <>
