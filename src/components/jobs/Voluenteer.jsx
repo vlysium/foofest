@@ -1,5 +1,3 @@
-import React from "react";
-
 function Voluenteer() {
   return (
     <section id="volunteer">
@@ -22,7 +20,7 @@ function Voluenteer() {
             </p>
           </div>
         </div>
-        <div className="volunteer-image"></div>
+        <div className="section-image volunteer-image"></div>
       </div>
     </section>
   );

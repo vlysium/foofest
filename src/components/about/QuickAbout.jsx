@@ -15,7 +15,7 @@ function QuickAbout({ text, fromHomepage }) {
             )}
           </div>
         </div>
-        <div className="about-image"></div>
+        <div className="section-image about-image"></div>
       </div>
     </section>
   );

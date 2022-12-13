@@ -1,4 +1,4 @@
-import "../styles/camping.scss";
+import "../styles/alternating-sections.scss";
 import GreenCamping from "../components/camping/GreenCamping";
 import AboutCamping from "../components/camping/AboutCamping";
 import CrewSetUp from "../components/camping/CrewSetUp";

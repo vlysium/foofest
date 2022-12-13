@@ -1,4 +1,4 @@
-import "../styles/jobs.scss";
+import "../styles/alternating-sections.scss";
 import Job from "../components/jobs/Job";
 import Voluenteer from "../components/jobs/Voluenteer";
 

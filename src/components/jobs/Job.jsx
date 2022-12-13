@@ -1,5 +1,3 @@
-import React from "react";
-
 function Job() {
   return (
     <section id="work">
@@ -22,7 +20,7 @@ function Job() {
             </p>
           </div>
         </div>
-        <div className="work-image"></div>
+        <div className="section-image work-image"></div>
       </div>
     </section>
   );

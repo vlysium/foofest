@@ -39,18 +39,33 @@
       max-width: 600px;
     }
 
-    .camping-image,
-    .about-image,
-    .green-camping-image,
-    .crew-setup-image,
-    .sustainability-image,
-    .work-image,
-    .volunteer-image {
+    .section-image {
       background-size: cover;
       background-position: 50%;
       width: 100%;
       height: 400px;
-      background-image: url("../../public/about.webp");
+
+      &.camping-image {
+        background-image: url("/public/camping.webp");
+      }
+      &.about-image {
+        background-image: url("/public/about.webp");
+      }
+      &.green-camping-image {
+        background-image: url("/public/green-camping.webp");
+      }
+      &.crew-setup-image {
+        background-image: url("/public/charity.webp");
+      }
+      &.sustainability-image {
+        background-image: url("/public/sustainability.webp");
+      }
+      &.work-image {
+        background-image: url("/public/charity.webp");
+      }
+      &.volunteer-image {
+        background-image: url("/public/volunteer.webp");
+      }
     }
   }
 }

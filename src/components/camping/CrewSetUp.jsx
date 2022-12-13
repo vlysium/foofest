@@ -17,7 +17,7 @@ function CrewSetUp() {
             </p>
           </div>
         </div>
-        <div className="crew-setup-image"></div>
+        <div className="section-image crew-setup-image"></div>
       </div>
     </section>
   );

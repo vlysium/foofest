@@ -15,7 +15,7 @@ function AboutCamping({ text, fromHomepage }) {
             )}
           </div>
         </div>
-        <div className="camping-image"></div>
+        <div className="section-image camping-image"></div>
       </div>
     </section>
   );

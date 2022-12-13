@@ -1,9 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import "../styles/home.scss";
+import "../styles/alternating-sections.scss";
+
 import Countdown from "react-countdown-simple";
 import QuickAbout from "../components/about/QuickAbout";
 import Schedule from "./Schedule";
-import { Link } from "react-router-dom";
 import AboutCamping from "../components/camping/AboutCamping";
 import NewsStories from "../components/news/NewsStories";
 import data from "../assets/newstories.json";

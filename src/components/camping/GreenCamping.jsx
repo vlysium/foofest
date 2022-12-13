@@ -1,5 +1,3 @@
-import React from "react";
-
 function GreenCamping() {
   return (
     <section id="green-camping">
@@ -17,7 +15,7 @@ function GreenCamping() {
             </p>
           </div>
         </div>
-        <div className="green-camping-image"></div>
+        <div className="section-image green-camping-image"></div>
       </div>
     </section>
   );

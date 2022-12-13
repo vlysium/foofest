@@ -1,5 +1,3 @@
-import React from "react";
-
 function Sustainabilty() {
   return (
     <section id="sustainability">
@@ -21,7 +19,7 @@ function Sustainabilty() {
           </a> */}
           </div>
         </div>
-        <div className="sustainability-image"></div>
+        <div className="section-image sustainability-image"></div>
       </div>
     </section>
   );
