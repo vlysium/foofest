@@ -46,7 +46,7 @@ function Home({ articleIngo }) {
       <section id="first-section">
         <Countdown targetDate={oneHour} />
         <Link to="/tickets">
-          <button className="btn">Buy Now</button>
+          <button className="btn">BUY NOW</button>
         </Link>
       </section>
       <Newsletter />
@@ -55,15 +55,14 @@ function Home({ articleIngo }) {
         stories={stories.slice(0, 3)}
         newsHeadline={
           <h2>
-            <Link to="/news">News Feed</Link>
+            <Link to="/news">FOOFEST NEWS</Link>
           </h2>
         }
       />
       <Schedule />
-      <TicketsShop />
-
-      <AboutCamping text={ShortText.camping} fromHomepage={true} />
       <QuickAbout text={ShortText.about} fromHomepage={true} />
+      <TicketsShop />
+      <AboutCamping text={ShortText.camping} fromHomepage={true} />
     </>
   );
 }

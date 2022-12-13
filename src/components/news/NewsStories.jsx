@@ -21,7 +21,7 @@ function NewsStories({ stories, newButton, newsHeadline }) {
                   <h4>{story.headline}</h4>
                   <p>{story.story.substring(0, 145).trimEnd() + "..."}</p>
                   <Link to={`/news/${story.url}`}>
-                    <button className="btn">Read More</button>
+                    <button className="btn">READ MORE</button>
                   </Link>
                 </div>
               </div>

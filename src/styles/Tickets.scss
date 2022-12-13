@@ -4,6 +4,13 @@
 #ticket-section {
   width: 100%;
   //padding: 2rem;
+  .timer{
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white;
+    font-size: 2.5rem;
+    display: flex;
+    justify-content: end;
+  }
   #tickets {
     display: grid;
     justify-content: center;
@@ -118,10 +125,14 @@
       label {
         color: white;
         background-color: transparent;
+        
         span{
               font-size: 0.8rem;
     color: red;
         }
+      }
+      .birthday{
+        display: block;
       }
       input {
         width: 100%;
@@ -130,10 +141,7 @@
       input::placeholder {
         color: white;
       }
-      input[type="date"] {
-        color: white;
-        padding: 8px;
-      }
+     
     }
 
     #basket {
@@ -142,19 +150,28 @@
         background-color: rgb(44, 42, 45);
 
         border-radius: 5px;
+        padding: 0.5rem;
       }
 
       ul {
         list-style: none;
+        margin-top: 0;
+        display: grid;
+        gap: 0.5rem;
       }
       p {
-        text-align: end;
+         display: flex;
+        justify-content: space-between;
       }
     }
+    .credit-headline{
+       margin-top:  1.5rem;
+      }
     #creditcard-info {
       display: grid;
       grid-template-rows: 1fr 1fr 1fr;
       grid-template-columns: 1fr 1fr;
+      
 
       label {
         background-color: transparent;
@@ -192,13 +209,6 @@
       }
 
       .expire-container {
-        /*   display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      background-color: rgb(44, 42, 45);
-      border-radius: 5px;
-      align-items: center;
-      width: 100%; */
 
         display: flex;
         background-color: rgb(44, 42, 45);
@@ -240,6 +250,7 @@
 .css-dev-only-do-not-override-1ij74fp.ant-picker{
 background: transparent;
 border: none;
+padding: 0;
 }
 
 
@@ -321,11 +332,13 @@ border: none;
     border: 2px solid #9400f6;
     box-shadow: 0 2px 0 rgb(0 0 0 / 2%);
     color: white;
+    min-width: 100px;
   }
 
   // button color next
   .css-dev-only-do-not-override-1ij74fp.ant-btn-primary {
     background-color: v.$color-purple-normal;
+    min-width: 100px;
   }
   // button placement
   .steps-action {
@@ -361,6 +374,9 @@ border: none;
         justify-items: center;
         #ticket-type {
           justify-items: center;
+          label{
+            min-width: 250px;
+          }
         }
         /*   .concert-img{
             width: 100%;
@@ -381,5 +397,6 @@ border: none;
       position: sticky;
       top: 0;
     }
+     
   }
 }

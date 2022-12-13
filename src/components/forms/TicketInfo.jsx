@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { DatePicker, Space } from "antd";
-import dayjs from "dayjs";
+import { DatePicker } from "antd";
 // https://bobbyhadz.com/blog/react-check-if-email-is-valid 
 
 
@@ -29,7 +28,7 @@ function TicketInfo({ type, finishedAdding }) {
  // validate the name
   const onInputChange = e => {
     const { value } = e.target;
-    console.log('Input value: ', value);
+    //console.log('Input value: ', value);
  
     const re = /^[A-ø a-ø]+$/;
     if (value === "" || re.test(value)) {

@@ -6,7 +6,7 @@ function Sustainabilty() {
       <div className="sustainability-container">
         <div className="text-wrapper">
           <div className="sustainability-text">
-            <h2>Sustainability</h2>
+            <h2>SUSTAINABILITY</h2>
             <p>
               At FooFest, we strive to create a sustainable and environmentally-friendly festival.
               <br />

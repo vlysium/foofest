@@ -20,7 +20,7 @@ function Article() {
   return (
     <div className="article">
       <Link to="/news">
-        <button>Back</button>{" "}
+        <button>BACK</button>{" "}
       </Link>
       <div className="article-grid">
         <div

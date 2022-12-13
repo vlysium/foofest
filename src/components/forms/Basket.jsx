@@ -60,20 +60,19 @@ function Basket({ ticket }) {
       <h3>YOUR ORDER</h3>
       <div className="basket-container">
         <ul>
-          <li>
-            {regular
-              ? `Regular Ticket x ${ticket.r} , ${ticket.r * 799},-`
-              : ""}
-          </li>
-          <li>
-            {vip ? `VIP Ticket x ${ticket.v} , ${ticket.v * 1299},-` : ""}
-          </li>
+          <li>{regular ? `Regular Ticket x ${ticket.r} , ${ticket.r * 799},-` : ""}</li>
+          <li>{vip ? `VIP Ticket x ${ticket.v} , ${ticket.v * 1299},-` : ""}</li>
           <li>{campingPrice ? `Camping ${ticket.campingArea} 99,-` : ""}</li>
           <li>{green ? `Green Camping: ${ticket.greenCamping},-` : ""}</li>
           <li>{tents ? `Camp Set-up: ${ticket.tentAmount},-` : ""}</li>
         </ul>
         <p>
-          Total: {total} DKK
+          <span>
+            <b> Total </b>
+          </span>
+          <span>
+            <b> {total} DKK </b>
+          </span>
         </p>
       </div>
     </section>
