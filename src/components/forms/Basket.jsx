@@ -13,7 +13,7 @@ function Basket({ ticket }) {
   if (ticket.v > 0) {
     total += ticket.v * 1299;
   }
-  if (ticket.campingArea != "none") {
+  if (ticket.campingArea != "") {
     total += 99;
   }
   if (ticket.greenCamping != undefined) {
@@ -34,17 +34,17 @@ function Basket({ ticket }) {
     } else {
       setVip(true);
     }
-    if (ticket.tentAmount === "none" || ticket.tentAmount === undefined) {
+    if (ticket.tentAmount === 0 || ticket.tentAmount === undefined) {
       setTents(false);
     } else {
       setTents(true);
     }
-    if (ticket.greenCamping === "none" || ticket.greenCamping === undefined) {
+    if (ticket.greenCamping === 0 || ticket.greenCamping === undefined) {
       setGreen(false);
     } else {
       setGreen(true);
     }
-    if (ticket.campingArea === "none" || ticket.campingArea === undefined) {
+    if (ticket.campingArea === "" || ticket.campingArea === undefined) {
       setCampingPrice(false);
     } else {
       setCampingPrice(true);
