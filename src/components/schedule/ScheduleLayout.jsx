@@ -62,22 +62,25 @@ function ScheduleLayout({ onOpenPopUp }) {
     <div id="schedule-grid">
       <div id="list-of-stages">
         <label>
-          <b> MIDGARD</b>
-
+          MIDGARD
           <input type="radio" name="stage" onClick={() => setSelectStage("midgard")} defaultChecked />
         </label>
         <label>
-          <b>JOTUNHEIM</b>
+          JOTUNHEIM
           <input type="radio" name="stage" onClick={() => setSelectStage("jotunheim")} />
         </label>
         <label>
-          <b>
           VANAHEIM
-          </b>
           <input type="radio" name="stage" onClick={() => setSelectStage("vanaheim")} />
         </label>
       </div>
-      <BlockText scheduleData={selectedStage()} bandsData={bandsData} onDayChange={onDayChange} selectDay={selectDay} onOpenPopUp={onOpenPopUp} />
+      <BlockText
+        scheduleData={selectedStage()}
+        bandsData={bandsData}
+        onDayChange={onDayChange}
+        selectDay={selectDay}
+        onOpenPopUp={onOpenPopUp}
+      />
     </div>
   );
 }
