@@ -58,10 +58,7 @@ function Hamburger() {
   };
   // Receives the Article infomation from the News page and sendes it to the react router component <Article/>
   function articleIngo(story, url, headline, image) {
-    getArticleContent(
-      (old) =>
-        (old = { story: story, url: url, headline: headline, image: image })
-    );
+    getArticleContent((old) => (old = { story: story, url: url, headline: headline, image: image }));
   }
 
   return (
@@ -100,15 +97,11 @@ function Hamburger() {
               }
               className={changeIcon ? "" : "changeFont"}
             >
-              {changeIcon ? "☰" : "X"}
+              {changeIcon ? "☰" : "×"}
             </button>
           </div>
 
-          <nav
-            className={
-              changeIcon ? `right slideOut ${hideEl}` : `slideOut ${showEl}`
-            }
-          >
+          <nav className={changeIcon ? `right slideOut ${hideEl}` : `slideOut ${showEl}`}>
             <ul>
               <li onClick={() => setChangeIcon(true)}>
                 <Link to="/tickets">TICKETS</Link>
@@ -146,10 +139,7 @@ function Hamburger() {
                 <Article headline={articleContent.headline} story={articleContent.story} image={articleContent.image} />
               }
             ></Route> */}
-            <Route
-              path="/"
-              element={<Home articleIngo={articleIngo} />}
-            ></Route>
+            <Route path="/" element={<Home articleIngo={articleIngo} />}></Route>
             <Route path="*" element={<Error />} />
           </Routes>
           <Footer />

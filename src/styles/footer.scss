@@ -24,9 +24,10 @@ footer {
     h4 {
       padding: 0;
       margin: 0;
-      -webkit-text-stroke-width: 2px;
+      -webkit-text-stroke-width: 1.5px;
       -webkit-text-stroke-color: v.$color-cyan-normal;
       color: transparent;
+      font-weight: 900;
     }
   }
   a {
