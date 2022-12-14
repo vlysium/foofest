@@ -151,7 +151,7 @@ function Tickets() {
         <div className={current > 0 ? "steps-action two-button" : "steps-action one-button"}>
           {current > 0 && (
             <Button className="btn" onClick={() => prev()}>
-              <b> PREVIOUS </b>
+              PREVIOUS
             </Button>
           )}
           {current === 0 && (
@@ -169,7 +169,7 @@ function Tickets() {
                 }
               }}
             >
-              <b>NEXT</b>
+              NEXT
             </Button>
           )}
           {current === 2 && (
@@ -193,13 +193,13 @@ function Tickets() {
                 }
               }}
             >
-              <b>NEXT</b>
+              NEXT
             </Button>
           )}
           {current === 3 && (
             // optionals
             <Button className="btn" type="primary" onClick={() => next()}>
-              <b>NEXT</b>
+              NEXT
             </Button>
           )}
           {current === 1 && (
@@ -231,7 +231,7 @@ function Tickets() {
                 }
               }}
             >
-              <b>NEXT</b>
+              NEXT
             </Button>
           )}
           {current === steps.length - 1 && (
@@ -267,7 +267,7 @@ function Tickets() {
                 } /* message.success("Processing complete!") */
               }
             >
-              <b>DONE</b>
+              DONE
             </Button>
           )}
         </div>
