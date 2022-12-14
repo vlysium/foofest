@@ -9,7 +9,6 @@ import TicketInfoList from "../components/forms/TicketInfoList";
 import Countdown from "react-countdown-simple";
 import { insertOrder, reserve, postData } from "../components/forms/db.js";
 
-
 function Tickets() {
   const [spots, setSpots] = useState([]);
   const [ticket, setTicket] = useState({
@@ -18,19 +17,17 @@ function Tickets() {
     info: [],
     campingArea: "",
     greenCamping: 0,
-    tentAmount:0,
+    tentAmount: 0,
   });
   const [current, setCurrent] = useState(0);
   const [emptyField, setEmptyField] = useState(false);
   const [payComplet, setPayComplet] = useState(false);
   const [reserveID, setReserveID] = useState("");
   const [supaData, setSupaData] = useState("");
-  const [resComplet, setResComplet] = useState('')
-  const [Timer, setTimer] = useState(false)
+  const [resComplet, setResComplet] = useState("");
+  const [Timer, setTimer] = useState(false);
 
-   const oneHour = new Date(
-     new Date().setMinutes(new Date().getMinutes() +5)
-   ).toISOString();
+  const oneHour = new Date(new Date().setMinutes(new Date().getMinutes() + 5)).toISOString();
   /* 
     URL:
     "http://localhost:8080/available-spots"
@@ -61,37 +58,37 @@ function Tickets() {
   }
 
   //RESERVESPOT
-async function reserveSpot() {
+  async function reserveSpot() {
     console.log("the reserveFunction has stareted");
     const payload = {
       area: ticket.campingArea,
       amount: ticket.r + ticket.v,
     };
-     const response = await reserve(payload);
-     setReserveID(response);
-     setTimer(true)
-     console.log(response);
+    const response = await reserve(payload);
+    setReserveID(response);
+    setTimer(true);
+    console.log(response);
   }
-// FULL RESERVATION
- async function fullReservation () {
- const response = await insertOrder({ id: reserveID });
-  setResComplet(response);
-  console.log(response);
-} 
-// POST TO SUPABASE
- async function postToSupabase() {
-  const payload = {
-    regular: ticket.r,
-    vip: ticket.v,
-    campingArea: ticket.campingArea,
-    greenCamping: ticket.greenCamping,
-    tentAmount: ticket.tentAmount,
-    ticketInfo: ticket.info,
-  };
-   const response = await postData(payload);
-   setSupaData(response);
-   console.log(response);
- } 
+  // FULL RESERVATION
+  async function fullReservation() {
+    const response = await insertOrder({ id: reserveID });
+    setResComplet(response);
+    console.log(response);
+  }
+  // POST TO SUPABASE
+  async function postToSupabase() {
+    const payload = {
+      regular: ticket.r,
+      vip: ticket.v,
+      campingArea: ticket.campingArea,
+      greenCamping: ticket.greenCamping,
+      tentAmount: ticket.tentAmount,
+      ticketInfo: ticket.info,
+    };
+    const response = await postData(payload);
+    setSupaData(response);
+    console.log(response);
+  }
 
   // Progress tracker from Ant Design
   const steps = [
@@ -101,24 +98,11 @@ async function reserveSpot() {
     },
     {
       title: "",
-      content: (
-        <TicketInfoList
-          ticket={ticket}
-          addToTicket={addToTicket}
-          emptyField={emptyField}
-        />
-      ),
+      content: <TicketInfoList ticket={ticket} addToTicket={addToTicket} emptyField={emptyField} />,
     },
     {
       title: "",
-      content: (
-        <CampingArea
-          spots={spots}
-          addToTicket={addToTicket}
-          ticket={ticket}
-          emptyField={emptyField}
-        />
-      ),
+      content: <CampingArea spots={spots} addToTicket={addToTicket} ticket={ticket} emptyField={emptyField} />,
     },
     {
       title: "",
@@ -126,14 +110,7 @@ async function reserveSpot() {
     },
     {
       title: "",
-      content: (
-        <Payment
-          payComplet={payComplet}
-          ticket={ticket}
-          addToTicket={addToTicket}
-          emptyField={emptyField}
-        />
-      ),
+      content: <Payment payComplet={payComplet} ticket={ticket} addToTicket={addToTicket} emptyField={emptyField} />,
     },
   ];
 
@@ -151,7 +128,7 @@ async function reserveSpot() {
   //skip the optionals tab if no camping is selected
   const skipOptions = () => {
     setCurrent(current + 2);
-  }
+  };
   return (
     <section id="ticket-section">
       <form action="" id="tickets">
@@ -171,19 +148,16 @@ async function reserveSpot() {
           )}
           {steps[current].content}
         </div>
-        <div
-          className={
-            current > 0 ? "steps-action two-button" : "steps-action one-button"
-          }
-        >
+        <div className={current > 0 ? "steps-action two-button" : "steps-action one-button"}>
           {current > 0 && (
-            <Button onClick={() => prev()}>
+            <Button className="btn" onClick={() => prev()}>
               <b> PREVIOUS </b>
             </Button>
           )}
           {current === 0 && (
             //ticket Type
             <Button
+              className="btn"
               type="primary"
               onClick={() => {
                 setPayComplet(false);
@@ -201,6 +175,7 @@ async function reserveSpot() {
           {current === 2 && (
             //Camping Area
             <Button
+              className="btn"
               type="primary"
               onClick={() => {
                 if (ticket.campingArea === undefined) {
@@ -223,13 +198,14 @@ async function reserveSpot() {
           )}
           {current === 3 && (
             // optionals
-            <Button type="primary" onClick={() => next()}>
+            <Button className="btn" type="primary" onClick={() => next()}>
               <b>NEXT</b>
             </Button>
           )}
           {current === 1 && (
             //ticket Info
             <Button
+              className="btn"
               type="primary"
               onClick={() => {
                 if (ticket.info === undefined) {
@@ -239,22 +215,13 @@ async function reserveSpot() {
                   setEmptyField(true);
                   let counter = ticket.r + ticket.v;
                   ticket.info.forEach((element) => {
-                    if (
-                      element.fullname == "" ||
-                      element.email == "" ||
-                      element.birthday == ""
-                    ) {
+                    if (element.fullname == "" || element.email == "" || element.birthday == "") {
                       console.log("not all fields are filled in");
-                    } else if (
-                      element.fullname != "" &&
-                      (element.email != "") & (element.birthday != "")
-                    ) {
+                    } else if (element.fullname != "" && /\S+@\S+\.\S+/.test(element.email) && element.birthday != "") {
                       console.log((counter -= 1));
                       console.log("All fields are now filled in");
                       if (counter > 0) {
-                        console.log(
-                          "there is still " + counter + "fields left"
-                        );
+                        console.log("there is still " + counter + "fields left");
                       } else if (counter === 0) {
                         setEmptyField(false);
                         next();
@@ -270,6 +237,7 @@ async function reserveSpot() {
           {current === steps.length - 1 && (
             //paymeny
             <Button
+              className="btn"
               type="primary"
               onClick={
                 () => {
@@ -293,7 +261,7 @@ async function reserveSpot() {
                     setPayComplet(true);
                     fullReservation();
                     postToSupabase();
-                    setTimer(false)
+                    setTimer(false);
                     message.success("Processing complete!");
                   }
                 } /* message.success("Processing complete!") */
@@ -304,7 +272,9 @@ async function reserveSpot() {
           )}
         </div>
       </form>
-      <div className="concert-img"></div>
+      <div className="concert-img-wrapper">
+        <div className="concert-img"></div>
+      </div>
     </section>
   );
 }

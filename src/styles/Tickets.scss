@@ -440,16 +440,28 @@
 
   .ant-btn.css-dev-only-do-not-override-1ij74fp.ant-btn-default {
     background-color: transparent;
-    border: 2px solid #9400f6;
-    box-shadow: 0 2px 0 rgb(0 0 0 / 2%);
+    border: 2px solid v.$color-purple-normal;
+    /*box-shadow: 0 2px 0 rgb(0 0 0 / 2%);
     color: white;
-    min-width: 100px;
+    min-width: 100px;*/
+    height: unset;
+
+    &:hover {
+      border: 2px solid v.$color-purple-light;
+      color: v.$color-white-normal;
+      background-color: v.$color-purple-light;
+    }
   }
 
   // button color next
   .css-dev-only-do-not-override-1ij74fp.ant-btn-primary {
-    background-color: v.$color-purple-normal;
-    min-width: 100px;
+    /*background-color: v.$color-purple-normal;
+    min-width: 100px;*/
+    height: unset;
+
+    &:hover {
+      background-color: v.$color-purple-light;
+    }
   }
   // button placement
   .steps-action {
@@ -504,14 +516,19 @@
       margin-top: 5vh;
     }
 
-    .concert-img {
+    .concert-img-wrapper {
       width: 100%;
       height: 100%;
-      background-image: url(public/concert.png);
-      background-size: cover;
-      background-position: 50%;
-      position: sticky;
-      top: 0;
+
+      .concert-img {
+        width: 100%;
+        height: 100vh;
+        background-image: url(public/concert.png);
+        background-size: cover;
+        background-position: 50%;
+        position: sticky;
+        top: 0;
+      }
     }
   }
 }
