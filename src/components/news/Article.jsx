@@ -1,26 +1,21 @@
-import {
-  BrowserRouter as Router,
-  Link,
-  Routes,
-  useParams,
-} from "react-router-dom";
+import { BrowserRouter as Router, Link, Routes, useParams } from "react-router-dom";
 import "../../styles/news.scss";
 import data from "../../assets/newstories.json";
 
 function Article() {
   const params = useParams();
-  let storyId = 0
-  data.forEach((e,i) =>{
-    if(e.url === params.id) {
-      storyId = i
+  let storyId = 0;
+  data.forEach((e, i) => {
+    if (e.url === params.id) {
+      storyId = i;
     }
-  })
+  });
 
   console.log(params.id);
   return (
     <div className="article">
       <Link to="/news">
-        <button>BACK</button>{" "}
+        <button className="btn">BACK</button>{" "}
       </Link>
       <div className="article-grid">
         <div
