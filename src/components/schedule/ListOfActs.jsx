@@ -5,7 +5,7 @@ function ListOfActs({ scheduleData, bandsData, selectDay, onOpenPopUp }) {
     // if it is not a break
     if (act.act !== "break") {
       // filter /bands by act from /schedule
-      const band = bandsData.filter((item) => item.name === act.act)[0];
+      const band = bandsData.filter((band) => band.name === act.act)[0];
       return band;
     }
   }

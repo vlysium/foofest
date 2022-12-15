@@ -44,8 +44,8 @@ function ScheduleLayout({ onOpenPopUp, bandsData, scheduleData }) {
       </div>
 
       <div id="list-of-days">
-        {days.map((day, index) => (
-          <label key={index + 1} className="button-days">
+        {days.map((day) => (
+          <label className="button-days">
             {day.substring(0, 1).toUpperCase() + day.substring(1, day.length)}
             <input
               type="radio"
