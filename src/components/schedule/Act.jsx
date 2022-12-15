@@ -1,9 +1,9 @@
-function Act({ act, index, bandsData, isBreak, onOpenPopUp }) {
+function Act({ act, index, filteredBandsData, isBreak, onOpenPopUp }) {
   function displayBandDetails() {
     // if it is not a break
     if (!isBreak) {
-      //console.log(bandsData);
-      onOpenPopUp(bandsData);
+      //console.log(filteredBandsData);
+      onOpenPopUp(filteredBandsData);
     }
   }
 

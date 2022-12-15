@@ -7,7 +7,7 @@ function Schedule() {
   const [scheduleData, setScheduleData] = useState([]);
   const [bandsData, setBandsData] = useState([]);
 
-  const [popUpIsOpen, setPopUpIsOpen] = useState("");
+  const [popUpIsOpen, setPopUpIsOpen] = useState(false);
   const [displayData, setDisplayData] = useState({});
 
   /*
@@ -21,6 +21,7 @@ function Schedule() {
   const bandsUrl = "http://localhost:8080/bands";
 
   useEffect(() => {
+    // fetch /schedule
     async function getScheduleData() {
       const response = await fetch(scheduleUrl);
       const data = await response.json();
@@ -31,6 +32,7 @@ function Schedule() {
   }, []);
 
   useEffect(() => {
+    // fetch /bands
     async function getBandsData() {
       const response = await fetch(bandsUrl);
       const data = await response.json();

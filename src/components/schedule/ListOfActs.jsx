@@ -1,10 +1,10 @@
 import Act from "./Act";
 
-function BlockText({ scheduleData, bandsData, selectDay, onOpenPopUp }) {
+function ListOfActs({ scheduleData, bandsData, selectDay, onOpenPopUp }) {
   function bandDetails(act) {
     // if it is not a break
     if (act.act !== "break") {
-      // filter /bands by name of the act from /schedule
+      // filter /bands by act from /schedule
       const band = bandsData.filter((item) => item.name === act.act)[0];
       return band;
     }
@@ -20,7 +20,7 @@ function BlockText({ scheduleData, bandsData, selectDay, onOpenPopUp }) {
               act={act}
               isBreak={act.act === "break" ? true : false}
               key={index}
-              bandsData={bandDetails(act)}
+              filteredBandsData={bandDetails(act)}
               onOpenPopUp={onOpenPopUp}
             ></Act>
           );
@@ -36,4 +36,4 @@ function BlockText({ scheduleData, bandsData, selectDay, onOpenPopUp }) {
   );
 }
 
-export default BlockText;
+export default ListOfActs;

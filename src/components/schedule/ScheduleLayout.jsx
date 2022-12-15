@@ -1,5 +1,5 @@
 import React from "react";
-import BlockText from "./BlockText";
+import ListOfActs from "./ListOfActs";
 import { useState } from "react";
 
 function ScheduleLayout({ onOpenPopUp, bandsData, scheduleData }) {
@@ -42,6 +42,7 @@ function ScheduleLayout({ onOpenPopUp, bandsData, scheduleData }) {
           <input type="radio" name="stage" onClick={() => setSelectStage("vanaheim")} />
         </label>
       </div>
+
       <div id="list-of-days">
         {days.map((day, index) => (
           <label key={index + 1} className="button-days">
@@ -56,7 +57,8 @@ function ScheduleLayout({ onOpenPopUp, bandsData, scheduleData }) {
           </label>
         ))}
       </div>
-      <BlockText
+
+      <ListOfActs
         scheduleData={selectedStage()}
         bandsData={bandsData}
         onDayChange={onDayChange}
