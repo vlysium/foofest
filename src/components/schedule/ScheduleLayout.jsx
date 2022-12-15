@@ -3,6 +3,9 @@ import BlockText from "./BlockText";
 import { useState } from "react";
 
 function ScheduleLayout({ onOpenPopUp, bandsData, scheduleData }) {
+  const days = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
+  //console.log(scheduleData);
+
   const [selectStage, setSelectStage] = useState("midgard");
   const [selectDay, setSelectDay] = useState("mon");
 
@@ -38,6 +41,20 @@ function ScheduleLayout({ onOpenPopUp, bandsData, scheduleData }) {
           VANAHEIM
           <input type="radio" name="stage" onClick={() => setSelectStage("vanaheim")} />
         </label>
+      </div>
+      <div id="list-of-days">
+        {days.map((day, index) => (
+          <label key={index + 1} className="button-days">
+            {day.substring(0, 1).toUpperCase() + day.substring(1, day.length)}
+            <input
+              type="radio"
+              name="days"
+              id={day}
+              onClick={() => onDayChange(day)}
+              defaultChecked={day.substring(0, 3) === "mon"}
+            />
+          </label>
+        ))}
       </div>
       <BlockText
         scheduleData={selectedStage()}

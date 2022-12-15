@@ -8,12 +8,12 @@ function Act({ act, index, bandsData, isBreak, onOpenPopUp }) {
   }
 
   return (
-    <div key={index} className="times" onClick={() => displayBandDetails()}>
+    <li key={index} className="times" onClick={() => displayBandDetails()}>
       <p className={isBreak ? "break" : "act"}>{act.act}</p>
       <p className="time-playing">
         {act.start} - {act.end === "24:00" ? "00:00" : act.end}
       </p>
-    </div>
+    </li>
   );
 }
 

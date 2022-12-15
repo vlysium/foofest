@@ -1,9 +1,6 @@
 import Act from "./Act";
 
-function BlockText({ scheduleData, bandsData, onDayChange, selectDay, onOpenPopUp }) {
-  const days = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
-  //console.log(scheduleData);
-
+function BlockText({ scheduleData, bandsData, selectDay, onOpenPopUp }) {
   function bandDetails(act) {
     // if it is not a break
     if (act.act !== "break") {
@@ -34,21 +31,7 @@ function BlockText({ scheduleData, bandsData, onDayChange, selectDay, onOpenPopU
 
   return (
     <div id="stage-view-days">
-      <div id="list-of-days">
-        {days.map((day, index) => (
-          <label key={index + 1} className="button-days">
-            {day.substring(0, 1).toUpperCase() + day.substring(1, day.length)}
-            <input
-              type="radio"
-              name="days"
-              id={day}
-              onClick={() => onDayChange(day)}
-              defaultChecked={day.substring(0, 3) === "mon"}
-            />{" "}
-          </label>
-        ))}
-      </div>
-      <div className="weekdays">{filteredList()}</div>
+      <ul className="weekdays">{filteredList()}</ul>
     </div>
   );
 }
