@@ -50,13 +50,13 @@ function Home({ articleIngo }) {
 
   return (
     <>
-    <Suspense fallback={<div>Loading...</div>}>
       <section id="first-section">
         <Countdown targetDate={oneHour} />
         <Link to="/tickets">
           <button className="btn">BUY NOW</button>
         </Link>
       </section>
+    <Suspense fallback={<div>Loading...</div>}>
       <NewsStories
         articleIngo={articleIngo}
         stories={stories.slice(0, 3)}

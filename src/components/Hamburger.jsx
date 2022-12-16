@@ -3,7 +3,7 @@ import React, { lazy, Suspense } from "react";
 //import Tickets from "../pages/Tickets";
 //import Camping from "../pages/Camping";
 import About from "../pages/About";
-//import Home from "../pages/Home";
+import Home from "../pages/Home";
 import "../styles/hamburger.scss";
 //import Schedule from "../pages/Schedule";
 //import Footer from "./Footer";
@@ -17,7 +17,7 @@ const Schedule = React.lazy(() => import("../pages/Schedule"));
 const Tickets = React.lazy(() => import("../pages/Tickets"));
 const Camping = React.lazy(() => import("../pages/Camping"));
 const News = React.lazy(() => import("../pages/News"));
-const Home = React.lazy(() => import("../pages/Home"));
+//const Home = React.lazy(() => import("../pages/Home"));
 const Footer = React.lazy(() => import("./Footer"));
 
 function Hamburger() {
