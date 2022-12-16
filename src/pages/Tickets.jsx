@@ -8,6 +8,7 @@ import Payment from "../components/forms/Payment";
 import TicketInfoList from "../components/forms/TicketInfoList";
 import Countdown from "react-countdown-simple";
 import { insertOrder, reserve, postData } from "../components/forms/db.js";
+import "antd/dist/reset.css";
 
 function Tickets() {
   const [spots, setSpots] = useState([]);
