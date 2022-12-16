@@ -1,10 +1,11 @@
 import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
+import React,{ lazy } from "react";
 import Tickets from "../pages/Tickets";
 import Camping from "../pages/Camping";
 import About from "../pages/About";
 import Home from "../pages/Home";
 import "../styles/hamburger.scss";
-import Schedule from "../pages/Schedule";
+//import Schedule from "../pages/Schedule";
 import Footer from "./Footer";
 import { useState, useEffect } from "react";
 import Error from "../pages/Error";
@@ -20,6 +21,9 @@ function Hamburger() {
   const [onMobile, setOnMobile] = useState(true);
   const [articleContent, getArticleContent] = useState({});
 
+const Schedule = React.lazy(() => import("../pages/Schedule"));
+
+  
   // Place a display: none; class on the slideout element, but with a delay of 0,3s. The same lenght of time as the slideout animation
   useEffect(() => {
     window.addEventListener("resize", scrollHandler);
