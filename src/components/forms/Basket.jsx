@@ -6,7 +6,7 @@ function Basket({ ticket }) {
   const [campingPrice, setCampingPrice] = useState(false);
   const [green, setGreen] = useState(false);
   const [tents, setTents] = useState(false);
-  let total = 0;
+  let total = 99;
   if (ticket.r > 0) {
     total += ticket.r * 799;
   }
@@ -56,6 +56,9 @@ function Basket({ ticket }) {
       <h3>YOUR ORDER</h3>
       <div className="basket-container">
         <ul>
+          <li>
+            Booking fee <span>99,-</span>{" "}
+          </li>
           {regular ? (
             <li>
               Regular Ticket x {ticket.r}
