@@ -1,17 +1,23 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import React, { lazy } from "react";
 import "../styles/home.scss";
 import "../styles/alternating-sections.scss";
 
 import Countdown from "react-countdown-simple";
-import QuickAbout from "../components/about/QuickAbout";
-import Schedule from "./Schedule";
-import AboutCamping from "../components/camping/AboutCamping";
-import NewsStories from "../components/news/NewsStories";
+//import QuickAbout from "../components/about/QuickAbout";
+//import Schedule from "./Schedule";
+//import AboutCamping from "../components/camping/AboutCamping";
+//import NewsStories from "../components/news/NewsStories";
 import data from "../assets/newstories.json";
 import TicketsShop from "../components/shop/TicketsShop";
 import Newsletter from "../components/Newsletter";
+const QuickAbout = React.lazy(() => import("../components/about/QuickAbout"));
+const Schedule = React.lazy(() => import("../components/about/Schedule"));
+const AboutCamping = React.lazy(() => import("../components/about/AboutCamping"));
+const NewsStories = React.lazy(() => import("../components/about/NewsStories"));
+
+
 
 function Home({ articleIngo }) {
   const ShortText = {
