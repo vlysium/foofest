@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import React, { lazy } from "react";
+import React, { lazy, Suspense } from "react";
 import "../styles/home.scss";
 import "../styles/alternating-sections.scss";
 
@@ -10,12 +10,9 @@ import Countdown from "react-countdown-simple";
 //import NewsStories from "../components/news/NewsStories";
 import data from "../assets/newstories.json";
 import TicketsShop from "../components/shop/TicketsShop";
-import Newsletter from "../components/Newsletter";
 const QuickAbout = React.lazy(() => import("../components/about/QuickAbout"));
 const Schedule = React.lazy(() => import("./Schedule"));
-const AboutCamping = React.lazy(() =>
-  import("../components/camping/AboutCamping")
-);
+const AboutCamping = React.lazy(() => import("../components/camping/AboutCamping"));
 const NewsStories = React.lazy(() => import("../components/news/NewsStories"));
 
 
@@ -53,13 +50,13 @@ function Home({ articleIngo }) {
 
   return (
     <>
+    <Suspense fallback={<div>Loading...</div>}>
       <section id="first-section">
         <Countdown targetDate={oneHour} />
         <Link to="/tickets">
           <button className="btn">BUY NOW</button>
         </Link>
       </section>
-      <Newsletter />
       <NewsStories
         articleIngo={articleIngo}
         stories={stories.slice(0, 3)}
@@ -72,7 +69,7 @@ function Home({ articleIngo }) {
       <Schedule />
       <QuickAbout text={ShortText.about} fromHomepage={true} />
       <TicketsShop />
-      <AboutCamping text={ShortText.camping} fromHomepage={true} />
+      <AboutCamping text={ShortText.camping} fromHomepage={true} /></Suspense>
     </>
   );
 }
