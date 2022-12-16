@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 import React,{ lazy } from "react";
-import Tickets from "../pages/Tickets";
-import Camping from "../pages/Camping";
+//import Tickets from "../pages/Tickets";
+//import Camping from "../pages/Camping";
 import About from "../pages/About";
 import Home from "../pages/Home";
 import "../styles/hamburger.scss";
@@ -10,9 +10,13 @@ import Footer from "./Footer";
 import { useState, useEffect } from "react";
 import Error from "../pages/Error";
 import Jobs from "../pages/Jobs";
-import News from "../pages/News";
+//import News from "../pages/News";
 import Article from "./news/Article";
 import ScrollToTop from "../utils/ScrollToTop";
+const Schedule = React.lazy(() => import("../pages/Schedule"));
+const Tickets = React.lazy(() => import("../pages/Tickets"));
+const Camping = React.lazy(() => import("../pages/Camping"));
+const News = React.lazy(() => import("../pages/News"));
 
 function Hamburger() {
   const [changeIcon, setChangeIcon] = useState(true);
@@ -21,7 +25,6 @@ function Hamburger() {
   const [onMobile, setOnMobile] = useState(true);
   const [articleContent, getArticleContent] = useState({});
 
-const Schedule = React.lazy(() => import("../pages/Schedule"));
 
   
   // Place a display: none; class on the slideout element, but with a delay of 0,3s. The same lenght of time as the slideout animation
