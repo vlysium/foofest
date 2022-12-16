@@ -34,7 +34,7 @@ function Tickets() {
     "http://localhost:8080/available-spots"
     "https://vjr-foofest.fly.dev/available-spots"
   */
-  const url = "https://vjr-foofest.fly.dev/available-spots/";
+  const url = "https://vjr-foofest.fly.dev/";
 
   // API
   useEffect(() => {
