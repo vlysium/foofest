@@ -7,11 +7,11 @@ function TicketInfoList({ ticket, addToTicket, emptyField }) {
   function finishedAdding() {
     event.preventDefault();
 
-    console.log(sectionEl.current);
+    //console.log(sectionEl.current);
     const tickets = [];
     // 1. find alle .ticketInfo.queryselectorALL()
     const formsElements = sectionEl.current.querySelectorAll(".ticketInfo");
-    console.log(formsElements);
+    //console.log(formsElements);
 
     // 2. find alle formfelter og lave et object af hver formfield (object fullname: "", email:"", birthday: "")
 

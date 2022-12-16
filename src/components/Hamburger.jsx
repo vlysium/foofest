@@ -26,7 +26,7 @@ function Hamburger() {
 
     if (changeIcon === true) {
       const timer = setTimeout(() => {
-        console.log("hide");
+        //console.log("hide");
         //the "a" & "b" are use the reset the states when switching between them. otherwise the state would not change when clicked multiple times.
         setShowEl("a");
         setHideEl("hide");
@@ -37,7 +37,7 @@ function Hamburger() {
       };
     } else {
       setTimeout(() => {
-        console.log("nothing");
+        //console.log("nothing");
         setHideEl("b");
         setShowEl("left");
       }, 10);

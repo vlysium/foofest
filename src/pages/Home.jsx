@@ -41,7 +41,7 @@ function Home({ articleIngo }) {
     stories.unshift(e);
   });
 
-  console.log(stories);
+  //console.log(stories);
   const oneHour = new Date("2023-01-20").toISOString();
 
   return (

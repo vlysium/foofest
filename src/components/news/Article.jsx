@@ -11,7 +11,7 @@ function Article() {
     }
   });
 
-  console.log(params.id);
+  //console.log(params.id);
   return (
     <div className="article">
       <Link to="/news">
@@ -20,7 +20,7 @@ function Article() {
       <div className="article-grid">
         <div
           style={{
-            backgroundImage: `url(../../public/${data[storyId].image})`,
+            backgroundImage: `url(../..//${data[storyId].image})`,
           }}
           className="newsImage"
         ></div>

@@ -10,7 +10,7 @@ function News({ articleIngo }) {
         stories.unshift(e)
     })
 
-    console.log(stories);
+    //console.log(stories);
 
   return (
     <NewsStories

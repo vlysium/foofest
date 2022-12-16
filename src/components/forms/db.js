@@ -1,6 +1,6 @@
 // RESERVE A SPOT
 export async function reserve(payload) {
-  console.log(payload);
+  //console.log(payload);
   const options = {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
@@ -15,7 +15,7 @@ export async function reserve(payload) {
 
 // FULL RESERVATION
 export async function insertOrder(payload) {
-  console.log(payload);
+  //console.log(payload);
   const options = {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -32,7 +32,7 @@ export async function insertOrder(payload) {
 }
 // FULL RESERVATION
 export async function postData(payload) {
-  console.log(payload);
+  //console.log(payload);
   const options = {
     method: "POST",
     headers: {
