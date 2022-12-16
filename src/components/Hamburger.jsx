@@ -13,19 +13,19 @@ import Jobs from "../pages/Jobs";
 import News from "../pages/News";
 import Article from "./news/Article";
 import ScrollToTop from "../utils/ScrollToTop";
-const Schedule = React.lazy(() => import("../pages/Schedule"));
+/* const Schedule = React.lazy(() => import("../pages/Schedule"));
 const Tickets = React.lazy(() => import("../pages/Tickets"));
 const Camping = React.lazy(() => import("../pages/Camping"));
 const News = React.lazy(() => import("../pages/News"));
 const Home = React.lazy(() => import("../pages/Home"));
-const Footer = React.lazy(() => import("./Footer"));
+const Footer = React.lazy(() => import("./Footer")); */
 
 function Hamburger() {
-/*   const [changeIcon, setChangeIcon] = useState(true);
+  const [changeIcon, setChangeIcon] = useState(true);
   const [hideEl, setHideEl] = useState("");
   const [showEl, setShowEl] = useState("");
   const [onMobile, setOnMobile] = useState(true);
-  const [articleContent, getArticleContent] = useState({}); */
+  const [articleContent, getArticleContent] = useState({});
 
 
   
