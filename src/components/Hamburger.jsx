@@ -1,16 +1,16 @@
 import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 import React,{ lazy } from "react";
-//import Tickets from "../pages/Tickets";
-//import Camping from "../pages/Camping";
+import Tickets from "../pages/Tickets";
+import Camping from "../pages/Camping";
 import About from "../pages/About";
-//import Home from "../pages/Home";
+import Home from "../pages/Home";
 import "../styles/hamburger.scss";
-//import Schedule from "../pages/Schedule";
-//import Footer from "./Footer";
+import Schedule from "../pages/Schedule";
+import Footer from "./Footer";
 import { useState, useEffect } from "react";
 import Error from "../pages/Error";
 import Jobs from "../pages/Jobs";
-//import News from "../pages/News";
+import News from "../pages/News";
 import Article from "./news/Article";
 import ScrollToTop from "../utils/ScrollToTop";
 const Schedule = React.lazy(() => import("../pages/Schedule"));
@@ -21,11 +21,11 @@ const Home = React.lazy(() => import("../pages/Home"));
 const Footer = React.lazy(() => import("./Footer"));
 
 function Hamburger() {
-  const [changeIcon, setChangeIcon] = useState(true);
+/*   const [changeIcon, setChangeIcon] = useState(true);
   const [hideEl, setHideEl] = useState("");
   const [showEl, setShowEl] = useState("");
   const [onMobile, setOnMobile] = useState(true);
-  const [articleContent, getArticleContent] = useState({});
+  const [articleContent, getArticleContent] = useState({}); */
 
 
   
