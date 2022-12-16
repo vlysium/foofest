@@ -29,6 +29,7 @@ h3,
 h4 {
   color: v.$color-white-normal;
   line-height: 1.1;
+  font-weight: 700;
 }
 
 h1 {
@@ -54,6 +55,8 @@ h4 {
 p {
   font-size: 1rem;
   color: v.$color-white-dark;
+  margin-bottom: 0;
+  line-height: 1.5;
 }
 
 // classes
