@@ -18,7 +18,7 @@ const Tickets = React.lazy(() => import("../pages/Tickets"));
 const Camping = React.lazy(() => import("../pages/Camping"));
 const News = React.lazy(() => import("../pages/News"));
 const Home = React.lazy(() => import("../pages/Home"));
-const Footer = React.lazy(() => import("../pages/Footer"));
+const Footer = React.lazy(() => import("./Footer"));
 
 function Hamburger() {
   const [changeIcon, setChangeIcon] = useState(true);
