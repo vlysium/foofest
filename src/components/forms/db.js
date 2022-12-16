@@ -7,7 +7,10 @@ export async function reserve(payload) {
     body: JSON.stringify(payload),
   };
 
-  const response = await fetch("http://localhost:8080/reserve-spot", options);
+  const response = await fetch(
+    "https://vjr-foofest.fly.dev/reserve-spot",
+    options
+  );
 
   const result = await response.json();
   return result;
@@ -23,9 +26,9 @@ export async function insertOrder(payload) {
   };
 
   const response = await fetch(
-    "http://localhost:8080/fullfill-reservation",
+    "https://vjr-foofest.fly.dev/fullfill-reservation",
     options
-  )
+  );
 
   const result = await response.json();
   return result
