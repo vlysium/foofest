@@ -82,10 +82,7 @@ function TicketInfo({ type, finishedAdding }) {
           />
         </label>
       </fieldset>
-      {/*  <div className="button-container">
-        <button>BACK</button>
-        <button>NEXT</button>
-      </div> */}
+  
     </details>
   );
 }
