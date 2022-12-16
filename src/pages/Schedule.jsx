@@ -17,8 +17,8 @@ function Schedule() {
     "http://localhost:8080/bands"
     "https://vjr-foofest.fly.dev/bands"
   */
-  const scheduleUrl = "http://localhost:8080/schedule";
-  const bandsUrl = "http://localhost:8080/bands";
+  const scheduleUrl = "https://vjr-foofest.fly.dev/available-spots";
+  const bandsUrl = "https://vjr-foofest.fly.dev/available-spots";
 
   useEffect(() => {
     // fetch /schedule
