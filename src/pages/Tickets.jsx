@@ -11,7 +11,9 @@ import { insertOrder, reserve, postData } from "../components/forms/db.js";
 
 
 function Tickets() {
+// Arrray of availabel spots at the festival
   const [spots, setSpots] = useState([]);
+// Checkout total, keeps track of the filled in ticket infomation
   const [ticket, setTicket] = useState({
     r: 0,
     v: 0,
@@ -20,15 +22,22 @@ function Tickets() {
     greenCamping: 0,
     tentAmount: 0,
   });
+// The current step to which the Ant Design Step counter is on
   const [current, setCurrent] = useState(0);
+// Validate, if a field is not filled in. It will display a red error message
   const [emptyField, setEmptyField] = useState(false);
+// check if the payment has been forfilled, if so display thank you note
   const [payComplet, setPayComplet] = useState(false);
+// get the reservation ID
   const [reserveID, setReserveID] = useState("");
+// post data to Supabase
   const [supaData, setSupaData] = useState("");
+// Request Full Reservation
   const [resComplet, setResComplet] = useState("");
+// Check if timer needs to start
   const [Timer, setTimer] = useState(false);
-
-  const oneHour = new Date(new Date().setMinutes(new Date().getMinutes() + 5)).toISOString();
+// Timer length
+  const [oneHour, setOneHour] = useState(new Date(new Date().setMinutes(new Date().getMinutes() + 5)).toISOString())
   /* 
     URL:
     "http://localhost:8080/available-spots"
