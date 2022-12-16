@@ -26,7 +26,12 @@
         background-color: #04011a;
         max-width: 300px;
         max-height: 600px;
+        border-radius: 5px;
+          .newsImage {
+        border-radius: 5px 5px 0px 0px;
       }
+      }
+
     }
 
     @media (min-width: 708px) {
