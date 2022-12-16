@@ -1,19 +1,19 @@
-function Act({ act, index, bandsData, isBreak, onOpenPopUp }) {
+function Act({ act, index, filteredBandsData, isBreak, onOpenPopUp }) {
   function displayBandDetails() {
     // if it is not a break
     if (!isBreak) {
-      //console.log(bandsData);
-      onOpenPopUp(bandsData);
+      //console.log(filteredBandsData);
+      onOpenPopUp(filteredBandsData);
     }
   }
 
   return (
-    <div key={index} className="times" onClick={() => displayBandDetails()}>
+    <li key={index} className="times" onClick={() => displayBandDetails()}>
       <p className={isBreak ? "break" : "act"}>{act.act}</p>
       <p className="time-playing">
         {act.start} - {act.end === "24:00" ? "00:00" : act.end}
       </p>
-    </div>
+    </li>
   );
 }
 

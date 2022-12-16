@@ -59,7 +59,7 @@ function Tickets() {
 
   //RESERVESPOT
   async function reserveSpot() {
-    console.log("the reserveFunction has stareted");
+    //console.log("the reserveFunction has stareted");
     const payload = {
       area: ticket.campingArea,
       amount: ticket.r + ticket.v,
@@ -67,13 +67,13 @@ function Tickets() {
     const response = await reserve(payload);
     setReserveID(response);
     setTimer(true);
-    console.log(response);
+    //console.log(response);
   }
   // FULL RESERVATION
   async function fullReservation() {
     const response = await insertOrder({ id: reserveID });
     setResComplet(response);
-    console.log(response);
+    //console.log(response);
   }
   // POST TO SUPABASE
   async function postToSupabase() {
@@ -87,7 +87,7 @@ function Tickets() {
     };
     const response = await postData(payload);
     setSupaData(response);
-    console.log(response);
+    //console.log(response);
   }
 
   // Progress tracker from Ant Design
@@ -151,7 +151,7 @@ function Tickets() {
         <div className={current > 0 ? "steps-action two-button" : "steps-action one-button"}>
           {current > 0 && (
             <Button className="btn" onClick={() => prev()}>
-              <b> PREVIOUS </b>
+              PREVIOUS
             </Button>
           )}
           {current === 0 && (
@@ -169,7 +169,7 @@ function Tickets() {
                 }
               }}
             >
-              <b>NEXT</b>
+              NEXT
             </Button>
           )}
           {current === 2 && (
@@ -193,13 +193,13 @@ function Tickets() {
                 }
               }}
             >
-              <b>NEXT</b>
+              NEXT
             </Button>
           )}
           {current === 3 && (
             // optionals
             <Button className="btn" type="primary" onClick={() => next()}>
-              <b>NEXT</b>
+              NEXT
             </Button>
           )}
           {current === 1 && (
@@ -209,19 +209,19 @@ function Tickets() {
               type="primary"
               onClick={() => {
                 if (ticket.info === undefined) {
-                  console.log("pick an area");
+                  //console.log("pick an area");
                   setEmptyField(true);
                 } else {
                   setEmptyField(true);
                   let counter = ticket.r + ticket.v;
                   ticket.info.forEach((element) => {
                     if (element.fullname == "" || element.email == "" || element.birthday == "") {
-                      console.log("not all fields are filled in");
+                      //console.log("not all fields are filled in");
                     } else if (element.fullname != "" && /\S+@\S+\.\S+/.test(element.email) && element.birthday != "") {
-                      console.log((counter -= 1));
-                      console.log("All fields are now filled in");
+                      //console.log((counter -= 1));
+                      //console.log("All fields are now filled in");
                       if (counter > 0) {
-                        console.log("there is still " + counter + "fields left");
+                        //console.log("there is still " + counter + "fields left");
                       } else if (counter === 0) {
                         setEmptyField(false);
                         next();
@@ -231,7 +231,7 @@ function Tickets() {
                 }
               }}
             >
-              <b>NEXT</b>
+              NEXT
             </Button>
           )}
           {current === steps.length - 1 && (
@@ -243,19 +243,19 @@ function Tickets() {
                 () => {
                   if (ticket.payment === undefined) {
                     setEmptyField(true);
-                    console.log("credit info not there");
+                    //console.log("credit info not there");
                   } else if (ticket.payment[0].number.toString().length < 16) {
                     setEmptyField(true);
-                    console.log("please fill out the creditnumber");
+                    //console.log("please fill out the creditnumber");
                   } else if (ticket.payment[0].day.toString().length < 2) {
                     setEmptyField(true);
-                    console.log("month");
+                    //console.log("month");
                   } else if (ticket.payment[0].month.toString().length < 2) {
                     setEmptyField(true);
-                    console.log("year");
+                    //console.log("year");
                   } else if (ticket.payment[0].cvc.toString().length < 3) {
                     setEmptyField(true);
-                    console.log("cvc");
+                    //console.log("cvc");
                   } else {
                     setEmptyField(false);
                     setPayComplet(true);
@@ -267,7 +267,7 @@ function Tickets() {
                 } /* message.success("Processing complete!") */
               }
             >
-              <b>DONE</b>
+              DONE
             </Button>
           )}
         </div>

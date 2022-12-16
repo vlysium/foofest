@@ -14,7 +14,7 @@ function NewsStories({ stories, newButton, newsHeadline }) {
             <>
               <div className="news-card" key={index}>
                 <div
-                  style={{ backgroundImage: `url(../../public${story.image})` }}
+                  style={{ backgroundImage: `url(../../${story.image})` }}
                   className="newsImage"
                 ></div>
                 <div className="storyContent">

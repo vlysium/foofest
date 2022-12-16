@@ -28,22 +28,27 @@ h2,
 h3,
 h4 {
   color: v.$color-white-normal;
+  line-height: 1.1;
 }
 
 h1 {
   font-size: clamp(2.074rem, 1.11rem + 3.848vw, 3.998rem);
+  padding-bottom: 1rem;
 }
 
 h2 {
   font-size: clamp(1.728rem, 1.1785rem + 2.198vw, 2.827rem);
+  padding-bottom: 1rem;
 }
 
 h3 {
   font-size: clamp(1.44rem, 1.16rem + 1.118vw, 1.999rem);
+  padding-bottom: 0.5rem;
 }
 
 h4 {
   font-size: clamp(1.2rem, 1.093rem + 0.428vw, 1.414rem);
+  padding-bottom: 0.5rem;
 }
 
 p {

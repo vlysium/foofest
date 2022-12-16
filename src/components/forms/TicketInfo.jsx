@@ -13,7 +13,7 @@ function TicketInfo({ type, finishedAdding }) {
   }
 
   const handleChange = (event) => {
-    console.log(!isValidEmail(event.target.value));
+    //console.log(!isValidEmail(event.target.value));
     setMessage(event.target.value);
     finishedAdding();
   };

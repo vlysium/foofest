@@ -161,7 +161,7 @@
           padding: 0px 24px 24px 24px;
           max-height: max-content;
           width: 100%;
-          overflow-y: scroll;
+          overflow-y: auto;
 
           #details-logo-credits {
             font-size: 0.75rem;
@@ -177,6 +177,7 @@
             #details-band-name {
               -webkit-text-stroke: 2px v.$color-white-normal;
               -webkit-text-fill-color: transparent;
+              font-weight: 900;
             }
           }
 
@@ -194,7 +195,7 @@
             background-color: v.$color-purple-normal;
             padding: 0.25rem 1rem;
             border-radius: 5px;
-            margin-block: 1.5rem 1rem;
+            margin-block: 1.25rem 1.5rem;
             text-transform: uppercase;
           }
         }
