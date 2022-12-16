@@ -125,7 +125,7 @@ function Tickets() {
     key: item.title,
     title: item.title,
   }));
-  //skip the optionals tab if no camping is selected
+  //skip the optionals tab if no camping is selected 
   const skipOptions = () => {
     setCurrent(current + 2);
   };

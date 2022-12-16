@@ -35,16 +35,16 @@ function Payment({ ticket, addToTicket, emptyField, payComplet }) {
 
   return (
     <>
-      <Basket ticket={ticket} />
+      {/*   <Basket ticket={ticket} /> */}
       {payComplet ? (
-        <OrderComplete />
+        <>
+          <OrderComplete />
+          <Basket ticket={ticket} />
+        </>
       ) : (
         <section ref={sectionEl}>
-          <CreditCardInfo
-            finishedAdding={finishedAdding}
-            emptyField={emptyField}
-            ticket={ticket}
-          />
+          <Basket ticket={ticket} />
+          <CreditCardInfo finishedAdding={finishedAdding} emptyField={emptyField} ticket={ticket} />
         </section>
       )}
     </>
