@@ -33,7 +33,7 @@ export async function insertOrder(payload) {
   const result = await response.json();
   return result
 }
-// FULL RESERVATION
+// POST DATA TIL SUPABASE
 export async function postData(payload) {
   //console.log(payload);
   const options = {
