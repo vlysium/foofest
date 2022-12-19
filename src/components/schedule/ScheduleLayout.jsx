@@ -28,6 +28,7 @@ function ScheduleLayout({ onOpenPopUp, bandsData, scheduleData }) {
 
   return (
     <div id="schedule-grid">
+      <h4 className="stages-label">Stages</h4>
       <div id="list-of-stages">
         <label>
           MIDGARD
