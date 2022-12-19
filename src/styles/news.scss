@@ -96,7 +96,8 @@
       height: auto;
     }
     .article-content {
-      display: grid;
+      display: flex;
+      flex-direction: column;
       gap: 1rem;
       padding: 1rem;
     }
