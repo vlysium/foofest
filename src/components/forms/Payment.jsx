@@ -11,8 +11,7 @@ function Payment({ ticket, addToTicket, emptyField, payComplet }) {
     //console.log(sectionEl.current);
     const creditCard = [];
     // 1. find alle .ticketInfo.queryselectorALL()
-    const formsElements =
-      sectionEl.current.querySelectorAll(".creditcard-info");
+    const formsElements = sectionEl.current.querySelectorAll(".creditcard-info");
     //console.log(formsElements);
 
     // 2. find alle formfelter og lave et object af hver formfield (object fullname: "", email:"", birthday: "")
@@ -31,15 +30,13 @@ function Payment({ ticket, addToTicket, emptyField, payComplet }) {
     addToTicket("payment", creditCard);
   }
 
-  
-
   return (
     <>
       {/*   <Basket ticket={ticket} /> */}
       {payComplet ? (
         <>
           <OrderComplete />
-          <Basket ticket={ticket} />
+          {/* <Basket ticket={ticket} /> */}
         </>
       ) : (
         <section ref={sectionEl}>

@@ -9,6 +9,11 @@
     max-width: 1200px;
     margin: auto;
 
+    .stages-label {
+      text-transform: uppercase;
+      font-size: 0.8rem;
+    }
+
     #list-of-stages {
       display: flex;
       flex-wrap: wrap;
