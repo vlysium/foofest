@@ -10,12 +10,36 @@
   }
   .completed {
     margin: 0;
+    font-size: 2.5rem;
   }
   .p-completed {
     margin-bottom: 1.5rem;
   }
   .order-complete {
     text-align: center;
+    margin-bottom: 60px;
+    padding-top: 80px;
+    position: relative;
+
+    &::before,
+    &::after {
+      content: "";
+      background-color: v.$color-purple-normal;
+      position: absolute;
+      height: 16px;
+      top: 0;
+      left: 50%;
+    }
+
+    &::before {
+      width: 32px;
+      transform: rotate(45deg) translate(0px, 33px);
+    }
+
+    &::after {
+      width: 64px;
+      transform: rotate(-45deg) translate(-20px, 0px);
+    }
   }
   .field-required {
     color: red;
@@ -30,6 +54,7 @@
     display: flex;
     justify-content: end;
     font-weight: 900;
+    margin-block: 40px;
   }
   #tickets {
     display: grid;
@@ -80,6 +105,10 @@
         outline: 0;
         border: 2px solid v.$color-purple-light;
       }
+    }
+
+    .hidden {
+      display: none;
     }
 
     .steps-content {
@@ -511,7 +540,7 @@
     }
 
     .steps-content {
-      margin-top: 5vh;
+      margin-top: calc(40px + 3vh);
     }
 
     .concert-img-wrapper {
