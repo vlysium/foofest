@@ -67,12 +67,10 @@ function TicketType({ addToTicket, emptyField }) {
               value={vipTickets}
             />
           </fieldset>
-          {/* <div className="single-button">
-            <button>NEXT</button>
-          </div> */}
+    
         </div>
 
-        {/*  <div className="concert-img"></div> */}
+        
       </div>
     </>
   );
