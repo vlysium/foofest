@@ -37,7 +37,7 @@ function Tickets() {
 // Check if timer needs to start
   const [Timer, setTimer] = useState(false);
 // Timer length
-  const [oneHour, setOneHour] = useState(new Date(new Date().setMinutes(new Date().getMinutes() + 5)).toISOString())
+  const [oneHour, setOneHour] = useState()
   /* 
     URL:
     "http://localhost:8080/available-spots"
@@ -76,8 +76,12 @@ function Tickets() {
     };
     const response = await reserve(payload);
     setReserveID(response);
-    setTimer(true);
+    setOneHour(
+      new Date(new Date().setMinutes(new Date().getMinutes() + 5)).toISOString()
+    );
+      setTimer(true);
     //console.log(response);
+    ifTimeRunsOutTheWorldEnds()
   }
   // FULL RESERVATION
   async function fullReservation() {
@@ -99,6 +103,17 @@ function Tickets() {
     setSupaData(response);
     //console.log(response);
   }
+
+  function ifTimeRunsOutTheWorldEnds() {
+    setTimeout(() => {
+      console.log(Timer);
+      if (Timer == true) {
+        console.log("also here");
+        location.reload();
+      }
+    }, 300000);
+  }
+
 
   // Progress tracker from Ant Design
   const steps = [
