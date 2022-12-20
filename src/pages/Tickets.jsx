@@ -36,7 +36,7 @@ function Tickets() {
   // Check if timer needs to start
   const [Timer, setTimer] = useState(false);
   //refresh page
-   const [counterTime, setcounterTime] = useState(false);
+   const [counterTime, setCounterTime] = useState(null);
   // Timer length
   //const [oneHour, setOneHour] = useState();
   /* 
@@ -77,10 +77,10 @@ function Tickets() {
     };
     const response = await reserve(payload);
     setReserveID(response);
- 
+    setCounterTime(Date.now() + 300000);
     setTimer(true);
     //console.log(response);
-    //ifTimeRunsOutTheWorldEnds();
+   
   }
   // FULL RESERVATION
   async function fullReservation() {
@@ -102,18 +102,10 @@ function Tickets() {
     setSupaData(response);
     //console.log(response);
   }
-  //refresh
+ 
 
 
-/*   function ifTimeRunsOutTheWorldEnds() {
-    setTimeout(() => {
-      console.log(Timer);
-      if (Timer == true) {
-        console.log("also here");
-        location.reload();
-      }
-    }, 300000);
-  } */
+
 
   // Progress tracker from Ant Design
   const steps = [
@@ -173,7 +165,7 @@ function Tickets() {
             onComplete={()=> {  if (Timer === true) {
               window.location.reload(false);
             }} }
-            date = {Date.now() + 30000}
+            date = {counterTime}
             renderer={renderer}
         
             />
