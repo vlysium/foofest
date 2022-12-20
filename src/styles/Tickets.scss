@@ -16,7 +16,16 @@
     margin-bottom: 1.5rem;
   }
   .ticket-timer{
-    color: white;
+   
+     -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white;
+    color: transparent;
+    font-size: 2.5rem;
+    display: flex;
+    justify-content: start;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    //margin-block: 30px;
   }
   .order-complete {
     text-align: center;
@@ -49,7 +58,7 @@
     font-size: 0.9rem;
   }
 
-  .timer {
+/*   .timer {
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: white;
     color: transparent;
@@ -58,7 +67,7 @@
     justify-content: end;
     font-weight: 900;
     margin-block: 40px;
-  }
+  } */
   #tickets {
     display: grid;
     justify-content: center;
