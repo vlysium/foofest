@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, } from "react";
 import { Button, message, Steps } from "antd";
 import TicketType from "../components/forms/TicketType";
 import "../styles/Tickets.scss";
@@ -6,7 +6,7 @@ import CampingArea from "../components/forms/CampingArea";
 import Optionals from "../components/forms/Optionals";
 import Payment from "../components/forms/Payment";
 import TicketInfoList from "../components/forms/TicketInfoList";
-import Countdown from "react-countdown-simple";
+import CD, { zeroPad } from "react-countdown";
 import { insertOrder, reserve, postData } from "../components/forms/db.js";
 
 function Tickets() {
@@ -35,8 +35,10 @@ function Tickets() {
   const [resComplet, setResComplet] = useState("");
   // Check if timer needs to start
   const [Timer, setTimer] = useState(false);
+  //refresh page
+   const [counterTime, setcounterTime] = useState(false);
   // Timer length
-  const [oneHour, setOneHour] = useState();
+  //const [oneHour, setOneHour] = useState();
   /* 
     URL:
     "http://localhost:8080/available-spots"
@@ -75,10 +77,10 @@ function Tickets() {
     };
     const response = await reserve(payload);
     setReserveID(response);
-    setOneHour(new Date(new Date().setMinutes(new Date().getMinutes() + 5)).toISOString());
+ 
     setTimer(true);
     //console.log(response);
-    ifTimeRunsOutTheWorldEnds();
+    //ifTimeRunsOutTheWorldEnds();
   }
   // FULL RESERVATION
   async function fullReservation() {
@@ -100,8 +102,10 @@ function Tickets() {
     setSupaData(response);
     //console.log(response);
   }
+  //refresh
 
-  function ifTimeRunsOutTheWorldEnds() {
+
+/*   function ifTimeRunsOutTheWorldEnds() {
     setTimeout(() => {
       console.log(Timer);
       if (Timer == true) {
@@ -109,7 +113,7 @@ function Tickets() {
         location.reload();
       }
     }, 300000);
-  }
+  } */
 
   // Progress tracker from Ant Design
   const steps = [
@@ -149,20 +153,29 @@ function Tickets() {
   //skip the optionals tab if no camping is selected
   const skipOptions = () => {
     setCurrent(current + 2);
+  
   };
+
+  const renderer = ({minutes, seconds}) => {
+    return (
+      <span className="ticket-timer">
+        {zeroPad(minutes)}:{zeroPad(seconds)}
+      </span>
+    );
+  }
   return (
     <section id="ticket-section">
       <form action="" id="tickets">
         <Steps className={payComplet ? "hidden" : null} current={current} items={items} />
         <div className="steps-content">
           {Timer ? (
-            <Countdown
-              targetDate={oneHour}
-              renderer={({ minutes, seconds }) => (
-                <div className="timer">
-                  {minutes}:{seconds}
-                </div>
-              )}
+            <CD 
+            onComplete={()=> {  if (Timer === true) {
+              window.location.reload(false);
+            }} }
+            date = {Date.now() + 30000}
+            renderer={renderer}
+        
             />
           ) : (
             ""
