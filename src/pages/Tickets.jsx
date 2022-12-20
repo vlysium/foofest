@@ -35,13 +35,8 @@ function Tickets() {
   const [resComplet, setResComplet] = useState("");
   // Check if timer needs to start
   const [Timer, setTimer] = useState(false);
-<<<<<<< HEAD
-// Timer length
-  const [oneHour, setOneHour] = useState()
-=======
   // Timer length
-  const [oneHour, setOneHour] = useState(new Date(new Date().setMinutes(new Date().getMinutes() + 5)).toISOString());
->>>>>>> 67e16ff1595a55aee0a09fc8ea16e1ead4165a90
+  const [oneHour, setOneHour] = useState();
   /* 
     URL:
     "http://localhost:8080/available-spots"
@@ -80,12 +75,10 @@ function Tickets() {
     };
     const response = await reserve(payload);
     setReserveID(response);
-    setOneHour(
-      new Date(new Date().setMinutes(new Date().getMinutes() + 5)).toISOString()
-    );
-      setTimer(true);
+    setOneHour(new Date(new Date().setMinutes(new Date().getMinutes() + 5)).toISOString());
+    setTimer(true);
     //console.log(response);
-    ifTimeRunsOutTheWorldEnds()
+    ifTimeRunsOutTheWorldEnds();
   }
   // FULL RESERVATION
   async function fullReservation() {
@@ -117,7 +110,6 @@ function Tickets() {
       }
     }, 300000);
   }
-
 
   // Progress tracker from Ant Design
   const steps = [
